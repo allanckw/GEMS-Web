@@ -11,7 +11,7 @@ namespace GemsWeb
 {
 
 
-    public partial class _Default
+    public partial class _default
     {
     }
 }

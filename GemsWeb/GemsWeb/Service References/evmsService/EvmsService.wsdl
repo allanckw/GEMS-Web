@@ -1,0 +1,2831 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EvmsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:62709/EvmsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:62709/EvmsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers" />
+      <xsd:import schemaLocation="http://localhost:62709/EvmsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:62709/EvmsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/evmsService.entities" />
+      <xsd:import schemaLocation="http://localhost:62709/EvmsService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:62709/EvmsService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEvmsService_ViewService_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewService" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewService_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q1:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddPointOfContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPointOfContact" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddPointOfContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPointOfContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddPointOfContact_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q2:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditPointOfContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditPointOfContact" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditPointOfContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditPointOfContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditPointOfContact_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q3:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeletePointOfContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePointOfContact" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeletePointOfContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePointOfContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeletePointOfContact_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q4:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewPointOfContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewPointOfContact" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewPointOfContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewPointOfContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewPointOfContact_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q5:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_Review_InputMessage">
+    <wsdl:part name="parameters" element="tns:Review" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_Review_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_Review_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q6:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteReview_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReview" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteReview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteReview_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q7:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewReview_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewReview" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewReview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewReview_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q8:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateSatifactionAndEstPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSatifactionAndEstPrice" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateSatifactionAndEstPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSatifactionAndEstPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateSatifactionAndEstPrice_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q9:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetItemsByEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsByEvent" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetItemsByEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsByEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetItemsByEvent_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q10:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CreateTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTask" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CreateTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CreateTask_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q11:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTask" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteTask_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q12:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTask" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateTask_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q13:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetTaskRead_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTaskRead" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetTaskRead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTaskReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetTaskRead_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q14:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetTaskCompleted_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTaskCompleted" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetTaskCompleted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTaskCompletedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetTaskCompleted_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q15:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetTaskIncomplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTaskIncomplete" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetTaskIncomplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTaskIncompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetTaskIncomplete_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q16:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetTasksByEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTasksByEvent" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetTasksByEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTasksByEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetTasksByEvent_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q17:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetTaskByRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskByRole" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetTaskByRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetTaskByRole_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q18:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetTaskAssignment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskAssignment" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetTaskAssignment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetTaskAssignment_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q19:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AssignTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignTask" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AssignTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AssignTask_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q20:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SaveBudgetList_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveBudgetList" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SaveBudgetList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveBudgetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SaveBudgetList_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q21:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetBudgetItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBudgetItem" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetBudgetItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBudgetItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetBudgetItem_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q22:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetItemDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemDetail" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetItemDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetItemDetail_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q23:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateActualPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateActualPrice" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateActualPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateActualPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateActualPrice_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q24:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetGST_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGST" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetGST_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGSTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetGST_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q25:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateGST_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGST" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateGST_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGSTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateGST_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q26:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddIncome_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddIncome" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddIncome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddIncomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddIncome_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q27:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteBudgetIncome_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBudgetIncome" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteBudgetIncome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBudgetIncomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteBudgetIncome_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q28:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditBudgetIncome_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditBudgetIncome" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditBudgetIncome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditBudgetIncomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditBudgetIncome_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q29:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewBudgetIncome_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewBudgetIncome" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewBudgetIncome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewBudgetIncomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewBudgetIncome_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q30:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddService_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddService" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddService_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q31:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditService_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditService" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditService_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q32:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteService_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteService" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteService_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q33:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetFacilityAdmins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacilityAdmins" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetFacilityAdmins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacilityAdminsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetFacilityAdmins_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q34:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetVenuesByFaculty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVenuesByFaculty" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetVenuesByFaculty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVenuesByFacultyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetVenuesByFaculty_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q35:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetVenues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVenues" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetVenues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVenuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetVenues_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q36:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetVenuesByCap_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVenuesByCap" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetVenuesByCap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVenuesByCapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetVenuesByCap_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q37:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddFacilityBookingRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFacilityBookingRequest" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddFacilityBookingRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFacilityBookingRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddFacilityBookingRequest_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q38:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CheckRequestExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRequestExist" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CheckRequestExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRequestExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CheckRequestExist_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q39:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetFacBookingRequestList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacBookingRequestList" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetFacBookingRequestList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacBookingRequestListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetFacBookingRequestList_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q40:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ApproveFacilityBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveFacilityBooking" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ApproveFacilityBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveFacilityBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ApproveFacilityBooking_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q41:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_RejectFacilityBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejectFacilityBooking" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_RejectFacilityBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejectFacilityBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_RejectFacilityBooking_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q42:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DropConfirmedRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:DropConfirmedRequest" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DropConfirmedRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DropConfirmedRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DropConfirmedRequest_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q43:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CancelFacilityBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelFacilityBooking" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CancelFacilityBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelFacilityBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CancelFacilityBooking_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q44:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewFacilityBookingRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewFacilityBookingRequests" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewFacilityBookingRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewFacilityBookingRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewFacilityBookingRequests_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q45:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetActivitiesForDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivitiesForDay" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetActivitiesForDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivitiesForDayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetActivitiesForDay_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q46="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q46:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetConfirmedBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfirmedBooking" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetConfirmedBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfirmedBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetConfirmedBooking_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q47:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetItemsTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsTypes" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetItemsTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetItemsTypes_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q48:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddItemsTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddItemsTypes" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddItemsTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddItemsTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddItemsTypes_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q49:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateItemTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemTypes" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateItemTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateItemTypes_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q50:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteItemType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteItemType" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteItemType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteItemType_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q51:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddEventItemType_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEventItemType" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddEventItemType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEventItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddEventItemType_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q52:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteEventItemType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEventItemType" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteEventItemType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEventItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteEventItemType_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q53="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q53:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetItemTypeImportance_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetItemTypeImportance" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetItemTypeImportance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetItemTypeImportanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetItemTypeImportance_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q54="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q54:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetEventSpecificItemType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventSpecificItemType" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetEventSpecificItemType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventSpecificItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetEventSpecificItemType_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q55="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q55:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetEventItemType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventItemType" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetEventItemType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetEventItemType_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q56="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q56:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddEventItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEventItem" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddEventItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEventItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddEventItem_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q57="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q57:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteEventItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEventItem" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteEventItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEventItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteEventItem_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q58="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q58:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewProgram" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewProgram_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q59="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q59:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditProgram" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditProgram_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q60="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q60:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProgram" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteProgram_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q61="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q61:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRole" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddRole_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q62="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q62:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRole" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteRole_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q63="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q63:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditRole" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditRole_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q64="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q64:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRights" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetRights_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q65="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q65:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewRole" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewRole_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q66="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q66:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewEventRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewEventRoles" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewEventRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewEventRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewEventRoles_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q67="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q67:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewFunction_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewFunction" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewFunction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewFunctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewFunction_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q68="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q68:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewUserEventRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewUserEventRoles" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewUserEventRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewUserEventRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewUserEventRoles_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q69="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q69:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddRoleTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoleTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddRoleTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoleTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddRoleTemplate_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q70="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q70:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteRoleTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRoleTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteRoleTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRoleTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteRoleTemplate_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q71="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q71:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditRightsTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditRightsTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditRightsTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditRightsTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditRightsTemplate_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q72="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q72:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewTemplateRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewTemplateRole" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewTemplateRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewTemplateRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewTemplateRole_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q73="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q73:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetTemplateRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplateRight" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetTemplateRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplateRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetTemplateRight_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q74="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q74:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddGuest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGuest" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddGuest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGuestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddGuest_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q75="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q75:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewGuest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewGuest" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewGuest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewGuestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewGuest_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q76="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q76:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditGuest_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditGuest" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditGuest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditGuestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditGuest_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q77="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q77:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteGuest_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGuest" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteGuest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGuestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteGuest_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q78="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q78:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CountGuest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountGuest" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CountGuest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountGuestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CountGuest_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q79="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q79:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_RemoveFacility_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFacility" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_RemoveFacility_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFacilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_RemoveFacility_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q80="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q80:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateFacility_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFacility" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateFacility_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFacilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UpdateFacility_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q81="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q81:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetFacilityAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacilityAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetFacilityAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacilityAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetFacilityAdmin_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q82="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q82:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetFacilityAdminFaculty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacilityAdminFaculty" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetFacilityAdminFaculty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacilityAdminFacultyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetFacilityAdminFaculty_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q83="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q83:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_Authenticate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_Authenticate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_Authenticate_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q84="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q84:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AssignLocationAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignLocationAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AssignLocationAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignLocationAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AssignLocationAdmin_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q85="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q85:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AssignEventOrganizer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignEventOrganizer" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AssignEventOrganizer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignEventOrganizerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AssignEventOrganizer_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q86="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q86:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AssignSystemAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignSystemAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AssignSystemAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignSystemAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AssignSystemAdmin_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q87="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q87:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SearchUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUser" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SearchUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SearchUser_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q88="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q88:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SearchUserByRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUserByRole" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SearchUserByRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUserByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SearchUserByRole_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q89="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q89:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewUserRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewUserRole" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewUserRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewUserRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewUserRole_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q90="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q90:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UnAssignRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnAssignRole" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UnAssignRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnAssignRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_UnAssignRole_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q91="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q91:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserName" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetUserName_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q92="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q92:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetNewMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewMessage" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetNewMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetNewMessage_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q93="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q93:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetUnreadMessageCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnreadMessageCount" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetUnreadMessageCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnreadMessageCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetUnreadMessageCount_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q94="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q94:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetUnreadMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnreadMessages" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetUnreadMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnreadMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetUnreadMessages_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q95="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q95:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetAllMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMessages" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetAllMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetAllMessages_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q96="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q96:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteNotifications_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNotifications" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteNotifications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNotificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteNotifications_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q97="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q97:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteAllNotificationsOfUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAllNotificationsOfUser" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteAllNotificationsOfUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAllNotificationsOfUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteAllNotificationsOfUser_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q98="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q98:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetNotificationRead_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetNotificationRead" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetNotificationRead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNotificationReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SetNotificationRead_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q99="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q99:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SendNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendNotification" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SendNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_SendNotification_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q100="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q100:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CreateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEvent" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CreateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_CreateEvent_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q101="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q101:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewEvent" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewEvent_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q102="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q102:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditEvent" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_EditEvent_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q103="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q103:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEvent" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_DeleteEvent_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q104="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q104:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewEventsbyDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewEventsbyDate" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewEventsbyDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewEventsbyDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewEventsbyDate_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q105="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q105:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetEventName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventName" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetEventName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_GetEventName_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q106="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q106:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewAllEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewAllEvents" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewAllEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewAllEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_ViewAllEvents_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q107="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q107:SException" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProgram" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvmsService_AddProgram_SExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q108="http://schemas.datacontract.org/2004/07/evmsService.Controllers" name="detail" element="q108:SException" />
+  </wsdl:message>
+  <wsdl:portType name="IEvmsService">
+    <wsdl:operation name="ViewService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewService" message="tns:IEvmsService_ViewService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewServiceResponse" message="tns:IEvmsService_ViewService_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewServiceSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewService_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPointOfContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AddPointOfContact" message="tns:IEvmsService_AddPointOfContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AddPointOfContactResponse" message="tns:IEvmsService_AddPointOfContact_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AddPointOfContactSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AddPointOfContact_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditPointOfContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/EditPointOfContact" message="tns:IEvmsService_EditPointOfContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/EditPointOfContactResponse" message="tns:IEvmsService_EditPointOfContact_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/EditPointOfContactSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_EditPointOfContact_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePointOfContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeletePointOfContact" message="tns:IEvmsService_DeletePointOfContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeletePointOfContactResponse" message="tns:IEvmsService_DeletePointOfContact_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeletePointOfContactSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeletePointOfContact_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewPointOfContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewPointOfContact" message="tns:IEvmsService_ViewPointOfContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewPointOfContactResponse" message="tns:IEvmsService_ViewPointOfContact_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewPointOfContactSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewPointOfContact_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Review">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/Review" message="tns:IEvmsService_Review_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ReviewResponse" message="tns:IEvmsService_Review_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ReviewSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_Review_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReview">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteReview" message="tns:IEvmsService_DeleteReview_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteReviewResponse" message="tns:IEvmsService_DeleteReview_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteReviewSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteReview_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewReview">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewReview" message="tns:IEvmsService_ViewReview_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewReviewResponse" message="tns:IEvmsService_ViewReview_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewReviewSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewReview_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSatifactionAndEstPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/UpdateSatifactionAndEstPrice" message="tns:IEvmsService_UpdateSatifactionAndEstPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/UpdateSatifactionAndEstPriceResponse" message="tns:IEvmsService_UpdateSatifactionAndEstPrice_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/UpdateSatifactionAndEstPriceSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_UpdateSatifactionAndEstPrice_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsByEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetItemsByEvent" message="tns:IEvmsService_GetItemsByEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetItemsByEventResponse" message="tns:IEvmsService_GetItemsByEvent_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetItemsByEventSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetItemsByEvent_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/CreateTask" message="tns:IEvmsService_CreateTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/CreateTaskResponse" message="tns:IEvmsService_CreateTask_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/CreateTaskSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_CreateTask_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteTask" message="tns:IEvmsService_DeleteTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteTaskResponse" message="tns:IEvmsService_DeleteTask_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteTaskSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteTask_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/UpdateTask" message="tns:IEvmsService_UpdateTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/UpdateTaskResponse" message="tns:IEvmsService_UpdateTask_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/UpdateTaskSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_UpdateTask_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskRead">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/SetTaskRead" message="tns:IEvmsService_SetTaskRead_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/SetTaskReadResponse" message="tns:IEvmsService_SetTaskRead_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/SetTaskReadSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_SetTaskRead_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskCompleted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/SetTaskCompleted" message="tns:IEvmsService_SetTaskCompleted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/SetTaskCompletedResponse" message="tns:IEvmsService_SetTaskCompleted_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/SetTaskCompletedSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_SetTaskCompleted_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskIncomplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/SetTaskIncomplete" message="tns:IEvmsService_SetTaskIncomplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/SetTaskIncompleteResponse" message="tns:IEvmsService_SetTaskIncomplete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/SetTaskIncompleteSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_SetTaskIncomplete_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTasksByEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetTasksByEvent" message="tns:IEvmsService_GetTasksByEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetTasksByEventResponse" message="tns:IEvmsService_GetTasksByEvent_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetTasksByEventSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetTasksByEvent_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskByRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetTaskByRole" message="tns:IEvmsService_GetTaskByRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetTaskByRoleResponse" message="tns:IEvmsService_GetTaskByRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetTaskByRoleSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetTaskByRole_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskAssignment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetTaskAssignment" message="tns:IEvmsService_GetTaskAssignment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetTaskAssignmentResponse" message="tns:IEvmsService_GetTaskAssignment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetTaskAssignmentSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetTaskAssignment_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AssignTask" message="tns:IEvmsService_AssignTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AssignTaskResponse" message="tns:IEvmsService_AssignTask_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AssignTaskSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AssignTask_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveBudgetList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/SaveBudgetList" message="tns:IEvmsService_SaveBudgetList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/SaveBudgetListResponse" message="tns:IEvmsService_SaveBudgetList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/SaveBudgetListSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_SaveBudgetList_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBudgetItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetBudgetItem" message="tns:IEvmsService_GetBudgetItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetBudgetItemResponse" message="tns:IEvmsService_GetBudgetItem_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetBudgetItemSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetBudgetItem_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetItemDetail" message="tns:IEvmsService_GetItemDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetItemDetailResponse" message="tns:IEvmsService_GetItemDetail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetItemDetailSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetItemDetail_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActualPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/UpdateActualPrice" message="tns:IEvmsService_UpdateActualPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/UpdateActualPriceResponse" message="tns:IEvmsService_UpdateActualPrice_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/UpdateActualPriceSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_UpdateActualPrice_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGST">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetGST" message="tns:IEvmsService_GetGST_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetGSTResponse" message="tns:IEvmsService_GetGST_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetGSTSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetGST_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGST">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/UpdateGST" message="tns:IEvmsService_UpdateGST_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/UpdateGSTResponse" message="tns:IEvmsService_UpdateGST_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/UpdateGSTSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_UpdateGST_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddIncome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AddIncome" message="tns:IEvmsService_AddIncome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AddIncomeResponse" message="tns:IEvmsService_AddIncome_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AddIncomeSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AddIncome_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBudgetIncome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteBudgetIncome" message="tns:IEvmsService_DeleteBudgetIncome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteBudgetIncomeResponse" message="tns:IEvmsService_DeleteBudgetIncome_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteBudgetIncomeSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteBudgetIncome_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditBudgetIncome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/EditBudgetIncome" message="tns:IEvmsService_EditBudgetIncome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/EditBudgetIncomeResponse" message="tns:IEvmsService_EditBudgetIncome_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/EditBudgetIncomeSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_EditBudgetIncome_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewBudgetIncome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewBudgetIncome" message="tns:IEvmsService_ViewBudgetIncome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewBudgetIncomeResponse" message="tns:IEvmsService_ViewBudgetIncome_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewBudgetIncomeSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewBudgetIncome_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AddService" message="tns:IEvmsService_AddService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AddServiceResponse" message="tns:IEvmsService_AddService_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AddServiceSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AddService_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/EditService" message="tns:IEvmsService_EditService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/EditServiceResponse" message="tns:IEvmsService_EditService_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/EditServiceSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_EditService_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteService" message="tns:IEvmsService_DeleteService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteServiceResponse" message="tns:IEvmsService_DeleteService_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteServiceSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteService_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacilityAdmins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetFacilityAdmins" message="tns:IEvmsService_GetFacilityAdmins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetFacilityAdminsResponse" message="tns:IEvmsService_GetFacilityAdmins_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetFacilityAdminsSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetFacilityAdmins_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVenuesByFaculty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetVenuesByFaculty" message="tns:IEvmsService_GetVenuesByFaculty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetVenuesByFacultyResponse" message="tns:IEvmsService_GetVenuesByFaculty_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetVenuesByFacultySExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetVenuesByFaculty_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVenues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetVenues" message="tns:IEvmsService_GetVenues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetVenuesResponse" message="tns:IEvmsService_GetVenues_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetVenuesSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetVenues_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVenuesByCap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetVenuesByCap" message="tns:IEvmsService_GetVenuesByCap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetVenuesByCapResponse" message="tns:IEvmsService_GetVenuesByCap_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetVenuesByCapSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetVenuesByCap_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFacilityBookingRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AddFacilityBookingRequest" message="tns:IEvmsService_AddFacilityBookingRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AddFacilityBookingRequestResponse" message="tns:IEvmsService_AddFacilityBookingRequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AddFacilityBookingRequestSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AddFacilityBookingRequest_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRequestExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/CheckRequestExist" message="tns:IEvmsService_CheckRequestExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/CheckRequestExistResponse" message="tns:IEvmsService_CheckRequestExist_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/CheckRequestExistSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_CheckRequestExist_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacBookingRequestList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetFacBookingRequestList" message="tns:IEvmsService_GetFacBookingRequestList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetFacBookingRequestListResponse" message="tns:IEvmsService_GetFacBookingRequestList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetFacBookingRequestListSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetFacBookingRequestList_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveFacilityBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ApproveFacilityBooking" message="tns:IEvmsService_ApproveFacilityBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ApproveFacilityBookingResponse" message="tns:IEvmsService_ApproveFacilityBooking_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ApproveFacilityBookingSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ApproveFacilityBooking_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectFacilityBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/RejectFacilityBooking" message="tns:IEvmsService_RejectFacilityBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/RejectFacilityBookingResponse" message="tns:IEvmsService_RejectFacilityBooking_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/RejectFacilityBookingSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_RejectFacilityBooking_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DropConfirmedRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DropConfirmedRequest" message="tns:IEvmsService_DropConfirmedRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DropConfirmedRequestResponse" message="tns:IEvmsService_DropConfirmedRequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DropConfirmedRequestSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DropConfirmedRequest_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelFacilityBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/CancelFacilityBooking" message="tns:IEvmsService_CancelFacilityBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/CancelFacilityBookingResponse" message="tns:IEvmsService_CancelFacilityBooking_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/CancelFacilityBookingSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_CancelFacilityBooking_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewFacilityBookingRequests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewFacilityBookingRequests" message="tns:IEvmsService_ViewFacilityBookingRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewFacilityBookingRequestsResponse" message="tns:IEvmsService_ViewFacilityBookingRequests_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewFacilityBookingRequestsSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewFacilityBookingRequests_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivitiesForDay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetActivitiesForDay" message="tns:IEvmsService_GetActivitiesForDay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetActivitiesForDayResponse" message="tns:IEvmsService_GetActivitiesForDay_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetActivitiesForDaySExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetActivitiesForDay_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmedBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetConfirmedBooking" message="tns:IEvmsService_GetConfirmedBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetConfirmedBookingResponse" message="tns:IEvmsService_GetConfirmedBooking_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetConfirmedBookingSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetConfirmedBooking_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetItemsTypes" message="tns:IEvmsService_GetItemsTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetItemsTypesResponse" message="tns:IEvmsService_GetItemsTypes_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetItemsTypesSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetItemsTypes_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddItemsTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AddItemsTypes" message="tns:IEvmsService_AddItemsTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AddItemsTypesResponse" message="tns:IEvmsService_AddItemsTypes_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AddItemsTypesSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AddItemsTypes_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/UpdateItemTypes" message="tns:IEvmsService_UpdateItemTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/UpdateItemTypesResponse" message="tns:IEvmsService_UpdateItemTypes_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/UpdateItemTypesSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_UpdateItemTypes_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItemType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteItemType" message="tns:IEvmsService_DeleteItemType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteItemTypeResponse" message="tns:IEvmsService_DeleteItemType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteItemTypeSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteItemType_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEventItemType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AddEventItemType" message="tns:IEvmsService_AddEventItemType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AddEventItemTypeResponse" message="tns:IEvmsService_AddEventItemType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AddEventItemTypeSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AddEventItemType_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEventItemType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteEventItemType" message="tns:IEvmsService_DeleteEventItemType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteEventItemTypeResponse" message="tns:IEvmsService_DeleteEventItemType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteEventItemTypeSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteEventItemType_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetItemTypeImportance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/SetItemTypeImportance" message="tns:IEvmsService_SetItemTypeImportance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/SetItemTypeImportanceResponse" message="tns:IEvmsService_SetItemTypeImportance_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/SetItemTypeImportanceSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_SetItemTypeImportance_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventSpecificItemType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetEventSpecificItemType" message="tns:IEvmsService_GetEventSpecificItemType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetEventSpecificItemTypeResponse" message="tns:IEvmsService_GetEventSpecificItemType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetEventSpecificItemTypeSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetEventSpecificItemType_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventItemType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetEventItemType" message="tns:IEvmsService_GetEventItemType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetEventItemTypeResponse" message="tns:IEvmsService_GetEventItemType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetEventItemTypeSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetEventItemType_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEventItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AddEventItem" message="tns:IEvmsService_AddEventItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AddEventItemResponse" message="tns:IEvmsService_AddEventItem_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AddEventItemSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AddEventItem_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEventItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteEventItem" message="tns:IEvmsService_DeleteEventItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteEventItemResponse" message="tns:IEvmsService_DeleteEventItem_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteEventItemSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteEventItem_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewProgram" message="tns:IEvmsService_ViewProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewProgramResponse" message="tns:IEvmsService_ViewProgram_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewProgramSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewProgram_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/EditProgram" message="tns:IEvmsService_EditProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/EditProgramResponse" message="tns:IEvmsService_EditProgram_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/EditProgramSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_EditProgram_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteProgram" message="tns:IEvmsService_DeleteProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteProgramResponse" message="tns:IEvmsService_DeleteProgram_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteProgramSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteProgram_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AddRole" message="tns:IEvmsService_AddRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AddRoleResponse" message="tns:IEvmsService_AddRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AddRoleSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AddRole_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteRole" message="tns:IEvmsService_DeleteRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteRoleResponse" message="tns:IEvmsService_DeleteRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteRoleSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteRole_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/EditRole" message="tns:IEvmsService_EditRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/EditRoleResponse" message="tns:IEvmsService_EditRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/EditRoleSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_EditRole_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetRights" message="tns:IEvmsService_GetRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetRightsResponse" message="tns:IEvmsService_GetRights_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetRightsSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetRights_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewRole" message="tns:IEvmsService_ViewRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewRoleResponse" message="tns:IEvmsService_ViewRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewRoleSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewRole_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewEventRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewEventRoles" message="tns:IEvmsService_ViewEventRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewEventRolesResponse" message="tns:IEvmsService_ViewEventRoles_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewEventRolesSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewEventRoles_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewFunction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewFunction" message="tns:IEvmsService_ViewFunction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewFunctionResponse" message="tns:IEvmsService_ViewFunction_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewFunctionSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewFunction_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewUserEventRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewUserEventRoles" message="tns:IEvmsService_ViewUserEventRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewUserEventRolesResponse" message="tns:IEvmsService_ViewUserEventRoles_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewUserEventRolesSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewUserEventRoles_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRoleTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AddRoleTemplate" message="tns:IEvmsService_AddRoleTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AddRoleTemplateResponse" message="tns:IEvmsService_AddRoleTemplate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AddRoleTemplateSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AddRoleTemplate_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRoleTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteRoleTemplate" message="tns:IEvmsService_DeleteRoleTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteRoleTemplateResponse" message="tns:IEvmsService_DeleteRoleTemplate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteRoleTemplateSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteRoleTemplate_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditRightsTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/EditRightsTemplate" message="tns:IEvmsService_EditRightsTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/EditRightsTemplateResponse" message="tns:IEvmsService_EditRightsTemplate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/EditRightsTemplateSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_EditRightsTemplate_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewTemplateRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewTemplateRole" message="tns:IEvmsService_ViewTemplateRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewTemplateRoleResponse" message="tns:IEvmsService_ViewTemplateRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewTemplateRoleSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewTemplateRole_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetTemplateRight" message="tns:IEvmsService_GetTemplateRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetTemplateRightResponse" message="tns:IEvmsService_GetTemplateRight_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetTemplateRightSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetTemplateRight_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGuest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AddGuest" message="tns:IEvmsService_AddGuest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AddGuestResponse" message="tns:IEvmsService_AddGuest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AddGuestSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AddGuest_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewGuest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewGuest" message="tns:IEvmsService_ViewGuest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewGuestResponse" message="tns:IEvmsService_ViewGuest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewGuestSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewGuest_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditGuest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/EditGuest" message="tns:IEvmsService_EditGuest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/EditGuestResponse" message="tns:IEvmsService_EditGuest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/EditGuestSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_EditGuest_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGuest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteGuest" message="tns:IEvmsService_DeleteGuest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteGuestResponse" message="tns:IEvmsService_DeleteGuest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteGuestSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteGuest_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountGuest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/CountGuest" message="tns:IEvmsService_CountGuest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/CountGuestResponse" message="tns:IEvmsService_CountGuest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/CountGuestSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_CountGuest_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFacility">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/RemoveFacility" message="tns:IEvmsService_RemoveFacility_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/RemoveFacilityResponse" message="tns:IEvmsService_RemoveFacility_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/RemoveFacilitySExceptionFault" name="SExceptionFault" message="tns:IEvmsService_RemoveFacility_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFacility">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/UpdateFacility" message="tns:IEvmsService_UpdateFacility_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/UpdateFacilityResponse" message="tns:IEvmsService_UpdateFacility_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/UpdateFacilitySExceptionFault" name="SExceptionFault" message="tns:IEvmsService_UpdateFacility_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacilityAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetFacilityAdmin" message="tns:IEvmsService_GetFacilityAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetFacilityAdminResponse" message="tns:IEvmsService_GetFacilityAdmin_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetFacilityAdminSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetFacilityAdmin_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacilityAdminFaculty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetFacilityAdminFaculty" message="tns:IEvmsService_GetFacilityAdminFaculty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetFacilityAdminFacultyResponse" message="tns:IEvmsService_GetFacilityAdminFaculty_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetFacilityAdminFacultySExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetFacilityAdminFaculty_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/Authenticate" message="tns:IEvmsService_Authenticate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AuthenticateResponse" message="tns:IEvmsService_Authenticate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AuthenticateSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_Authenticate_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignLocationAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AssignLocationAdmin" message="tns:IEvmsService_AssignLocationAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AssignLocationAdminResponse" message="tns:IEvmsService_AssignLocationAdmin_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AssignLocationAdminSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AssignLocationAdmin_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignEventOrganizer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AssignEventOrganizer" message="tns:IEvmsService_AssignEventOrganizer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AssignEventOrganizerResponse" message="tns:IEvmsService_AssignEventOrganizer_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AssignEventOrganizerSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AssignEventOrganizer_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignSystemAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AssignSystemAdmin" message="tns:IEvmsService_AssignSystemAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AssignSystemAdminResponse" message="tns:IEvmsService_AssignSystemAdmin_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AssignSystemAdminSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AssignSystemAdmin_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/SearchUser" message="tns:IEvmsService_SearchUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/SearchUserResponse" message="tns:IEvmsService_SearchUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/SearchUserSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_SearchUser_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUserByRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/SearchUserByRole" message="tns:IEvmsService_SearchUserByRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/SearchUserByRoleResponse" message="tns:IEvmsService_SearchUserByRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/SearchUserByRoleSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_SearchUserByRole_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewUserRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewUserRole" message="tns:IEvmsService_ViewUserRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewUserRoleResponse" message="tns:IEvmsService_ViewUserRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewUserRoleSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewUserRole_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnAssignRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/UnAssignRole" message="tns:IEvmsService_UnAssignRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/UnAssignRoleResponse" message="tns:IEvmsService_UnAssignRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/UnAssignRoleSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_UnAssignRole_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetUserName" message="tns:IEvmsService_GetUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetUserNameResponse" message="tns:IEvmsService_GetUserName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetUserNameSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetUserName_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetNewMessage" message="tns:IEvmsService_GetNewMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetNewMessageResponse" message="tns:IEvmsService_GetNewMessage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetNewMessageSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetNewMessage_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnreadMessageCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetUnreadMessageCount" message="tns:IEvmsService_GetUnreadMessageCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetUnreadMessageCountResponse" message="tns:IEvmsService_GetUnreadMessageCount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetUnreadMessageCountSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetUnreadMessageCount_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnreadMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetUnreadMessages" message="tns:IEvmsService_GetUnreadMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetUnreadMessagesResponse" message="tns:IEvmsService_GetUnreadMessages_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetUnreadMessagesSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetUnreadMessages_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetAllMessages" message="tns:IEvmsService_GetAllMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetAllMessagesResponse" message="tns:IEvmsService_GetAllMessages_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetAllMessagesSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetAllMessages_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNotifications">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteNotifications" message="tns:IEvmsService_DeleteNotifications_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteNotificationsResponse" message="tns:IEvmsService_DeleteNotifications_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteNotificationsSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteNotifications_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllNotificationsOfUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteAllNotificationsOfUser" message="tns:IEvmsService_DeleteAllNotificationsOfUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteAllNotificationsOfUserResponse" message="tns:IEvmsService_DeleteAllNotificationsOfUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteAllNotificationsOfUserSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteAllNotificationsOfUser_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNotificationRead">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/SetNotificationRead" message="tns:IEvmsService_SetNotificationRead_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/SetNotificationReadResponse" message="tns:IEvmsService_SetNotificationRead_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/SetNotificationReadSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_SetNotificationRead_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/SendNotification" message="tns:IEvmsService_SendNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/SendNotificationResponse" message="tns:IEvmsService_SendNotification_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/SendNotificationSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_SendNotification_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/CreateEvent" message="tns:IEvmsService_CreateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/CreateEventResponse" message="tns:IEvmsService_CreateEvent_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/CreateEventSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_CreateEvent_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewEvent" message="tns:IEvmsService_ViewEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewEventResponse" message="tns:IEvmsService_ViewEvent_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewEventSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewEvent_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/EditEvent" message="tns:IEvmsService_EditEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/EditEventResponse" message="tns:IEvmsService_EditEvent_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/EditEventSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_EditEvent_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/DeleteEvent" message="tns:IEvmsService_DeleteEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/DeleteEventResponse" message="tns:IEvmsService_DeleteEvent_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/DeleteEventSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_DeleteEvent_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewEventsbyDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewEventsbyDate" message="tns:IEvmsService_ViewEventsbyDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewEventsbyDateResponse" message="tns:IEvmsService_ViewEventsbyDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewEventsbyDateSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewEventsbyDate_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/GetEventName" message="tns:IEvmsService_GetEventName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/GetEventNameResponse" message="tns:IEvmsService_GetEventName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/GetEventNameSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_GetEventName_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewAllEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/ViewAllEvents" message="tns:IEvmsService_ViewAllEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/ViewAllEventsResponse" message="tns:IEvmsService_ViewAllEvents_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/ViewAllEventsSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_ViewAllEvents_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvmsService/AddProgram" message="tns:IEvmsService_AddProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvmsService/AddProgramResponse" message="tns:IEvmsService_AddProgram_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEvmsService/AddProgramSExceptionFault" name="SExceptionFault" message="tns:IEvmsService_AddProgram_SExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEvmsService" type="tns:IEvmsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ViewService">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddPointOfContact">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AddPointOfContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EditPointOfContact">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/EditPointOfContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePointOfContact">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeletePointOfContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewPointOfContact">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewPointOfContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Review">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/Review" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReview">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewReview">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSatifactionAndEstPrice">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/UpdateSatifactionAndEstPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsByEvent">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetItemsByEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTask">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/CreateTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTask">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTask">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/UpdateTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskRead">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/SetTaskRead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskCompleted">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/SetTaskCompleted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskIncomplete">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/SetTaskIncomplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTasksByEvent">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetTasksByEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskByRole">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetTaskByRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskAssignment">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetTaskAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AssignTask">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AssignTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBudgetList">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/SaveBudgetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBudgetItem">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetBudgetItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemDetail">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetItemDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActualPrice">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/UpdateActualPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetGST">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetGST" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGST">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/UpdateGST" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddIncome">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AddIncome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBudgetIncome">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteBudgetIncome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EditBudgetIncome">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/EditBudgetIncome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewBudgetIncome">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewBudgetIncome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddService">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AddService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EditService">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/EditService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteService">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacilityAdmins">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetFacilityAdmins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVenuesByFaculty">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetVenuesByFaculty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVenues">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetVenues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVenuesByCap">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetVenuesByCap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddFacilityBookingRequest">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AddFacilityBookingRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRequestExist">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/CheckRequestExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacBookingRequestList">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetFacBookingRequestList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveFacilityBooking">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ApproveFacilityBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RejectFacilityBooking">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/RejectFacilityBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DropConfirmedRequest">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DropConfirmedRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelFacilityBooking">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/CancelFacilityBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewFacilityBookingRequests">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewFacilityBookingRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivitiesForDay">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetActivitiesForDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmedBooking">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetConfirmedBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsTypes">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetItemsTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddItemsTypes">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AddItemsTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemTypes">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/UpdateItemTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItemType">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteItemType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddEventItemType">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AddEventItemType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEventItemType">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteEventItemType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetItemTypeImportance">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/SetItemTypeImportance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventSpecificItemType">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetEventSpecificItemType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventItemType">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetEventItemType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddEventItem">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AddEventItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEventItem">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteEventItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewProgram">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EditProgram">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/EditProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProgram">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AddRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRole">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EditRole">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/EditRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRights">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewRole">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewEventRoles">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewEventRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewFunction">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewUserEventRoles">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewUserEventRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddRoleTemplate">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AddRoleTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRoleTemplate">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteRoleTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EditRightsTemplate">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/EditRightsTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewTemplateRole">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewTemplateRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateRight">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetTemplateRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddGuest">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AddGuest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewGuest">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewGuest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EditGuest">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/EditGuest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGuest">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteGuest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CountGuest">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/CountGuest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFacility">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/RemoveFacility" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFacility">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/UpdateFacility" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacilityAdmin">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetFacilityAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacilityAdminFaculty">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetFacilityAdminFaculty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AssignLocationAdmin">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AssignLocationAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AssignEventOrganizer">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AssignEventOrganizer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AssignSystemAdmin">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AssignSystemAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUser">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/SearchUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUserByRole">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/SearchUserByRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewUserRole">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewUserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UnAssignRole">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/UnAssignRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserName">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewMessage">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetNewMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnreadMessageCount">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetUnreadMessageCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnreadMessages">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetUnreadMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMessages">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetAllMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNotifications">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteNotifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllNotificationsOfUser">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteAllNotificationsOfUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetNotificationRead">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/SetNotificationRead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendNotification">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/SendNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEvent">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/CreateEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewEvent">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EditEvent">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/EditEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvent">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/DeleteEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewEventsbyDate">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewEventsbyDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventName">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/GetEventName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewAllEvents">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/ViewAllEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddProgram">
+      <soap:operation soapAction="http://tempuri.org/IEvmsService/AddProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SExceptionFault">
+        <soap:fault use="literal" name="SExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EvmsService">
+    <wsdl:port name="BasicHttpBinding_IEvmsService" binding="tns:BasicHttpBinding_IEvmsService">
+      <soap:address location="http://localhost:62709/EvmsService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:62709/EvmsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/evmsService.entities" />
+  <xs:import schemaLocation="http://localhost:62709/EvmsService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:62709/EvmsService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:element name="ViewService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="u" nillable="true" type="q1:User" />
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+        <xs:element minOccurs="0" name="SearchString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewServiceResult" nillable="true" type="q2:ArrayOfService" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPointOfContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q3:User" />
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+        <xs:element minOccurs="0" name="serviceID" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="position" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPointOfContactResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditPointOfContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q4:User" />
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+        <xs:element minOccurs="0" name="PointOfContactID" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="position" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditPointOfContactResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePointOfContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q5:User" />
+        <xs:element minOccurs="0" name="PointOfContactID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePointOfContactResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewPointOfContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q6:User" />
+        <xs:element minOccurs="0" name="PointOfContactID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewPointOfContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewPointOfContactResult" nillable="true" type="q7:ArrayOfPointOfContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Review">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q8:User" />
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+        <xs:element minOccurs="0" name="serviceID" type="xs:int" />
+        <xs:element minOccurs="0" name="rating" type="xs:int" />
+        <xs:element minOccurs="0" name="reviewDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="reviewDescription" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReviewResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReview">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q9:User" />
+        <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ServiceID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReviewResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewReview">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ServiceID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewReviewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewReviewResult" nillable="true" type="q10:ArrayOfReview" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSatifactionAndEstPrice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q11:User" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="iten" nillable="true" type="q12:Items" />
+        <xs:element minOccurs="0" name="s" type="xs:int" />
+        <xs:element minOccurs="0" name="est" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSatifactionAndEstPriceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemsByEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemsByEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetItemsByEventResult" nillable="true" type="q13:ArrayOfItems" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q14:User" />
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+        <xs:element minOccurs="0" name="taskName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskDesc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DueDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaskResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q15:User" />
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+        <xs:element minOccurs="0" name="taskID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTaskResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q16:User" />
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+        <xs:element minOccurs="0" name="taskID" type="xs:int" />
+        <xs:element minOccurs="0" name="taskName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskDesc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dueDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetTaskRead">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="t" nillable="true" type="q17:Task" />
+        <xs:element minOccurs="0" name="roleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetTaskReadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetTaskCompleted">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="task" nillable="true" type="q18:Task" />
+        <xs:element minOccurs="0" name="roleID" type="xs:int" />
+        <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetTaskCompletedResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetTaskIncomplete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q19:User" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="task" nillable="true" type="q20:Task" />
+        <xs:element minOccurs="0" name="roleID" type="xs:int" />
+        <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetTaskIncompleteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasksByEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasksByEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetTasksByEventResult" nillable="true" type="q21:ArrayOfTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskByRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+        <xs:element minOccurs="0" name="roleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskByRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetTaskByRoleResult" nillable="true" type="q22:ArrayOfTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskAssignment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="taskID" type="xs:int" />
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+        <xs:element minOccurs="0" name="roleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskAssignmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetTaskAssignmentResult" nillable="true" type="q23:TaskAssignment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q24:User" />
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+        <xs:element minOccurs="0" name="roleID" type="xs:int" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="taskList" nillable="true" type="q25:ArrayOfTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignTaskResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveBudgetList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="sender" nillable="true" type="q26:User" />
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+        <xs:element minOccurs="0" name="totalSat" type="xs:int" />
+        <xs:element minOccurs="0" name="totalPrice" type="xs:decimal" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="itemList" nillable="true" type="q27:ArrayOfItems" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveBudgetListResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBudgetItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBudgetItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetBudgetItemResult" nillable="true" type="q28:OptimizedBudgetItems" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="bItem" nillable="true" type="q29:OptimizedBudgetItemsDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetItemDetailResult" nillable="true" type="q30:Items" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateActualPrice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q31:User" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="iten" nillable="true" type="q32:Items" />
+        <xs:element minOccurs="0" name="price" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateActualPriceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGST">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGSTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetGSTResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGST">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q33:User" />
+        <xs:element minOccurs="0" name="newPercentage" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGSTResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddIncome">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q34:User" />
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="bIncome" nillable="true" type="q35:BudgetIncome" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddIncomeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddIncomeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBudgetIncome">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q36:User" />
+        <xs:element minOccurs="0" name="BudgetIncomeID" type="xs:int" />
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBudgetIncomeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditBudgetIncome">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q37:User" />
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+        <xs:element minOccurs="0" name="incomeID" type="xs:int" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="bIncome" nillable="true" type="q38:BudgetIncome" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditBudgetIncomeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewBudgetIncome">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q39:User" />
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewBudgetIncomeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewBudgetIncomeResult" nillable="true" type="q40:ArrayOfBudgetIncome" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q41:User" />
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+        <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="url" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddServiceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ServiceID" type="xs:int" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q42:User" />
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+        <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="url" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditServiceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q43:User" />
+        <xs:element minOccurs="0" name="serviceID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteServiceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacilityAdmins">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacilityAdminsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetFacilityAdminsResult" nillable="true" type="q44:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVenuesByFaculty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="f" type="q45:Faculty" />
+        <xs:element minOccurs="0" name="minCap" type="xs:int" />
+        <xs:element minOccurs="0" name="maxCap" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVenuesByFacultyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetVenuesByFacultyResult" nillable="true" type="q46:ArrayOfFacility" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVenues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="minCap" type="xs:int" />
+        <xs:element minOccurs="0" name="maxCap" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVenuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetVenuesResult" nillable="true" type="q47:ArrayOfFacility" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVenuesByCap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="fac" type="q48:Faculty" />
+        <xs:element minOccurs="0" name="faciID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="minCap" type="xs:int" />
+        <xs:element minOccurs="0" name="maxCap" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVenuesByCapResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetVenuesByCapResult" nillable="true" type="q49:ArrayOfFacility" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFacilityBookingRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q50:User" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="e" nillable="true" type="q51:Event" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="faculty" type="q52:Faculty" />
+        <xs:element minOccurs="0" name="reqstart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="reqEnd" type="xs:dateTime" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="reqDetails" nillable="true" type="q53:ArrayOfFacilityBookingRequestDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFacilityBookingRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddFacilityBookingRequestResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckRequestExist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckRequestExistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckRequestExistResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacBookingRequestList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="FacAdmin" nillable="true" type="q54:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacBookingRequestListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetFacBookingRequestListResult" nillable="true" type="q55:ArrayOfFacilityBookingRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApproveFacilityBooking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="approver" nillable="true" type="q56:User" />
+        <xs:element minOccurs="0" name="reqID" type="xs:int" />
+        <xs:element minOccurs="0" name="evID" type="xs:int" />
+        <xs:element minOccurs="0" name="reqDetailID" type="xs:int" />
+        <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="purpose" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApproveFacilityBookingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RejectFacilityBooking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="rejecter" nillable="true" type="q57:User" />
+        <xs:element minOccurs="0" name="reqID" type="xs:int" />
+        <xs:element minOccurs="0" name="evID" type="xs:int" />
+        <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RejectFacilityBookingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DropConfirmedRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q58:User" />
+        <xs:element minOccurs="0" name="reqID" type="xs:int" />
+        <xs:element minOccurs="0" name="evID" type="xs:int" />
+        <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DropConfirmedRequestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelFacilityBooking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="userser" nillable="true" type="q59:User" />
+        <xs:element minOccurs="0" name="reqID" type="xs:int" />
+        <xs:element minOccurs="0" name="evID" type="xs:int" />
+        <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelFacilityBookingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewFacilityBookingRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="userser" nillable="true" type="q60:User" />
+        <xs:element minOccurs="0" name="evID" type="xs:int" />
+        <xs:element minOccurs="0" name="status" type="xs:int" />
+        <xs:element minOccurs="0" name="ViewAllStatus" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ViewAllEvents" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewFacilityBookingRequestsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewFacilityBookingRequestsResult" nillable="true" type="q61:ArrayOfFacilityBookingRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActivitiesForDay">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q62:User" />
+        <xs:element minOccurs="0" name="day" type="xs:dateTime" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="faculty" type="q63:Faculty" />
+        <xs:element minOccurs="0" name="venue" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActivitiesForDayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetActivitiesForDayResult" nillable="true" type="q64:ArrayOfFacilityBookingConfirmed" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfirmedBooking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reqID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfirmedBookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetConfirmedBookingResult" nillable="true" type="q65:FacilityBookingConfirmed" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemsTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemsTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetItemsTypesResult" nillable="true" type="q66:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddItemsTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="itemType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddItemsTypesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateItemTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="itemType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newItemType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateItemTypesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteItemType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="itemType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteItemTypeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEventItemType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q67:User" />
+        <xs:element minOccurs="0" name="evid" type="xs:int" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isImpt" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEventItemTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="AddEventItemTypeResult" nillable="true" type="q68:ItemTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEventItemType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q69:User" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="type" nillable="true" type="q70:ItemTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEventItemTypeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetItemTypeImportance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q71:User" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="type" nillable="true" type="q72:ItemTypes" />
+        <xs:element minOccurs="0" name="isImpt" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetItemTypeImportanceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventSpecificItemType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventSpecificItemTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetEventSpecificItemTypeResult" nillable="true" type="q73:ArrayOfItemTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventItemType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+        <xs:element minOccurs="0" name="typeName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventItemTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetEventItemTypeResult" nillable="true" type="q74:ItemTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEventItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q75:User" />
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="type" nillable="true" type="q76:ItemTypes" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sat" type="xs:int" />
+        <xs:element minOccurs="0" name="est" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEventItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="AddEventItemResult" nillable="true" type="q77:Items" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEventItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q78:User" />
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="iten" nillable="true" type="q79:Items" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEventItemResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewProgram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewProgramResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewProgramResult" nillable="true" type="q80:ArrayOfProgram" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditProgram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q81:User" />
+        <xs:element minOccurs="0" name="ProgramID" type="xs:int" />
+        <xs:element minOccurs="0" name="ProgramName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ProgramStartDateTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ProgramEndDatetime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ProgramDescription" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditProgramResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProgram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q82:User" />
+        <xs:element minOccurs="0" name="ProgramID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProgramResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q83:User" />
+        <xs:element minOccurs="0" name="RoleUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+        <xs:element minOccurs="0" name="RolePost" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RoleDescription" nillable="true" type="xs:string" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="functionID" nillable="true" type="q84:ArrayOfEnumFunctions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddRoleResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q85:User" />
+        <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRoleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q86:User" />
+        <xs:element minOccurs="0" name="RoleUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+        <xs:element minOccurs="0" name="RolePost" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RoleDescription" nillable="true" type="xs:string" />
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="FunctionList" nillable="true" type="q87:ArrayOfEnumFunctions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditRoleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+        <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetRightsResult" nillable="true" type="q88:ArrayOfEnumFunctions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q89:User" />
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="e" nillable="true" type="q90:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewRoleResult" nillable="true" type="q91:ArrayOfRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewEventRoles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q92:User" />
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="e" nillable="true" type="q93:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewEventRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ViewEventRolesResult" nillable="true" type="q94:ArrayOfTupleOfRolestringRsiwEt5l" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewFunction">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewFunctionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewFunctionResult" nillable="true" type="q95:ArrayOfFunction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewUserEventRoles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="eventID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewUserEventRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewUserEventRolesResult" nillable="true" type="q96:ArrayOfRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRoleTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q97:User" />
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="E" nillable="true" type="q98:Event" />
+        <xs:element minOccurs="0" name="RolePost" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RoleDescription" nillable="true" type="xs:string" />
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="functionID" nillable="true" type="q99:ArrayOfEnumFunctions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRoleTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddRoleTemplateResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRoleTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q100:User" />
+        <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRoleTemplateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditRightsTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q101:User" />
+        <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+        <xs:element minOccurs="0" name="RolePost" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RoleDescription" nillable="true" type="xs:string" />
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="functionID" nillable="true" type="q102:ArrayOfEnumFunctions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditRightsTemplateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewTemplateRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q103:User" />
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="e" nillable="true" type="q104:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewTemplateRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewTemplateRoleResult" nillable="true" type="q105:ArrayOfRoleTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplateRight">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RoleTemplateID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplateRightResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetTemplateRightResult" nillable="true" type="q106:ArrayOfRightTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGuest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q107:User" />
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+        <xs:element minOccurs="0" name="GuestName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GuestContact" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GuestDescription" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGuestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddGuestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewGuest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewGuestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewGuestResult" nillable="true" type="q108:ArrayOfGuest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditGuest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q109:User" />
+        <xs:element minOccurs="0" name="GuestID" type="xs:int" />
+        <xs:element minOccurs="0" name="GuestName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GuestDescription" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GuestContact" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditGuestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteGuest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q110:User" />
+        <xs:element minOccurs="0" name="GuestID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteGuestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountGuest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountGuestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountGuestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveFacility">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q111:User" />
+        <xs:element minOccurs="0" name="venue" nillable="true" type="xs:string" />
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="fac" type="q112:Faculty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveFacilityResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFacility">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q113:User" />
+        <xs:element minOccurs="0" name="venue" nillable="true" type="xs:string" />
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="fac" type="q114:Faculty" />
+        <xs:element minOccurs="0" name="loc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bookingCon" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="techCon" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cap" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFacilityResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacilityAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacilityAdminResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetFacilityAdminResult" type="q115:Faculty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacilityAdminFaculty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="userid" type="q116:Faculty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacilityAdminFacultyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFacilityAdminFacultyResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Authenticate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="AuthenticateResult" nillable="true" type="q117:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignLocationAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="assigner" nillable="true" type="q118:User" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="fac" type="q119:Faculty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignLocationAdminResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignEventOrganizer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="assigner" nillable="true" type="q120:User" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignEventOrganizerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignSystemAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="assigner" nillable="true" type="q121:User" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignSystemAdminResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="SearchUserResult" nillable="true" type="q122:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUserByRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="r" type="q123:EnumRoles" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUserByRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="SearchUserByRoleResult" nillable="true" type="q124:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewUserRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewUserRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewUserRoleResult" type="q125:EnumRoles" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnAssignRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="assigner" nillable="true" type="q126:User" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnAssignRoleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNewMessageResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnreadMessageCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnreadMessageCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUnreadMessageCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnreadMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnreadMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetUnreadMessagesResult" nillable="true" type="q127:ArrayOfNotifications" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="GetAllMessagesResult" nillable="true" type="q128:ArrayOfNotifications" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNotifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="n" nillable="true" type="q129:Notifications" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNotificationsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAllNotificationsOfUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAllNotificationsOfUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNotificationRead">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="n" nillable="true" type="q130:Notifications" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNotificationReadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="receiver" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendNotificationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q131:User" />
+        <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EventStartDateTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EventEndDatetime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EventDescription" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EventWebsite" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEventResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q132:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewEventResult" nillable="true" type="q133:ArrayOfEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q134:User" />
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="e" nillable="true" type="q135:Event" />
+        <xs:element minOccurs="0" name="EventOrganizerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EventStartDateTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EventEndDatetime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EventDescription" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EventWebsite" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditEventResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q136:User" />
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="e" nillable="true" type="q137:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEventResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewEventsbyDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q138:User" />
+        <xs:element minOccurs="0" name="start" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="end" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewEventsbyDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewEventsbyDateResult" nillable="true" type="q139:ArrayOfEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetEventNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewAllEvents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q140:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewAllEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="ViewAllEventsResult" nillable="true" type="q141:ArrayOfEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProgram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/evmsService.entities" minOccurs="0" name="user" nillable="true" type="q142:User" />
+        <xs:element minOccurs="0" name="ProgramName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ProgramStartDateTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ProgramEndDatetime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ProgramDescription" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ProgramEventID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProgramResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddProgramResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

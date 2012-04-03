@@ -1,0 +1,79 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="GemsWeb.Main" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GEMS Event Management System - Events Information and Participants Registrations
+    </title>
+    <!-- Metadata -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Event Management, NUS, Events in NUS" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="NUS, GEMS, Event Management, NUS Events, Team 47 CS2103T " />
+    <meta name="rating" content="Safe for Kids" />
+    <meta name="robots" content="index, follow" />
+    <meta name="revisit-after" content="7 days" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="<%=ResolveClientUrl("~/images/favicon.ico")%>" type="image/x-icon" />
+    <!-- my style -->
+    <link rel="stylesheet" href="<%=ResolveClientUrl("~/css/style3.css")%>" type="text/css" />
+    <!-- Sharing -->
+    <script type="text/javascript">        var switchTo5x = true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({ publisher: '65a89062-e37b-40c9-ae58-ed69619c9176' });
+    </script>
+    <!-- Place this tag in your head or just before your close body tag -->
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <script type="text/javascript">
+        jQuery.noConflict();
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="wrapper1">
+        <div id="wrapper2">
+            <div id="header">
+                <asp:HyperLink NavigateUrl="~/default.aspx" runat="server" ID="hyperlink30"><h1>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Event Management <sup>Beta</sup></h1></asp:HyperLink>
+                <asp:PlaceHolder ID="pnl2" runat="server"></asp:PlaceHolder>
+            </div>
+            <div id="container">
+                <p class="description">
+                    NUS GEMS 
+                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+                    </asp:ScriptManager>
+                </p>
+                <div id="sidebar">
+                    <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FNUSGEMS&amp;width=250&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=false&amp;appId=166311660119083"
+                        scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 250px;
+                        height: 62px;" ></iframe>
+                    <asp:PlaceHolder ID="phSideBar" runat="server">
+                        <h2>
+                            Latest News
+                        </h2>
+                        <p class="news" style="color: Blue; font-weight: bold;">
+                            Recommend on Google:
+                            <g:plusone></g:plusone>
+                        </p>
+                    </asp:PlaceHolder>
+                    <a href="http://apycom.com/" style="color: White; font-size: xx-small">&nbsp;</a>
+                </div>
+                <br />
+                <br />
+                <asp:ContentPlaceHolder ID="cphCENTER" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+    <center>
+    &copy; Copyright CS2103T (Team 47) and CS2101 (T4G2) - AY2011/2012 Semester 2 <br />
+    
+    </center>
+    </div>
+    <!-- End Footer -->
+    </form>
+</body>
+</html>
