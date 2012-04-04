@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MSCaptcha, Version=2.0.3733.36001, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="MSCaptcha, Version=4.0.4250.31585, Culture=neutral, PublicKeyToken=b9ff12f28cdcf412, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\MSCaptcha.dll</HintPath>
     </Reference>
@@ -57,10 +57,10 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\aspComponents.css" />
-    <Content Include="css\login-box.css" />
     <Content Include="css\menu.css" />
     <Content Include="css\style3.css" />
+    <Content Include="CustomControls\DatePicker.ascx" />
+    <Content Include="CustomControls\RegistrationField.ascx" />
     <Content Include="default.aspx" />
     <Content Include="images\body.jpg" />
     <Content Include="images\content.jpg" />
@@ -154,18 +154,28 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Global.asax" />
+    <Content Include="Register.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <None Include="Service References\evmsService\EvmsService5.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Alert.cs" />
+    <Compile Include="CustomControls\DatePicker.ascx.cs">
+      <DependentUpon>DatePicker.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomControls\DatePicker.ascx.designer.cs">
+      <DependentUpon>DatePicker.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\RegistrationField.ascx.cs">
+      <DependentUpon>RegistrationField.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomControls\RegistrationField.ascx.designer.cs">
+      <DependentUpon>RegistrationField.ascx</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,6 +195,13 @@
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Service References\evmsService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -223,8 +240,8 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50826</DevelopmentServerPort>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>62710</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -18,6 +18,7 @@
     <link rel="shortcut icon" href="<%=ResolveClientUrl("~/images/favicon.ico")%>" type="image/x-icon" />
     <!-- my style -->
     <link rel="stylesheet" href="<%=ResolveClientUrl("~/css/style3.css")%>" type="text/css" />
+   
     <!-- Sharing -->
     <script type="text/javascript">        var switchTo5x = true;</script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
@@ -36,29 +37,27 @@
         <div id="wrapper2">
             <div id="header">
                 <asp:HyperLink NavigateUrl="~/default.aspx" runat="server" ID="hyperlink30"><h1>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Event Management <sup>Beta</sup></h1></asp:HyperLink>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Event Management <sup>Beta</sup></h1></asp:HyperLink>
                 <asp:PlaceHolder ID="pnl2" runat="server"></asp:PlaceHolder>
             </div>
             <div id="container">
                 <p class="description">
-                    NUS GEMS 
+                    NUS GEMS
+                    <!-- For AJAX Enhancements Later -->
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
                 </p>
                 <div id="sidebar">
                     <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FNUSGEMS&amp;width=250&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=false&amp;appId=166311660119083"
                         scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 250px;
-                        height: 62px;" ></iframe>
+                        height: 62px;"></iframe>
                     <asp:PlaceHolder ID="phSideBar" runat="server">
-                        <h2>
-                            Latest News
-                        </h2>
                         <p class="news" style="color: Blue; font-weight: bold;">
                             Recommend on Google:
                             <g:plusone></g:plusone>
                         </p>
                     </asp:PlaceHolder>
-                    <a href="http://apycom.com/" style="color: White; font-size: xx-small">&nbsp;</a>
                 </div>
                 <br />
                 <br />
@@ -68,10 +67,12 @@
         </div>
     </div>
     <div id="footer">
-    <center>
-    &copy; Copyright CS2103T (Team 47) and CS2101 (T4G2) - AY2011/2012 Semester 2 <br />
-    
-    </center>
+        <center>
+            &copy; Copyright CS2103T (Team 47) and CS2101 (T4G2) -
+            <br />
+            National University of Singapore AY2011/2012 Semester 2
+            <br />
+        </center>
     </div>
     <!-- End Footer -->
     </form>
