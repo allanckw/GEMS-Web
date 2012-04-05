@@ -7,63 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GemsWeb {
+namespace GemsWeb.CustomControls {
     
     
-    public partial class Register {
+    public partial class RegistrationField {
         
         /// <summary>
-        /// lblEventName control.
+        /// lblFieldName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblEventName;
+        protected global::System.Web.UI.WebControls.Label lblFieldName;
         
         /// <summary>
-        /// phRegister control.
+        /// txtFieldResult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phRegister;
+        protected global::System.Web.UI.WebControls.TextBox txtFieldResult;
         
         /// <summary>
-        /// ccJoin control.
+        /// reqValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::MSCaptcha.CaptchaControl ccJoin;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValidator;
         
         /// <summary>
-        /// txtCaptcha control.
+        /// regEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCaptcha;
-        
-        /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
-        /// btnSignUp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSignUp;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regEmail;
     }
 }

@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace GemsWeb
 {
-    public partial class Main : System.Web.UI.MasterPage
+    public partial class RegistrationSuccessful : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+
         }
     }
 }

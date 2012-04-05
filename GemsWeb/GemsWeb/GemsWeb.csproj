@@ -155,6 +155,7 @@
     </None>
     <Content Include="Global.asax" />
     <Content Include="Register.aspx" />
+    <Content Include="RegistrationSuccessful.aspx" />
     <Content Include="Web.config" />
     <None Include="Service References\evmsService\EvmsService5.xsd">
       <SubType>Designer</SubType>
@@ -201,6 +202,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationSuccessful.aspx.cs">
+      <DependentUpon>RegistrationSuccessful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrationSuccessful.aspx.designer.cs">
+      <DependentUpon>RegistrationSuccessful.aspx</DependentUpon>
     </Compile>
     <Compile Include="Service References\evmsService\Reference.cs">
       <AutoGen>True</AutoGen>

@@ -6,12 +6,12 @@
     <tbody>
         <tr>
             <td align="left" bgcolor="#cccccc">
-                <asp:DropDownList ID="drpCalMonth" runat="Server" AutoPostBack="True" CssClass="calTitle" OnSelectedIndexChanged="drpCalMonth_SelectedIndexChanged"
+                <asp:DropDownList ID="drpCalMonth" runat="Server" AutoPostBack="True" CssClass="calTitle"
                     Width="100px">
                 </asp:DropDownList>
             </td>
             <td align="right" bgcolor="#cccccc">
-                <asp:DropDownList ID="drpCalYear" runat="Server" AutoPostBack="True" CssClass="calTitle" OnSelectedIndexChanged="drpCalYear_SelectedIndexChanged"
+                <asp:DropDownList ID="drpCalYear" runat="Server" AutoPostBack="True" CssClass="calTitle"
                     Width="100px">
                 </asp:DropDownList>
             </td>

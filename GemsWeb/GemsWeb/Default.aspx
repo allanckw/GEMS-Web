@@ -6,7 +6,8 @@
     <div style="float: left; width: 200;">
     <h3>
             <a href="#">List of Events</a></h3>
-        <asp:ListBox ID="lstEvent" runat="server" Height="420px" Width="200px" AutoPostBack="True">
+        <asp:ListBox ID="lstEvent" runat="server" Height="420px" Width="200px" 
+            AutoPostBack="True" onselectedindexchanged="lstEvent_SelectedIndexChanged">
         </asp:ListBox>
     </div>
     <div style="float: left;">
@@ -18,7 +19,7 @@
                     From
                 </td>
                 <td>
-                    <GEMS:DatePicker ID="dpFrom" runat="server" />
+                    <GEMS:DatePicker ID="dpFrom" runat="server" DisplayFutureDate="true" />
                 </td>
             </tr>
             <tr>
@@ -26,7 +27,7 @@
                     To
                 </td>
                 <td>
-                    <GEMS:DatePicker ID="dpTo" runat="server" />
+                    <GEMS:DatePicker ID="dpTo" runat="server" MonthsFromCurrent="1" DisplayFutureDate="true" />
                 </td>
             </tr>
             <tr>
@@ -53,21 +54,90 @@
             <!--Add View controls, one for each 'tab'-->
             <asp:View ID="tab0" runat="server" >
                 <!-- Event information -->
-                (Event.Information)
+                <asp:Label ID="eventName" Width="100px" runat="server" Text="Name: "/><asp:Label ID="lbleventname" runat="server"/><br />
+                <asp:Label ID="eventDate" Width="100px" runat="server" Text="Date: "/><asp:Label ID="lbleventdate" runat="server"/><br />
+                <asp:Label ID="eventStartTime" Width="100px" runat="server" Text="Start Time: "/><asp:Label ID="lbleventstarttime" runat="server"/><br />
+                <asp:Label ID="eventEndtime" Width="100px" runat="server" Text="End Time: "/><asp:Label ID="lbleventendtime" runat="server"/><br />
+                <asp:Label ID="eventDescription" Width="100px" runat="server" Text="Description: "/><asp:Label ID="lbleventdescription" runat="server"/><br />
+                <asp:Label ID="eventwebsite" Width="100px" runat="server" Text="Website: "/><asp:HyperLink ID="hypeventwebsite" runat="server" /><br />
+                
             </asp:View>
             <asp:View ID="tab1" runat="server" >
                 <!-- Program information -->
-                (Event.Programs)
+                <asp:GridView ID="gvProgram" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="4" ForeColor="#333333" GridLines="None" EmptyDataText="No Programmes Added">
+               
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:BoundField DataField="Name" HeaderText="Name" >
+                        <HeaderStyle Width="100px" />
+                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="StartDateTime" HeaderText="Start Time" 
+                            DataFormatString=" {0:HH:mm}" >
+                        <HeaderStyle Width="100px" />
+                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="EndDateTime" HeaderText="End Time" 
+                            DataFormatString=" {0:HH:mm}" >
+                        <HeaderStyle Width="100px" />
+                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="Description" HeaderText="Description" >
+                        <HeaderStyle Width="250px" />
+                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                        </asp:BoundField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+               
+                </asp:GridView>
             </asp:View>
             <asp:View ID="tab2" runat="server">
                 <!-- Guest Information information -->
-                (Event.Guests)
+                
+                <asp:GridView ID="gvGuest" runat="server" CellPadding="4" ForeColor="#333333" 
+                    GridLines="None" AutoGenerateColumns="False" EmptyDataText="No Guest Added">
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:BoundField DataField="Name" HeaderText="Name" >
+                        <HeaderStyle Width="150px" />
+                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="Description" HeaderText="Description" >
+                        <HeaderStyle Width="400px" />
+                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                        </asp:BoundField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
             </asp:View>
         </asp:MultiView>
         <br />
         <br />
         <!-- Adjust the navigate URL accordingly based on the event ID (selected index change event
             to go to register page set to (~/Register.aspx?eventID=x) -->
-        <asp:HyperLink ID="hypRegister" NavigateUrl="~/Register.aspx" runat="server">Register Now</asp:HyperLink>
+                   <%-- <asp:HyperLink ID="hypRegister"  NavigateUrl="~/Register.aspx?EventId=6&EventName=haha"  runat="server">Register Now</asp:HyperLink>
+--%>
+
+ <asp:HyperLink ID="hypRegister"  NavigateUrl="#" Text="Register Now"  runat="server" />
+
     </div>
 </asp:Content>

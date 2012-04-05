@@ -4,28 +4,31 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using GemsWeb.Controllers;
 
 namespace GemsWeb.CustomControls
 {
     public partial class DatePicker : System.Web.UI.UserControl
     {
 
-        private int minYear = 80;
-        private int maxYear = 0;
-        private bool fDate = false;
+        int minYear = 80;
+        int maxYear = 0;
+        bool fDate = false;
 
-        private int monthFromCurrent = 0;
+        //public DateTime CalDate
+        //{
+        //    get { return myCalendar.SelectedDate; }
+        //    set
+        //    {
+        //        dTable.Visible = true;
+        //        myCalendar.SelectedDate = value;
+
+        //    }
+        //}
 
         public DateTime CalDate
         {
             get { return myCalendar.SelectedDate; }
-            set
-            {
-                myCalendar.SelectedDate = value;
-                txtDate.Text = myCalendar.SelectedDate.ToString("dd MMM yyyy");
-                dTable.Visible = false;
-            }
+            set { myCalendar.SelectedDate = value; }
         }
 
         public enum Months
@@ -63,12 +66,6 @@ namespace GemsWeb.CustomControls
             set { this.fDate = value; }
         }
 
-        public int MonthsFromCurrent
-        {
-            get { return this.monthFromCurrent; }
-            set { this.monthFromCurrent = value; }
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //Hide the title of the calendar control
@@ -77,10 +74,11 @@ namespace GemsWeb.CustomControls
             {
                 Populate_YearList();
                 Populate_MonthList();
-                myCalendar.SelectedDate = System.DateTime.Now.AddMonths(this.monthFromCurrent);
-                txtDate.Text = myCalendar.SelectedDate.ToString("dd MMM yyyy");
-                dTable.Visible = false;
+
+                myCalendar.SelectedDate = System.DateTime.Now;
+                setCalDate();
             }
+
         }
 
         protected void Populate_MonthList()
@@ -124,6 +122,12 @@ namespace GemsWeb.CustomControls
 
         }
 
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            setCalDate();
+
+        }
         protected void drpCalMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             Set_Calendar();
@@ -136,15 +140,26 @@ namespace GemsWeb.CustomControls
             {
                 drpCalMonth.Items.Clear();
                 Populate_MonthList();
+
             }
         }
+
+     
+
+        private void setCalDate()
+        {
+            txtDate.Text = myCalendar.SelectedDate.ToString("dd MMM yyyy");
+            dTable.Visible = false;
+        }
+
 
         protected void Set_Calendar()
         {
             //Whenever month or year selection changes display the calendar for that month/year
-            myCalendar.TodaysDate = new DateTime(int.Parse(drpCalYear.SelectedValue.ToString()), drpCalMonth.SelectedIndex+1, 1);
-        }
 
+            myCalendar.TodaysDate = Convert.ToDateTime(drpCalMonth.SelectedItem.Value + " 1, " + drpCalYear.SelectedItem.Value);
+
+        }
         public DatePicker()
         {
             Load += Page_Load;
@@ -164,7 +179,6 @@ namespace GemsWeb.CustomControls
 
         protected void myCalendar_SelectionChanged(object sender, EventArgs e)
         {
-            
             txtDate.Text = myCalendar.SelectedDate.ToString("dd MMM yyyy");
             dTable.Visible = false;
         }

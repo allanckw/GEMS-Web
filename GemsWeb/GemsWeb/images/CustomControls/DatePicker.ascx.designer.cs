@@ -7,63 +7,63 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GemsWeb {
+namespace GemsWeb.CustomControls {
     
     
-    public partial class Register {
+    public partial class DatePicker {
         
         /// <summary>
-        /// lblEventName control.
+        /// txtDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblEventName;
+        protected global::System.Web.UI.WebControls.TextBox txtDate;
         
         /// <summary>
-        /// phRegister control.
+        /// btnChangeDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phRegister;
+        protected global::System.Web.UI.WebControls.Button btnChangeDate;
         
         /// <summary>
-        /// ccJoin control.
+        /// dTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::MSCaptcha.CaptchaControl ccJoin;
+        protected global::System.Web.UI.HtmlControls.HtmlTable dTable;
         
         /// <summary>
-        /// txtCaptcha control.
+        /// drpCalMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCaptcha;
+        protected global::System.Web.UI.WebControls.DropDownList drpCalMonth;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// drpCalYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.DropDownList drpCalYear;
         
         /// <summary>
-        /// btnSignUp control.
+        /// myCalendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSignUp;
+        protected global::System.Web.UI.WebControls.Calendar myCalendar;
     }
 }
