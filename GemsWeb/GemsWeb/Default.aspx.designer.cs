@@ -184,6 +184,24 @@ namespace GemsWeb {
         protected global::System.Web.UI.WebControls.HyperLink hypeventwebsite;
         
         /// <summary>
+        /// eventPublishInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label eventPublishInfo;
+        
+        /// <summary>
+        /// lbleventpublishinfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbleventpublishinfo;
+        
+        /// <summary>
         /// tab1 control.
         /// </summary>
         /// <remarks>

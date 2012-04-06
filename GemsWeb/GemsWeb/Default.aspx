@@ -60,6 +60,7 @@
                 <asp:Label ID="eventEndtime" Width="100px" runat="server" Text="End Time: "/><asp:Label ID="lbleventendtime" runat="server"/><br />
                 <asp:Label ID="eventDescription" Width="100px" runat="server" Text="Description: "/><asp:Label ID="lbleventdescription" runat="server"/><br />
                 <asp:Label ID="eventwebsite" Width="100px" runat="server" Text="Website: "/><asp:HyperLink ID="hypeventwebsite" runat="server" /><br />
+                <asp:Label ID="eventPublishInfo" Width="100px" runat="server" Text="Publication Remarks : "/><asp:Label ID="lbleventpublishinfo" runat="server"/><br />
                 
             </asp:View>
             <asp:View ID="tab1" runat="server" >

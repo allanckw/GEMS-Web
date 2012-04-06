@@ -100,7 +100,10 @@ namespace GemsWeb
                 lbleventdescription.Text = event_.Description;
                 hypeventwebsite.Text = event_.Website;
                 hypeventwebsite.NavigateUrl = event_.Website;
-
+                if (publish != null)
+                    lbleventpublishinfo.Text = publish.Remarks;
+                else
+                    lbleventpublishinfo.Text = "";
                 Guest[] guests =  event_.Guests;
                 
                 gvGuest.DataSource = guests;

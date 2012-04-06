@@ -89,7 +89,9 @@ namespace GemsWeb
            
             if (!AcceptedEvent)
             {
-                Response.Redirect("Error.aspx?errormsg=Invalid Event");
+                Alert.Show("Invalid Event", true, "~/Default.aspx");
+                
+                
             }
             eventID = intEvent;
             Field[] lf = null;
