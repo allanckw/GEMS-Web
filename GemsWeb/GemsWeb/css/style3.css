@@ -100,7 +100,7 @@ div.fluid
 {
 	clear: both;
 	padding: 0 0 0 0;
-	min-height:0px;
+	min-height:700px;
 }
 
 p.description
@@ -288,7 +288,7 @@ a:hover
 	border: 1px solid #000;
 	padding: 10px;
 	
-	margin: -10 0 0 0;
+	margin: 0 0 0 0;
 	color:	#F0F0F0;
 	width: 980px;
 	margin: 0 auto;

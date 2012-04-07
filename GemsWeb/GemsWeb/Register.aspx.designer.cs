@@ -31,6 +31,15 @@ namespace GemsWeb {
         protected global::System.Web.UI.WebControls.PlaceHolder phRegister;
         
         /// <summary>
+        /// lblFieldName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFieldName;
+        
+        /// <summary>
         /// ccJoin control.
         /// </summary>
         /// <remarks>
