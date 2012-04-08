@@ -17,8 +17,8 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="<%=ResolveClientUrl("~/images/favicon.ico")%>" type="image/x-icon" />
     <!-- my style -->
-    <link rel="stylesheet" href="<%=ResolveClientUrl("~/css/style3.css")%>" type="text/css" />
-   
+    <%--<link rel="stylesheet" href="<%=ResolveClientUrl("~/css/style3.css")%>" type="text/css" />--%>
+   <link rel="stylesheet" href="css/style3.css" type="text/css" />
     <!-- Sharing -->
     <script type="text/javascript">        var switchTo5x = true;</script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>

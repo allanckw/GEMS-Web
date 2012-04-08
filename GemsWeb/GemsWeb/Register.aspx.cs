@@ -15,34 +15,6 @@ namespace GemsWeb
     {
         protected void Page_Load(object sender, System.EventArgs e)
         {
-          
-            
-
-            //for (int i = 0; i < lf.Count<Field>(); i++)
-            //{
-            //    Field f = lf[i];
-            //    Label templabel = new Label();
-            //    TextBox temptxt = new TextBox();
-
-            //    templabel.Text = f.FieldLabel;
-
-            //    templabel.Width = 100;
-            //    temptxt.Width = 100;
-
-            //    if (f.FieldName.ToLower().IndexOf("email") != -1)
-            //    {
-            //        templabel.Text = templabel.Text + ":::@";
-            //    }
-            //    if (f.IsRequired)
-            //        templabel.Text = templabel.Text + ":::TRUE";
-            //    //temptxt.Text = "TRUE";
-
-            //    PanelRegistration.Controls.Add(templabel);
-            //    PanelRegistration.Controls.Add(new TextBox());
-            //    PanelRegistration.Controls.Add(new LiteralControl("<br />"));
-            //}
-            ////  }
-
             AddRegistrationField();
         }
 
@@ -90,8 +62,6 @@ namespace GemsWeb
             if (!AcceptedEvent)
             {
                 Alert.Show("Invalid Event", true, "~/Default.aspx");
-                
-                
             }
             eventID = intEvent;
             Field[] lf = null;

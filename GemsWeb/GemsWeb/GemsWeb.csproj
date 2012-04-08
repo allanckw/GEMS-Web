@@ -57,7 +57,6 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\menu.css" />
     <Content Include="css\style3.css" />
     <Content Include="CustomControls\DatePicker.ascx" />
     <Content Include="CustomControls\RegistrationField.ascx" />
@@ -65,10 +64,8 @@
     <Content Include="images\body.jpg" />
     <Content Include="images\content.jpg" />
     <Content Include="images\description.jpg" />
-    <Content Include="images\h1.gif" />
     <Content Include="images\h2.jpg" />
     <Content Include="images\h21.gif" />
-    <Content Include="images\h21.jpg" />
     <Content Include="images\sidebar.jpg" />
     <Content Include="images\wrapper2.jpg" />
     <Content Include="js\jquery.js" />
