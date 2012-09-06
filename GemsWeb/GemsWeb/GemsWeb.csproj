@@ -153,7 +153,9 @@
     <Content Include="Global.asax" />
     <Content Include="Register.aspx" />
     <Content Include="RegistrationSuccessful.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Service References\evmsService\EvmsService5.xsd">
       <SubType>Designer</SubType>
     </None>

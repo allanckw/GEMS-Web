@@ -38,11 +38,9 @@ namespace GemsWeb
             try
             {
 
-                EvmsServiceClient client = new EvmsServiceClient();
+                RegistrationClient client = new RegistrationClient();
                 Event[] arrEventPublish = client.ViewEventForPublish(start, end);
                 client.Close();
-
-
 
                 lstEvent.DataSource = arrEventPublish;
 
@@ -86,7 +84,7 @@ namespace GemsWeb
                 }
                 this.hypRegister.NavigateUrl = "~/Register.aspx?EventID=" + lstEvent.SelectedValue + "&Name=" + lstEvent.SelectedItem.Text;
 
-                EvmsServiceClient client = new EvmsServiceClient();
+                RegistrationClient client = new RegistrationClient();
                 Publish publish = client.ViewPublish(eventID);
                 Event event_ = client.GetEvent(eventID);
            

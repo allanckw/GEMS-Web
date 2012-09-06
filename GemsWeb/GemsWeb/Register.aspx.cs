@@ -67,7 +67,7 @@ namespace GemsWeb
             Field[] lf = null;
             try
             {
-                EvmsServiceClient client = new EvmsServiceClient();
+                RegistrationClient client = new RegistrationClient();
                 lf = client.ViewField(intEvent);
                 // client.ViewField
                 client.Close();
@@ -117,8 +117,8 @@ namespace GemsWeb
         {
             try
             {
-                
-                EvmsServiceClient client = new EvmsServiceClient();
+
+                RegistrationClient client = new RegistrationClient();
                 client.RegisterParticipant(eventID,fieldAnswers.ToArray());
                 // client.ViewField
                 client.Close();

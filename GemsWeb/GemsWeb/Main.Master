@@ -49,7 +49,7 @@
                     </asp:ScriptManager>
                 </p>
                 <div id="sidebar">
-                    <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FNUSGEMS&amp;width=250&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=false&amp;appId=166311660119083"
+                    <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FGEMS.NUS&amp;width=250&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=false&amp;appId=166311660119083"
                         scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 250px;
                         height: 62px;"></iframe>
                     <asp:PlaceHolder ID="phSideBar" runat="server">
