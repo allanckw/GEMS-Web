@@ -5,6 +5,7 @@ body
 	margin: 0;
 	background: url(../images/body.jpg) top repeat-x #121212;
 	background-attachment: fixed;
+	min-height: 1000;
 }
 
 *

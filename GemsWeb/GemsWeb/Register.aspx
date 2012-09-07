@@ -28,5 +28,6 @@
         </table>
         <br />
         <asp:Button ID="btnSignUp" runat="server" Text="Sign Up Now" OnClick="btnSignUp_Click" />
+
     </div>
 </asp:Content>

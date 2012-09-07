@@ -11,7 +11,28 @@ namespace GemsWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+            string userid = (string)Session["username"];
+            int login = 0;
+            try
+            {
+                login = int.Parse(Session["L6446"].ToString());
+                if (login == 0)
+                {
+                    pnl1.Visible = true;
+                }
+                else
+                {
+                    pnl1.Visible = false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Session["L6446"] = "0";
+            }
+
+            pnl2.Visible = !pnl1.Visible;
+          
         }
     }
 }

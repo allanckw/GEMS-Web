@@ -19,27 +19,17 @@ namespace GemsWeb
             if (!Page.IsPostBack)
             {
                 RequestEvents(DateTime.Now, DateTime.Now.AddMonths(1));
-
-                menuEvent.Visible = false;
-                mvTab.Visible = false;
-                hypRegister.Visible = false;
-                //Load today's Event
-            }
-            else
-            {
-                
-                
             }
         }
 
         private void RequestEvents(DateTime start, DateTime end)
         {
-            //List<Event> events = new List<Event>();
+            List<Events> events = new List<Events>();
             try
             {
 
                 RegistrationClient client = new RegistrationClient();
-                Event[] arrEventPublish = client.ViewEventForPublish(start, end);
+                Events[] arrEventPublish = client.ViewEventForPublish(start, end);
                 client.Close();
 
                 lstEvent.DataSource = arrEventPublish;
@@ -59,12 +49,6 @@ namespace GemsWeb
             
         }
 
-        protected void menuEvent_MenuItemClick(object sender, MenuEventArgs e)
-        {
-            mvTab.ActiveViewIndex = int.Parse(e.Item.Value);
-            //Load Program/Guest as accordingly
-        }
-
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             //Search and populate lstEvent
@@ -74,66 +58,71 @@ namespace GemsWeb
         protected void lstEvent_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            try
-            {
-                int eventID;
-                if(!int.TryParse(lstEvent.SelectedValue, out eventID))
-                {
-                    Alert.Show("Invalid Selection", false, "~/Default.aspx");
+            //try
+            //{
+            //    int eventID;
+            //    if(!int.TryParse(lstEvent.SelectedValue, out eventID))
+            //    {
+            //        Alert.Show("Invalid Selection", false, "~/Default.aspx");
                 
-                }
-                this.hypRegister.NavigateUrl = "~/Register.aspx?EventID=" + lstEvent.SelectedValue + "&Name=" + lstEvent.SelectedItem.Text;
+            //    }
+            //    this.hypRegister.NavigateUrl = "~/Register.aspx?EventID=" + lstEvent.SelectedValue + "&Name=" + lstEvent.SelectedItem.Text;
 
-                RegistrationClient client = new RegistrationClient();
-                Publish publish = client.ViewPublish(eventID);
-                Event event_ = client.GetEvent(eventID);
+            //    RegistrationClient client = new RegistrationClient();
+            //    Publish publish = client.ViewPublish(eventID);
+            //    Event event_ = client.GetEvent(eventID);
            
-                client.Close();
-                menuEvent.Visible = true;
-                this.mvTab.Visible = true;
-                lbleventname.Text = event_.Name;
-                lbleventdate.Text = event_.StartDateTime.ToString("dd MMM yyyy");
-                lbleventstarttime.Text = event_.StartDateTime.ToString("HH:mm");
-                lbleventendtime.Text = event_.EndDateTime.ToString("HH:mm");
-                lbleventdescription.Text = event_.Description;
-                hypeventwebsite.Text = event_.Website;
-                hypeventwebsite.NavigateUrl = event_.Website;
-                if (publish != null)
-                    lbleventpublishinfo.Text = publish.Remarks;
-                else
-                    lbleventpublishinfo.Text = "";
-                Guest[] guests =  event_.Guests;
+            //    client.Close();
+            //    menuEvent.Visible = true;
+            //    this.mvTab.Visible = true;
+            //    lbleventname.Text = event_.Name;
+            //    lbleventdate.Text = event_.StartDateTime.ToString("dd MMM yyyy");
+            //    lbleventstarttime.Text = event_.StartDateTime.ToString("HH:mm");
+            //    lbleventendtime.Text = event_.EndDateTime.ToString("HH:mm");
+            //    lbleventdescription.Text = event_.Description;
+            //    hypeventwebsite.Text = event_.Website;
+            //    hypeventwebsite.NavigateUrl = event_.Website;
+            //    if (publish != null)
+            //        lbleventpublishinfo.Text = publish.Remarks;
+            //    else
+            //        lbleventpublishinfo.Text = "";
+            //    Guest[] guests =  event_.Guests;
                 
-                gvGuest.DataSource = guests;
-                gvGuest.DataBind();
+            //    gvGuest.DataSource = guests;
+            //    gvGuest.DataBind();
 
-                Program[] programs = event_.Programs;
-                gvProgram.DataSource = programs;
-                gvProgram.DataBind();
-                //gvProgram.DataSource = programs;
-                //gvProgram.bind
-                //for (int i = 0; i < programs.Count(); i++)
-                //{
-                //    gvProgram.ro
-                //}
+            //    Program[] programs = event_.Programs;
+            //    gvProgram.DataSource = programs;
+            //    gvProgram.DataBind();
+            //    //gvProgram.DataSource = programs;
+            //    //gvProgram.bind
+            //    //for (int i = 0; i < programs.Count(); i++)
+            //    //{
+            //    //    gvProgram.ro
+            //    //}
 
-               // gvGuest.Columns.Add(new DataControlField());
+            //   // gvGuest.Columns.Add(new DataControlField());
 
-                if (publish == null || (publish.StartDateTime > DateTime.Now || publish.EndDateTime < DateTime.Now))
+            //    if (publish == null || (publish.StartDateTime > DateTime.Now || publish.EndDateTime < DateTime.Now))
 
-                    this.hypRegister.Visible = false;
-                else
+            //        this.hypRegister.Visible = false;
+            //    else
                 
-                    hypRegister.Visible = true;
+            //        hypRegister.Visible = true;
                 
              
   
-            }
-            catch (Exception ex)
-            {
-                Alert.Show("Error Retreiving List of Events from Server", false, "~/Default.aspx");
-                return;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Alert.Show("Error Retreiving List of Events from Server", false, "~/Default.aspx");
+            //    return;
+            //}
+        }
+
+        protected void btnGO_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Event.aspx?EventID=" + lstEvent.SelectedValue);
         }
     }
 }

@@ -61,6 +61,7 @@
     <Content Include="CustomControls\DatePicker.ascx" />
     <Content Include="CustomControls\RegistrationField.ascx" />
     <Content Include="default.aspx" />
+    <Content Include="Event.aspx" />
     <Content Include="images\body.jpg" />
     <Content Include="images\content.jpg" />
     <Content Include="images\description.jpg" />
@@ -70,6 +71,7 @@
     <Content Include="images\wrapper2.jpg" />
     <Content Include="js\jquery.js" />
     <Content Include="js\menu.js" />
+    <Content Include="Login.aspx" />
     <Content Include="Main.Master" />
     <None Include="Service References\evmsService\EvmsService.disco" />
     <None Include="Service References\evmsService\configuration91.svcinfo" />
@@ -98,6 +100,12 @@
     <None Include="Service References\evmsService\GemsWeb.evmsService.Faculty.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\evmsService\GemsWeb.evmsService.Field.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\evmsService\GemsWeb.evmsService.FieldAnswer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\evmsService\GemsWeb.evmsService.Function.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -116,10 +124,16 @@
     <None Include="Service References\evmsService\GemsWeb.evmsService.OptimizedBudgetItems.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\evmsService\GemsWeb.evmsService.Participant.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\evmsService\GemsWeb.evmsService.PointOfContact.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\evmsService\GemsWeb.evmsService.Program.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\evmsService\GemsWeb.evmsService.Publish.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\evmsService\GemsWeb.evmsService.Review.datasource">
@@ -135,6 +149,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\evmsService\GemsWeb.evmsService.Service.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\evmsService\GemsWeb.evmsService.StaticField.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\evmsService\GemsWeb.evmsService.Task.datasource">
@@ -183,9 +200,23 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Event.aspx.cs">
+      <DependentUpon>Event.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Event.aspx.designer.cs">
+      <DependentUpon>Event.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EvmsService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>

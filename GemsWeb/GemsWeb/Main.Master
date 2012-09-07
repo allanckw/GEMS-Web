@@ -18,7 +18,7 @@
     <link rel="shortcut icon" href="<%=ResolveClientUrl("~/images/favicon.ico")%>" type="image/x-icon" />
     <!-- my style -->
     <%--<link rel="stylesheet" href="<%=ResolveClientUrl("~/css/style3.css")%>" type="text/css" />--%>
-   <link rel="stylesheet" href="css/style3.css" type="text/css" />
+    <link rel="stylesheet" href="css/style3.css" type="text/css" />
     <!-- Sharing -->
     <script type="text/javascript">        var switchTo5x = true;</script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
@@ -39,7 +39,22 @@
                 <asp:HyperLink NavigateUrl="~/default.aspx" runat="server" ID="hyperlink30"><h1>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Event Management <sup>Beta</sup></h1></asp:HyperLink>
-                <asp:PlaceHolder ID="pnl2" runat="server"></asp:PlaceHolder>
+                <asp:PlaceHolder ID="pnl2" runat="server">
+                    <ul id="nav">
+                        <li><a href="#intro">Welcome
+                            <asp:LoginName ID="LoginName1" runat="server"></asp:LoginName>
+                        </a></li>
+                        <li>
+                            <asp:LinkButton ID="LinkButton1" runat="server" ValidationGroup="sign0ut">Sign out</asp:LinkButton></li>
+                    </ul>
+                </asp:PlaceHolder>
+                <asp:PlaceHolder ID="pnl1" runat="server">
+                    <ul id="nav">
+                        <li><a href="#intro">Welcome Guest</a></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/login.aspx" ValidationGroup="sign1n">Sign in</asp:HyperLink></li>
+                    </ul>
+                </asp:PlaceHolder>
             </div>
             <div id="container">
                 <p class="description">
@@ -61,16 +76,18 @@
                 </div>
                 <br />
                 <br />
-                <asp:ContentPlaceHolder ID="cphCENTER" runat="server">
-                </asp:ContentPlaceHolder>
+                <div style="min-height: 1000px; margin-left: 120px;">
+                    <asp:ContentPlaceHolder ID="cphCENTER" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
             </div>
         </div>
     </div>
     <div id="footer">
         <center>
-            &copy; Copyright CS2103T (Team 47) and CS2101 (T4G2) -
+            &copy; Copyright CS3213 Software Systems Design (Team 01)
             <br />
-            National University of Singapore AY2011/2012 Semester 2
+            National University of Singapore AY2012/2013 Semester 1
             <br />
         </center>
     </div>
