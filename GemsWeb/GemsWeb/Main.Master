@@ -77,8 +77,10 @@
                 <br />
                 <br />
                 <div style="min-height: 1000px; margin-left: 120px;">
-                    <asp:ContentPlaceHolder ID="cphCENTER" runat="server">
-                    </asp:ContentPlaceHolder>
+                    
+                            <asp:ContentPlaceHolder ID="cphCENTER" runat="server">
+                            </asp:ContentPlaceHolder>
+
                 </div>
             </div>
         </div>

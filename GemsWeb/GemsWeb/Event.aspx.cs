@@ -17,71 +17,101 @@ namespace GemsWeb
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            int eventID  = int.Parse(Request.QueryString["EventID"]);
-            EventClient evClient = new EventClient();
-            Events event_ = evClient.GetEvent(eventID);
-            try
+            if (!Page.IsPostBack)
             {
-               
-
-                this.hypRegister.NavigateUrl = "~/Register.aspx?EventID=" + eventID.ToString() + "&Name=" + event_.Name;
-
-                RegistrationClient client = new RegistrationClient();
-                Publish publish = client.ViewPublish(eventID);
-
-                client.Close();
-                menuEvent.Visible = true;
-                this.mvTab.Visible = true;
-                lbleventname.Text = event_.Name;
-                lbleventdate.Text = event_.StartDateTime.ToString("dd MMM yyyy");
-                lbleventstarttime.Text = event_.StartDateTime.ToString("HH:mm");
-                lbleventendtime.Text = event_.EndDateTime.ToString("HH:mm");
-                lbleventdescription.Text = event_.Description;
-                hypeventwebsite.Text = event_.Website;
-                hypeventwebsite.NavigateUrl = event_.Website;
-                if (publish != null)
+                int eventID = int.Parse(Request.QueryString["EventID"]);
+                EventClient evClient = new EventClient();
+                Events event_ = evClient.GetEvent(eventID);
+                try
                 {
-                    lbleventpublishinfo.Text = publish.Remarks;
+                    this.hypRegister.NavigateUrl = "~/Register.aspx?EventID=" + eventID.ToString() + "&Name=" + event_.Name;
+
+                    RegistrationClient client = new RegistrationClient();
+                    Publish publish = client.ViewPublish(eventID);
+
+                    client.Close();
+                    menuEvent.Visible = true;
+                    this.mvTab.Visible = true;
+                    lbleventname.Text = event_.Name;
+                    lbleventdate.Text = "From " + event_.StartDateTime.ToString("dd MMM yyyy") + " To " + event_.EndDateTime.ToString("dd MMM yyyy");
+                    //lbleventstarttime.Text = event_.StartDateTime.ToString("HH:mm");
+                    //lbleventendtime.Text = event_.EndDateTime.ToString("HH:mm");
+                    lbleventdescription.Text = event_.Description;
+                    hypeventwebsite.Text = event_.Website;
+                    if (event_.Website == "http://")
+                    {
+                        hypeventwebsite.Visible = false;
+                        lblWebsite.Visible = false;
+                    }
+                    hypeventwebsite.NavigateUrl = event_.Website;
+                    if (publish != null)
+                    {
+                        lbleventpublishinfo.Text = publish.Remarks;
+                    }
+                    else
+                    {
+                        lbleventpublishinfo.Text = "";
+
+                    }
+
+                    ddlEventDay.DataSource = evClient.GetDays(event_.EventID);
+                    ddlEventDay.DataValueField = "DayID";
+                    ddlEventDay.DataTextField = "StartDateTime";
+
+                    ddlEventDay.DataBind();
+                    ddlEventDay_SelectedIndexChanged(this.ddlEventDay, new EventArgs());
+                    evClient.Close();
+                    //Day dependent now
+                    //Guest[] guests = event_.Guests;
+
+                    //gvGuest.DataSource = guests;
+                    //gvGuest.DataBind();
+
+                    //Program[] programs = event_.Programs;
+                    //gvProgram.DataSource = programs;
+                    //gvProgram.DataBind();
+
+
+                    if (publish == null || (publish.StartDateTime > DateTime.Now || publish.EndDateTime < DateTime.Now))
+                    {
+                        this.hypRegister.Visible = false;
+                    }
+                    else
+                    {
+                        hypRegister.Visible = true;
+                    }
+
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    lbleventpublishinfo.Text = "";
-
+                    Alert.Show("Error Retreiving List of Events from Server", false, "~/Default.aspx");
+                    return;
                 }
-                //Day dependent now
-                //Guest[] guests = event_.Guests;
-
-                //gvGuest.DataSource = guests;
-                //gvGuest.DataBind();
-
-                //Program[] programs = event_.Programs;
-                //gvProgram.DataSource = programs;
-                //gvProgram.DataBind();
-
-
-                if (publish == null || (publish.StartDateTime > DateTime.Now || publish.EndDateTime < DateTime.Now))
-                {
-
-                    this.hypRegister.Visible = false;
-                }
-                else
-                {
-                    hypRegister.Visible = true;
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                Alert.Show("Error Retreiving List of Events from Server", false, "~/Default.aspx");
-                return;
             }
         }
 
         protected void menuEvent_MenuItemClick(object sender, MenuEventArgs e)
         {
-            //mvTab.ActiveViewIndex = int.Parse(e.Item.Value);
+            mvTab.ActiveViewIndex = int.Parse(e.Item.Value);
             //Load Program/Guest as accordingly
+        }
+
+        protected void ddlEventDay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Load Program/Guest as accordingly to day
+            int dayID = int.Parse(ddlEventDay.SelectedValue);
+            EventClient evClient = new EventClient();
+            EventDay evDay = evClient.GetDay(dayID);
+            Guest[] guests = evDay.Guests;
+
+            gvGuest.DataSource = guests;
+            gvGuest.DataBind();
+
+            Program[] programs = evDay.Programs;
+            gvProgram.DataSource = programs;
+            gvProgram.DataBind();
+            evClient.Close();
         }
 
     }

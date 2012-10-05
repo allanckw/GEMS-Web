@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using GemsWeb.CustomControls;
 using GemsWeb.Controllers;
 using evmsService.entities;
+using evmsService.Controllers;
 
 namespace GemsWeb
 {
@@ -113,13 +114,14 @@ namespace GemsWeb
             }
         }
 
-        private void sendRequest(List<TupleOfintstring> fieldAnswers)
+        private void sendRequest(List<QuestionIDWithAnswer> fieldAnswers)
         {
             try
             {
 
                 RegistrationClient client = new RegistrationClient();
-                client.RegisterParticipant(eventID,fieldAnswers.ToArray());
+                client.RegisterParticipant(eventID, fieldAnswers.ToArray());
+                //client.RegisterParticipant(eventID, null);
                 // client.ViewField
                 client.Close();
                 Response.Redirect("~/RegistrationSuccessful.aspx");
@@ -137,21 +139,20 @@ namespace GemsWeb
             ccJoin.ValidateCaptcha(txtCaptcha.Text.Trim());
             if (ccJoin.UserValidated)
             {
-                List<TupleOfintstring> lstFieldAnswer = new List<TupleOfintstring>();
+                List<QuestionIDWithAnswer> lstFieldAnswer = new List<QuestionIDWithAnswer>();
                 foreach (Control c in this.phRegister.Controls)
                 {
-                    
                     if (c is RegistrationField)
                     {
-                        TupleOfintstring fieldAnswer = new TupleOfintstring();
+                        QuestionIDWithAnswer fieldAnswer = new QuestionIDWithAnswer();
 
                         RegistrationField regField = ((RegistrationField)c);
 
                         int FieldID = int.Parse(regField.ID);
                         String FieldText = regField.TextBoxValue;
 
-                        fieldAnswer.m_Item1 = FieldID;
-                        fieldAnswer.m_Item2 = FieldText;
+                        fieldAnswer.QuestionID = FieldID;
+                        fieldAnswer.Answer = FieldText;
 
                         lstFieldAnswer.Add(fieldAnswer);
                     }
@@ -161,8 +162,6 @@ namespace GemsWeb
                     sendRequest(lstFieldAnswer);
                 else
                     Alert.Show("There is Nothing to Send");
-
-
             }
             else
             {

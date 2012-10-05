@@ -30,6 +30,11 @@ namespace GemsWeb
 
                 RegistrationClient client = new RegistrationClient();
                 Events[] arrEventPublish = client.ViewEventForPublish(start, end);
+                if (txtTag.Text.Trim() != "")
+                {
+                    arrEventPublish = client.ViewEventForPublishByDateAndTag(start, end, txtTag.Text.Trim());
+                }
+
                 client.Close();
 
                 lstEvent.DataSource = arrEventPublish;

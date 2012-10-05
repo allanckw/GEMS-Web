@@ -225,15 +225,13 @@ namespace evmsService.entities
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private evmsService.entities.FacilityBookingConfirmed[] ConfirmedFacilityBookingField;
+        private int[] DaysIDField;
         
         private string DescriptionField;
         
         private System.DateTime EndDateTimeField;
         
         private int EventIDField;
-        
-        private evmsService.entities.Guest[] GuestsField;
         
         private int ItemCountField;
         
@@ -244,8 +242,6 @@ namespace evmsService.entities
         private evmsService.entities.User OrganizerField;
         
         private string OrganizeridField;
-        
-        private evmsService.entities.Program[] ProgramsField;
         
         private System.DateTime StartDateTimeField;
         
@@ -268,15 +264,15 @@ namespace evmsService.entities
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public evmsService.entities.FacilityBookingConfirmed[] ConfirmedFacilityBooking
+        public int[] DaysID
         {
             get
             {
-                return this.ConfirmedFacilityBookingField;
+                return this.DaysIDField;
             }
             set
             {
-                this.ConfirmedFacilityBookingField = value;
+                this.DaysIDField = value;
             }
         }
         
@@ -316,19 +312,6 @@ namespace evmsService.entities
             set
             {
                 this.EventIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public evmsService.entities.Guest[] Guests
-        {
-            get
-            {
-                return this.GuestsField;
-            }
-            set
-            {
-                this.GuestsField = value;
             }
         }
         
@@ -398,19 +381,6 @@ namespace evmsService.entities
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public evmsService.entities.Program[] Programs
-        {
-            get
-            {
-                return this.ProgramsField;
-            }
-            set
-            {
-                this.ProgramsField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime StartDateTime
         {
             get
@@ -459,6 +429,414 @@ namespace evmsService.entities
             set
             {
                 this.WebsiteField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Task", Namespace="http://schemas.datacontract.org/2004/07/evmsService.entities")]
+    public partial class Task : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private System.DateTime DueDateField;
+        
+        private int EventIDField;
+        
+        private double PercentageCompletionField;
+        
+        private string TaskDescField;
+        
+        private int TaskIDField;
+        
+        private string TaskNameField;
+        
+        private evmsService.entities.TaskAssignment[] TasksAssignmentsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DueDate
+        {
+            get
+            {
+                return this.DueDateField;
+            }
+            set
+            {
+                this.DueDateField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EventID
+        {
+            get
+            {
+                return this.EventIDField;
+            }
+            set
+            {
+                this.EventIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PercentageCompletion
+        {
+            get
+            {
+                return this.PercentageCompletionField;
+            }
+            set
+            {
+                this.PercentageCompletionField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TaskDesc
+        {
+            get
+            {
+                return this.TaskDescField;
+            }
+            set
+            {
+                this.TaskDescField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TaskID
+        {
+            get
+            {
+                return this.TaskIDField;
+            }
+            set
+            {
+                this.TaskIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TaskName
+        {
+            get
+            {
+                return this.TaskNameField;
+            }
+            set
+            {
+                this.TaskNameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public evmsService.entities.TaskAssignment[] TasksAssignments
+        {
+            get
+            {
+                return this.TasksAssignmentsField;
+            }
+            set
+            {
+                this.TasksAssignmentsField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TaskAssignment", Namespace="http://schemas.datacontract.org/2004/07/evmsService.entities")]
+    public partial class TaskAssignment : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int AssignedRoleIDField;
+        
+        private System.DateTime CompletedDateTimeField;
+        
+        private int EventIDField;
+        
+        private bool IsCompletedField;
+        
+        private bool IsReadField;
+        
+        private string RemarksField;
+        
+        private int TaskAssignmentIDField;
+        
+        private int TaskIDField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AssignedRoleID
+        {
+            get
+            {
+                return this.AssignedRoleIDField;
+            }
+            set
+            {
+                this.AssignedRoleIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CompletedDateTime
+        {
+            get
+            {
+                return this.CompletedDateTimeField;
+            }
+            set
+            {
+                this.CompletedDateTimeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EventID
+        {
+            get
+            {
+                return this.EventIDField;
+            }
+            set
+            {
+                this.EventIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsCompleted
+        {
+            get
+            {
+                return this.IsCompletedField;
+            }
+            set
+            {
+                this.IsCompletedField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsRead
+        {
+            get
+            {
+                return this.IsReadField;
+            }
+            set
+            {
+                this.IsReadField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Remarks
+        {
+            get
+            {
+                return this.RemarksField;
+            }
+            set
+            {
+                this.RemarksField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TaskAssignmentID
+        {
+            get
+            {
+                return this.TaskAssignmentIDField;
+            }
+            set
+            {
+                this.TaskAssignmentIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TaskID
+        {
+            get
+            {
+                return this.TaskIDField;
+            }
+            set
+            {
+                this.TaskIDField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EventDay", Namespace="http://schemas.datacontract.org/2004/07/evmsService.entities")]
+    public partial class EventDay : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private evmsService.entities.FacilityBookingConfirmed[] ConfirmedFacilityBookingField;
+        
+        private int DayIDField;
+        
+        private int DayNumberField;
+        
+        private System.DateTime EndDateTimeField;
+        
+        private int EventIDField;
+        
+        private evmsService.entities.Guest[] GuestsField;
+        
+        private evmsService.entities.Program[] ProgramsField;
+        
+        private System.DateTime StartDateTimeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public evmsService.entities.FacilityBookingConfirmed[] ConfirmedFacilityBooking
+        {
+            get
+            {
+                return this.ConfirmedFacilityBookingField;
+            }
+            set
+            {
+                this.ConfirmedFacilityBookingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DayID
+        {
+            get
+            {
+                return this.DayIDField;
+            }
+            set
+            {
+                this.DayIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DayNumber
+        {
+            get
+            {
+                return this.DayNumberField;
+            }
+            set
+            {
+                this.DayNumberField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EndDateTime
+        {
+            get
+            {
+                return this.EndDateTimeField;
+            }
+            set
+            {
+                this.EndDateTimeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EventID
+        {
+            get
+            {
+                return this.EventIDField;
+            }
+            set
+            {
+                this.EventIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public evmsService.entities.Guest[] Guests
+        {
+            get
+            {
+                return this.GuestsField;
+            }
+            set
+            {
+                this.GuestsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public evmsService.entities.Program[] Programs
+        {
+            get
+            {
+                return this.ProgramsField;
+            }
+            set
+            {
+                this.ProgramsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartDateTime
+        {
+            get
+            {
+                return this.StartDateTimeField;
+            }
+            set
+            {
+                this.StartDateTimeField = value;
             }
         }
     }
@@ -888,25 +1266,15 @@ namespace evmsService.entities
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Task", Namespace="http://schemas.datacontract.org/2004/07/evmsService.entities")]
-    public partial class Task : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="Credentials", Namespace="http://schemas.datacontract.org/2004/07/evmsService.entities")]
+    public partial class Credentials : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private System.DateTime DueDateField;
+        private string PasswordField;
         
-        private int EventIDField;
-        
-        private double PercentageCompletionField;
-        
-        private string TaskDescField;
-        
-        private int TaskIDField;
-        
-        private string TaskNameField;
-        
-        private evmsService.entities.TaskAssignment[] TasksAssignmentsField;
+        private string UserIDField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -921,234 +1289,28 @@ namespace evmsService.entities
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DueDate
+        public string Password
         {
             get
             {
-                return this.DueDateField;
+                return this.PasswordField;
             }
             set
             {
-                this.DueDateField = value;
+                this.PasswordField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int EventID
+        public string UserID
         {
             get
             {
-                return this.EventIDField;
+                return this.UserIDField;
             }
             set
             {
-                this.EventIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double PercentageCompletion
-        {
-            get
-            {
-                return this.PercentageCompletionField;
-            }
-            set
-            {
-                this.PercentageCompletionField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TaskDesc
-        {
-            get
-            {
-                return this.TaskDescField;
-            }
-            set
-            {
-                this.TaskDescField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TaskID
-        {
-            get
-            {
-                return this.TaskIDField;
-            }
-            set
-            {
-                this.TaskIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TaskName
-        {
-            get
-            {
-                return this.TaskNameField;
-            }
-            set
-            {
-                this.TaskNameField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public evmsService.entities.TaskAssignment[] TasksAssignments
-        {
-            get
-            {
-                return this.TasksAssignmentsField;
-            }
-            set
-            {
-                this.TasksAssignmentsField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TaskAssignment", Namespace="http://schemas.datacontract.org/2004/07/evmsService.entities")]
-    public partial class TaskAssignment : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int AssignedRoleIDField;
-        
-        private System.DateTime CompletedDateTimeField;
-        
-        private int EventIDField;
-        
-        private bool IsCompletedField;
-        
-        private bool IsReadField;
-        
-        private string RemarksField;
-        
-        private int TaskAssignmentIDField;
-        
-        private int TaskIDField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AssignedRoleID
-        {
-            get
-            {
-                return this.AssignedRoleIDField;
-            }
-            set
-            {
-                this.AssignedRoleIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CompletedDateTime
-        {
-            get
-            {
-                return this.CompletedDateTimeField;
-            }
-            set
-            {
-                this.CompletedDateTimeField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int EventID
-        {
-            get
-            {
-                return this.EventIDField;
-            }
-            set
-            {
-                this.EventIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsCompleted
-        {
-            get
-            {
-                return this.IsCompletedField;
-            }
-            set
-            {
-                this.IsCompletedField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsRead
-        {
-            get
-            {
-                return this.IsReadField;
-            }
-            set
-            {
-                this.IsReadField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Remarks
-        {
-            get
-            {
-                return this.RemarksField;
-            }
-            set
-            {
-                this.RemarksField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TaskAssignmentID
-        {
-            get
-            {
-                return this.TaskAssignmentIDField;
-            }
-            set
-            {
-                this.TaskAssignmentIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TaskID
-        {
-            get
-            {
-                return this.TaskIDField;
-            }
-            set
-            {
-                this.TaskIDField = value;
+                this.UserIDField = value;
             }
         }
     }
@@ -1663,6 +1825,39 @@ namespace evmsService.entities
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RoomTypes", Namespace="http://schemas.datacontract.org/2004/07/evmsService.entities")]
+    public enum RoomTypes : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Computer_Cluster = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conference_Room = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Executive_Room = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Lecture_Theatre = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Seminar_Room = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Teaching_Room = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Lab = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Outdoors = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        All = 99,
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Facility", Namespace="http://schemas.datacontract.org/2004/07/evmsService.entities")]
@@ -1679,7 +1874,21 @@ namespace evmsService.entities
         
         private evmsService.entities.Faculty FacultyField;
         
+        private bool HasMicrophoneField;
+        
+        private bool HasProjectorField;
+        
+        private bool HasVideoConferencingField;
+        
+        private bool HasVisualizerField;
+        
+        private bool HasWebCastField;
+        
+        private bool HasflexibleSeatingField;
+        
         private string LocationField;
+        
+        private evmsService.entities.RoomTypes RoomTypeField;
         
         private string TechContactField;
         
@@ -1748,6 +1957,84 @@ namespace evmsService.entities
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool HasMicrophone
+        {
+            get
+            {
+                return this.HasMicrophoneField;
+            }
+            set
+            {
+                this.HasMicrophoneField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool HasProjector
+        {
+            get
+            {
+                return this.HasProjectorField;
+            }
+            set
+            {
+                this.HasProjectorField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool HasVideoConferencing
+        {
+            get
+            {
+                return this.HasVideoConferencingField;
+            }
+            set
+            {
+                this.HasVideoConferencingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool HasVisualizer
+        {
+            get
+            {
+                return this.HasVisualizerField;
+            }
+            set
+            {
+                this.HasVisualizerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool HasWebCast
+        {
+            get
+            {
+                return this.HasWebCastField;
+            }
+            set
+            {
+                this.HasWebCastField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool HasflexibleSeating
+        {
+            get
+            {
+                return this.HasflexibleSeatingField;
+            }
+            set
+            {
+                this.HasflexibleSeatingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Location
         {
             get
@@ -1757,6 +2044,19 @@ namespace evmsService.entities
             set
             {
                 this.LocationField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public evmsService.entities.RoomTypes RoomType
+        {
+            get
+            {
+                return this.RoomTypeField;
+            }
+            set
+            {
+                this.RoomTypeField = value;
             }
         }
         
@@ -3452,6 +3752,159 @@ namespace evmsService.Controllers
             }
         }
     }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RoleWithUser", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    public partial class RoleWithUser : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private evmsService.entities.Role roleField;
+        
+        private string userField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public evmsService.entities.Role role
+        {
+            get
+            {
+                return this.roleField;
+            }
+            set
+            {
+                this.roleField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string user
+        {
+            get
+            {
+                return this.userField;
+            }
+            set
+            {
+                this.userField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QuestionIDWithAnswer", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    public partial class QuestionIDWithAnswer : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string AnswerField;
+        
+        private int QuestionIDField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Answer
+        {
+            get
+            {
+                return this.AnswerField;
+            }
+            set
+            {
+                this.AnswerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int QuestionID
+        {
+            get
+            {
+                return this.QuestionIDField;
+            }
+            set
+            {
+                this.QuestionIDField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ParticipantWithName", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    public partial class ParticipantWithName : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string nameField;
+        
+        private evmsService.entities.Participant participantField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name
+        {
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public evmsService.entities.Participant participant
+        {
+            get
+            {
+                return this.participantField;
+            }
+            set
+            {
+                this.participantField = value;
+            }
+        }
+    }
 }
 
 
@@ -3499,6 +3952,14 @@ public interface IEvent
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEvent/GetEvent", ReplyAction="http://tempuri.org/IEvent/GetEventResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IEvent/GetEventSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
     evmsService.entities.Events GetEvent(int eventid);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEvent/GetDay", ReplyAction="http://tempuri.org/IEvent/GetDayResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IEvent/GetDaySExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    evmsService.entities.EventDay GetDay(int DayID);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEvent/GetDays", ReplyAction="http://tempuri.org/IEvent/GetDaysResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IEvent/GetDaysSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    evmsService.entities.EventDay[] GetDays(int EventID);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -3583,6 +4044,16 @@ public partial class EventClient : System.ServiceModel.ClientBase<IEvent>, IEven
     public evmsService.entities.Events GetEvent(int eventid)
     {
         return base.Channel.GetEvent(eventid);
+    }
+    
+    public evmsService.entities.EventDay GetDay(int DayID)
+    {
+        return base.Channel.GetDay(DayID);
+    }
+    
+    public evmsService.entities.EventDay[] GetDays(int EventID)
+    {
+        return base.Channel.GetDays(EventID);
     }
 }
 
@@ -3907,6 +4378,10 @@ public interface IAdministration
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IAdministration/AuthenticateSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
     evmsService.entities.User Authenticate(string userid, string password);
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdministration/SecureAuthenticate", ReplyAction="http://tempuri.org/IAdministration/SecureAuthenticateResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IAdministration/SecureAuthenticateSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    evmsService.entities.User SecureAuthenticate(evmsService.entities.Credentials credentials);
+    
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdministration/AssignLocationAdmin", ReplyAction="http://tempuri.org/IAdministration/AssignLocationAdminResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IAdministration/AssignLocationAdminSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
     void AssignLocationAdmin(evmsService.entities.User assigner, string userid, evmsService.entities.Faculty fac);
@@ -3977,6 +4452,11 @@ public partial class AdministrationClient : System.ServiceModel.ClientBase<IAdmi
     public evmsService.entities.User Authenticate(string userid, string password)
     {
         return base.Channel.Authenticate(userid, password);
+    }
+    
+    public evmsService.entities.User SecureAuthenticate(evmsService.entities.Credentials credentials)
+    {
+        return base.Channel.SecureAuthenticate(credentials);
     }
     
     public void AssignLocationAdmin(evmsService.entities.User assigner, string userid, evmsService.entities.Faculty fac)
@@ -4180,7 +4660,7 @@ public interface IRole
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRole/ViewEventRoles", ReplyAction="http://tempuri.org/IRole/ViewEventRolesResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRole/ViewEventRolesSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    System.TupleOfRolestringRsiwEt5l[] ViewEventRoles(evmsService.entities.User user, evmsService.entities.Events evnt);
+    evmsService.Controllers.RoleWithUser[] ViewEventRoles(evmsService.entities.User user, evmsService.entities.Events evnt);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRole/ViewFunction", ReplyAction="http://tempuri.org/IRole/ViewFunctionResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRole/ViewFunctionSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
@@ -4275,7 +4755,7 @@ public partial class RoleClient : System.ServiceModel.ClientBase<IRole>, IRole
         return base.Channel.ViewRole(user, evnt);
     }
     
-    public System.TupleOfRolestringRsiwEt5l[] ViewEventRoles(evmsService.entities.User user, evmsService.entities.Events evnt)
+    public evmsService.Controllers.RoleWithUser[] ViewEventRoles(evmsService.entities.User user, evmsService.entities.Events evnt)
     {
         return base.Channel.ViewEventRoles(user, evnt);
     }
@@ -4302,7 +4782,7 @@ public interface IFacility
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFacility/UpdateFacility", ReplyAction="http://tempuri.org/IFacility/UpdateFacilityResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacility/UpdateFacilitySExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    void UpdateFacility(evmsService.entities.User user, string venue, evmsService.entities.Faculty fac, string loc, string bookingCon, string techCon, int cap);
+    void UpdateFacility(evmsService.entities.User user, string venue, evmsService.entities.Faculty faculty, string loc, string bookingCon, string techCon, int cap, evmsService.entities.RoomTypes rtype, bool hasWebcast, bool hasFlexiSeat, bool hasVidConf, bool hasMIC, bool hasProjector, bool hasVisualizer);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFacility/GetFacilityAdmin", ReplyAction="http://tempuri.org/IFacility/GetFacilityAdminResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacility/GetFacilityAdminSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
@@ -4316,17 +4796,17 @@ public interface IFacility
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacility/GetFacilityAdminsSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
     evmsService.entities.User[] GetFacilityAdmins();
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFacility/SearchFacilities", ReplyAction="http://tempuri.org/IFacility/SearchFacilitiesResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacility/SearchFacilitiesSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    evmsService.entities.Facility[] SearchFacilities(evmsService.entities.Faculty fac, int minCap, int maxCap, evmsService.entities.RoomTypes rtype, bool hasWebcast, bool hasFlexiSeat, bool hasVidConf, bool hasMIC, bool hasProjector, bool hasVisualizer);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFacility/SearchFacilitiesFac", ReplyAction="http://tempuri.org/IFacility/SearchFacilitiesFacResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacility/SearchFacilitiesFacSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    evmsService.entities.Faculty[] SearchFacilitiesFac(int minCap, int maxCap, evmsService.entities.RoomTypes rtype, bool hasWebcast, bool hasFlexiSeat, bool hasVidConf, bool hasMIC, bool hasProjector, bool hasVisualizer);
+    
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFacility/GetVenuesByFaculty", ReplyAction="http://tempuri.org/IFacility/GetVenuesByFacultyResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacility/GetVenuesByFacultySExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    evmsService.entities.Facility[] GetVenuesByFaculty(evmsService.entities.Faculty f, int minCap, int maxCap);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFacility/GetVenues", ReplyAction="http://tempuri.org/IFacility/GetVenuesResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacility/GetVenuesSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    evmsService.entities.Facility[] GetVenues(int minCap, int maxCap);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFacility/GetVenuesByCap", ReplyAction="http://tempuri.org/IFacility/GetVenuesByCapResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacility/GetVenuesByCapSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    evmsService.entities.Facility[] GetVenuesByCap(evmsService.entities.Faculty fac, string faciID, int minCap, int maxCap);
+    evmsService.entities.Facility[] GetVenuesByFaculty(evmsService.entities.Faculty fac);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -4368,9 +4848,9 @@ public partial class FacilityClient : System.ServiceModel.ClientBase<IFacility>,
         base.Channel.RemoveFacility(user, venue, fac);
     }
     
-    public void UpdateFacility(evmsService.entities.User user, string venue, evmsService.entities.Faculty fac, string loc, string bookingCon, string techCon, int cap)
+    public void UpdateFacility(evmsService.entities.User user, string venue, evmsService.entities.Faculty faculty, string loc, string bookingCon, string techCon, int cap, evmsService.entities.RoomTypes rtype, bool hasWebcast, bool hasFlexiSeat, bool hasVidConf, bool hasMIC, bool hasProjector, bool hasVisualizer)
     {
-        base.Channel.UpdateFacility(user, venue, fac, loc, bookingCon, techCon, cap);
+        base.Channel.UpdateFacility(user, venue, faculty, loc, bookingCon, techCon, cap, rtype, hasWebcast, hasFlexiSeat, hasVidConf, hasMIC, hasProjector, hasVisualizer);
     }
     
     public evmsService.entities.Faculty GetFacilityAdmin(string userid)
@@ -4388,19 +4868,19 @@ public partial class FacilityClient : System.ServiceModel.ClientBase<IFacility>,
         return base.Channel.GetFacilityAdmins();
     }
     
-    public evmsService.entities.Facility[] GetVenuesByFaculty(evmsService.entities.Faculty f, int minCap, int maxCap)
+    public evmsService.entities.Facility[] SearchFacilities(evmsService.entities.Faculty fac, int minCap, int maxCap, evmsService.entities.RoomTypes rtype, bool hasWebcast, bool hasFlexiSeat, bool hasVidConf, bool hasMIC, bool hasProjector, bool hasVisualizer)
     {
-        return base.Channel.GetVenuesByFaculty(f, minCap, maxCap);
+        return base.Channel.SearchFacilities(fac, minCap, maxCap, rtype, hasWebcast, hasFlexiSeat, hasVidConf, hasMIC, hasProjector, hasVisualizer);
     }
     
-    public evmsService.entities.Facility[] GetVenues(int minCap, int maxCap)
+    public evmsService.entities.Faculty[] SearchFacilitiesFac(int minCap, int maxCap, evmsService.entities.RoomTypes rtype, bool hasWebcast, bool hasFlexiSeat, bool hasVidConf, bool hasMIC, bool hasProjector, bool hasVisualizer)
     {
-        return base.Channel.GetVenues(minCap, maxCap);
+        return base.Channel.SearchFacilitiesFac(minCap, maxCap, rtype, hasWebcast, hasFlexiSeat, hasVidConf, hasMIC, hasProjector, hasVisualizer);
     }
     
-    public evmsService.entities.Facility[] GetVenuesByCap(evmsService.entities.Faculty fac, string faciID, int minCap, int maxCap)
+    public evmsService.entities.Facility[] GetVenuesByFaculty(evmsService.entities.Faculty fac)
     {
-        return base.Channel.GetVenuesByCap(fac, faciID, minCap, maxCap);
+        return base.Channel.GetVenuesByFaculty(fac);
     }
 }
 
@@ -4411,7 +4891,7 @@ public interface IFacilityBookings
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFacilityBookings/AddFacilityBookingRequest", ReplyAction="http://tempuri.org/IFacilityBookings/AddFacilityBookingRequestResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacilityBookings/AddFacilityBookingRequestSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    bool AddFacilityBookingRequest(evmsService.entities.User user, evmsService.entities.Events evnt, evmsService.entities.Faculty faculty, System.DateTime reqstart, System.DateTime reqEnd, evmsService.entities.FacilityBookingRequestDetails[] reqDetails);
+    bool AddFacilityBookingRequest(evmsService.entities.User user, evmsService.entities.EventDay evntDay, evmsService.entities.Faculty faculty, System.DateTime reqstart, System.DateTime reqEnd, evmsService.entities.FacilityBookingRequestDetails[] reqDetails);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFacilityBookings/CheckRequestExist", ReplyAction="http://tempuri.org/IFacilityBookings/CheckRequestExistResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacilityBookings/CheckRequestExistSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
@@ -4437,9 +4917,11 @@ public interface IFacilityBookings
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacilityBookings/CancelFacilityBookingSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
     void CancelFacilityBooking(evmsService.entities.User userser, int reqID, int evID, string remarks);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFacilityBookings/ViewFacilityBookingRequests", ReplyAction="http://tempuri.org/IFacilityBookings/ViewFacilityBookingRequestsResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacilityBookings/ViewFacilityBookingRequestsSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    evmsService.entities.FacilityBookingRequest[] ViewFacilityBookingRequests(evmsService.entities.User userser, int evID, int status, bool ViewAllStatus, bool ViewAllEvents);
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFacilityBookings/ViewFacilityBookingRequestsByEventDay", ReplyAction="http://tempuri.org/IFacilityBookings/ViewFacilityBookingRequestsByEventDayRespons" +
+        "e")]
+    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacilityBookings/ViewFacilityBookingRequestsByEventDaySExcept" +
+        "ionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    evmsService.entities.FacilityBookingRequest[] ViewFacilityBookingRequestsByEventDay(evmsService.entities.User user, int evID, evmsService.entities.BookingStatus status, bool ViewAllStatus, bool ViewAllEventDays, System.DateTime day);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFacilityBookings/GetActivitiesForDay", ReplyAction="http://tempuri.org/IFacilityBookings/GetActivitiesForDayResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IFacilityBookings/GetActivitiesForDaySExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
@@ -4484,9 +4966,9 @@ public partial class FacilityBookingsClient : System.ServiceModel.ClientBase<IFa
     {
     }
     
-    public bool AddFacilityBookingRequest(evmsService.entities.User user, evmsService.entities.Events evnt, evmsService.entities.Faculty faculty, System.DateTime reqstart, System.DateTime reqEnd, evmsService.entities.FacilityBookingRequestDetails[] reqDetails)
+    public bool AddFacilityBookingRequest(evmsService.entities.User user, evmsService.entities.EventDay evntDay, evmsService.entities.Faculty faculty, System.DateTime reqstart, System.DateTime reqEnd, evmsService.entities.FacilityBookingRequestDetails[] reqDetails)
     {
-        return base.Channel.AddFacilityBookingRequest(user, evnt, faculty, reqstart, reqEnd, reqDetails);
+        return base.Channel.AddFacilityBookingRequest(user, evntDay, faculty, reqstart, reqEnd, reqDetails);
     }
     
     public bool CheckRequestExist(int eventid, System.DateTime start, System.DateTime end)
@@ -4519,9 +5001,9 @@ public partial class FacilityBookingsClient : System.ServiceModel.ClientBase<IFa
         base.Channel.CancelFacilityBooking(userser, reqID, evID, remarks);
     }
     
-    public evmsService.entities.FacilityBookingRequest[] ViewFacilityBookingRequests(evmsService.entities.User userser, int evID, int status, bool ViewAllStatus, bool ViewAllEvents)
+    public evmsService.entities.FacilityBookingRequest[] ViewFacilityBookingRequestsByEventDay(evmsService.entities.User user, int evID, evmsService.entities.BookingStatus status, bool ViewAllStatus, bool ViewAllEventDays, System.DateTime day)
     {
-        return base.Channel.ViewFacilityBookingRequests(userser, evID, status, ViewAllStatus, ViewAllEvents);
+        return base.Channel.ViewFacilityBookingRequestsByEventDay(user, evID, status, ViewAllStatus, ViewAllEventDays, day);
     }
     
     public evmsService.entities.FacilityBookingConfirmed[] GetActivitiesForDay(evmsService.entities.User user, System.DateTime day, evmsService.entities.Faculty faculty, string venue)
@@ -4840,7 +5322,7 @@ public interface IRegistration
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistration/RegisterParticipant", ReplyAction="http://tempuri.org/IRegistration/RegisterParticipantResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRegistration/RegisterParticipantSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    void RegisterParticipant(int eventID, System.TupleOfintstring[] answers);
+    void RegisterParticipant(int eventID, evmsService.Controllers.QuestionIDWithAnswer[] answers);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistration/DeleteParticipant", ReplyAction="http://tempuri.org/IRegistration/DeleteParticipantResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRegistration/DeleteParticipantSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
@@ -4868,7 +5350,11 @@ public interface IRegistration
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistration/ViewEventParticipantWithName", ReplyAction="http://tempuri.org/IRegistration/ViewEventParticipantWithNameResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRegistration/ViewEventParticipantWithNameSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    System.TupleOfParticipantstringRsiwEt5l[] ViewEventParticipantWithName(evmsService.entities.User user, int eventID);
+    evmsService.Controllers.ParticipantWithName[] ViewEventParticipantWithName(evmsService.entities.User user, int eventID);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistration/EditParticipant", ReplyAction="http://tempuri.org/IRegistration/EditParticipantResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRegistration/EditParticipantSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    evmsService.entities.Participant EditParticipant(int ParticipantID, bool paid);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistration/AddPublish", ReplyAction="http://tempuri.org/IRegistration/AddPublishResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRegistration/AddPublishSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
@@ -4880,7 +5366,7 @@ public interface IRegistration
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistration/EditPublish", ReplyAction="http://tempuri.org/IRegistration/EditPublishResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRegistration/EditPublishSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    void EditPublish(evmsService.entities.User user, int eventID, System.DateTime startDateTime, System.DateTime endDateTime, string remarks);
+    void EditPublish(evmsService.entities.User user, int eventID, System.DateTime startDateTime, System.DateTime endDateTime, string remarks, bool isPayable, decimal amount);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistration/ViewPublish", ReplyAction="http://tempuri.org/IRegistration/ViewPublishResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRegistration/ViewPublishSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
@@ -4889,6 +5375,10 @@ public interface IRegistration
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistration/ViewEventForPublish", ReplyAction="http://tempuri.org/IRegistration/ViewEventForPublishResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRegistration/ViewEventForPublishSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
     evmsService.entities.Events[] ViewEventForPublish(System.DateTime start, System.DateTime end);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistration/ViewEventForPublishByDateAndTag", ReplyAction="http://tempuri.org/IRegistration/ViewEventForPublishByDateAndTagResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRegistration/ViewEventForPublishByDateAndTagSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    evmsService.entities.Events[] ViewEventForPublishByDateAndTag(System.DateTime start, System.DateTime end, string tag);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -4925,7 +5415,7 @@ public partial class RegistrationClient : System.ServiceModel.ClientBase<IRegist
     {
     }
     
-    public void RegisterParticipant(int eventID, System.TupleOfintstring[] answers)
+    public void RegisterParticipant(int eventID, evmsService.Controllers.QuestionIDWithAnswer[] answers)
     {
         base.Channel.RegisterParticipant(eventID, answers);
     }
@@ -4960,9 +5450,14 @@ public partial class RegistrationClient : System.ServiceModel.ClientBase<IRegist
         return base.Channel.ViewStaticField();
     }
     
-    public System.TupleOfParticipantstringRsiwEt5l[] ViewEventParticipantWithName(evmsService.entities.User user, int eventID)
+    public evmsService.Controllers.ParticipantWithName[] ViewEventParticipantWithName(evmsService.entities.User user, int eventID)
     {
         return base.Channel.ViewEventParticipantWithName(user, eventID);
+    }
+    
+    public evmsService.entities.Participant EditParticipant(int ParticipantID, bool paid)
+    {
+        return base.Channel.EditParticipant(ParticipantID, paid);
     }
     
     public void AddPublish(evmsService.entities.User user, int eventID, System.DateTime startDateTime, System.DateTime endDateTime, string remarks, bool isPayable, decimal paymentAmount)
@@ -4975,9 +5470,9 @@ public partial class RegistrationClient : System.ServiceModel.ClientBase<IRegist
         base.Channel.DeletePublish(user, eventID);
     }
     
-    public void EditPublish(evmsService.entities.User user, int eventID, System.DateTime startDateTime, System.DateTime endDateTime, string remarks)
+    public void EditPublish(evmsService.entities.User user, int eventID, System.DateTime startDateTime, System.DateTime endDateTime, string remarks, bool isPayable, decimal amount)
     {
-        base.Channel.EditPublish(user, eventID, startDateTime, endDateTime, remarks);
+        base.Channel.EditPublish(user, eventID, startDateTime, endDateTime, remarks, isPayable, amount);
     }
     
     public evmsService.entities.Publish ViewPublish(int eventID)
@@ -4988,6 +5483,11 @@ public partial class RegistrationClient : System.ServiceModel.ClientBase<IRegist
     public evmsService.entities.Events[] ViewEventForPublish(System.DateTime start, System.DateTime end)
     {
         return base.Channel.ViewEventForPublish(start, end);
+    }
+    
+    public evmsService.entities.Events[] ViewEventForPublishByDateAndTag(System.DateTime start, System.DateTime end, string tag)
+    {
+        return base.Channel.ViewEventForPublishByDateAndTag(start, end, tag);
     }
 }
 
@@ -5121,161 +5621,52 @@ public partial class BudgetClient : System.ServiceModel.ClientBase<IBudget>, IBu
         return base.Channel.ViewBudgetIncome(user, eventID);
     }
 }
-namespace System
+
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+[System.ServiceModel.ServiceContractAttribute(ConfigurationName="IMobile")]
+public interface IMobile
 {
-    using System.Runtime.Serialization;
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMobile/GetDataInt", ReplyAction="http://tempuri.org/IMobile/GetDataIntResponse")]
+    string GetDataInt(int value);
+}
+
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+public interface IMobileChannel : IMobile, System.ServiceModel.IClientChannel
+{
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+public partial class MobileClient : System.ServiceModel.ClientBase<IMobile>, IMobile
+{
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TupleOfRolestringRsiwEt5l", Namespace="http://schemas.datacontract.org/2004/07/System")]
-    public partial class TupleOfRolestringRsiwEt5l : object, System.Runtime.Serialization.IExtensibleDataObject
+    public MobileClient()
     {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private evmsService.entities.Role m_Item1Field;
-        
-        private string m_Item2Field;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public evmsService.entities.Role m_Item1
-        {
-            get
-            {
-                return this.m_Item1Field;
-            }
-            set
-            {
-                this.m_Item1Field = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string m_Item2
-        {
-            get
-            {
-                return this.m_Item2Field;
-            }
-            set
-            {
-                this.m_Item2Field = value;
-            }
-        }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TupleOfintstring", Namespace="http://schemas.datacontract.org/2004/07/System")]
-    public partial class TupleOfintstring : object, System.Runtime.Serialization.IExtensibleDataObject
+    public MobileClient(string endpointConfigurationName) : 
+            base(endpointConfigurationName)
     {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int m_Item1Field;
-        
-        private string m_Item2Field;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int m_Item1
-        {
-            get
-            {
-                return this.m_Item1Field;
-            }
-            set
-            {
-                this.m_Item1Field = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string m_Item2
-        {
-            get
-            {
-                return this.m_Item2Field;
-            }
-            set
-            {
-                this.m_Item2Field = value;
-            }
-        }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TupleOfParticipantstringRsiwEt5l", Namespace="http://schemas.datacontract.org/2004/07/System")]
-    public partial class TupleOfParticipantstringRsiwEt5l : object, System.Runtime.Serialization.IExtensibleDataObject
+    public MobileClient(string endpointConfigurationName, string remoteAddress) : 
+            base(endpointConfigurationName, remoteAddress)
     {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private evmsService.entities.Participant m_Item1Field;
-        
-        private string m_Item2Field;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public evmsService.entities.Participant m_Item1
-        {
-            get
-            {
-                return this.m_Item1Field;
-            }
-            set
-            {
-                this.m_Item1Field = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string m_Item2
-        {
-            get
-            {
-                return this.m_Item2Field;
-            }
-            set
-            {
-                this.m_Item2Field = value;
-            }
-        }
+    }
+    
+    public MobileClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+            base(endpointConfigurationName, remoteAddress)
+    {
+    }
+    
+    public MobileClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+            base(binding, remoteAddress)
+    {
+    }
+    
+    public string GetDataInt(int value)
+    {
+        return base.Channel.GetDataInt(value);
     }
 }

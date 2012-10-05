@@ -80,6 +80,7 @@ namespace GemsWeb.CustomControls
                 myCalendar.SelectedDate = System.DateTime.Now.AddMonths(this.monthFromCurrent);
                 txtDate.Text = myCalendar.SelectedDate.ToString("dd MMM yyyy");
                 dTable.Visible = false;
+                
             }
         }
 
@@ -91,6 +92,7 @@ namespace GemsWeb.CustomControls
                 {
                     drpCalMonth.Items.Add(Enum.GetName(typeof(Months), i));
                 }
+                
             }
             else
             {
@@ -99,6 +101,7 @@ namespace GemsWeb.CustomControls
                     drpCalMonth.Items.Add(Enum.GetName(typeof(Months), i));
                 }
             }
+            drpCalMonth.SelectedIndex = DateTime.Now.Month - 1;
         }
 
         protected void Calendar1_DayRender(object sender, System.Web.UI.WebControls.DayRenderEventArgs e)
