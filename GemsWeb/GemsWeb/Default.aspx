@@ -3,13 +3,7 @@
 
 <%@ Register Src="~/CustomControls/DatePicker.ascx" TagName="DatePicker" TagPrefix="GEMS" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCENTER" runat="server">
-    <%--    <div style="float: left; width: 377px; margin: auto auto auto auto;">
-    <h3>
-            <a href="#">List of Events</a></h3>
-        <asp:ListBox ID="lstEvent" runat="server" Height="420px" Width="200px" 
-            AutoPostBack="True" onselectedindexchanged="lstEvent_SelectedIndexChanged">
-        </asp:ListBox>
-    </div>--%>
+
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div style="float: left;">

@@ -121,9 +121,8 @@ namespace GemsWeb
 
                 RegistrationClient client = new RegistrationClient();
                 client.RegisterParticipant(eventID, fieldAnswers.ToArray());
-                //client.RegisterParticipant(eventID, null);
-                // client.ViewField
                 client.Close();
+
                 Response.Redirect("~/RegistrationSuccessful.aspx");
             }
             catch (Exception ex)

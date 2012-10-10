@@ -10,9 +10,14 @@ C:\Users\Nick\Documents\Visual Studio 2010\Projects\Git\GEMS-Web\GEMS-Web\GemsWe
 C:\Users\Nick\Documents\Visual Studio 2010\Projects\Git\GEMS-Web\GEMS-Web\GemsWeb\GemsWeb\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Nick\Documents\Visual Studio 2010\Projects\Git\GEMS-Web\GEMS-Web\GemsWeb\GemsWeb\obj\Debug\GemsWeb.dll
 C:\Users\Nick\Documents\Visual Studio 2010\Projects\Git\GEMS-Web\GEMS-Web\GemsWeb\GemsWeb\obj\Debug\GemsWeb.pdb
-F:\evms\GEMS-Web\GemsWeb\GemsWeb\obj\Debug\ResolveAssemblyReference.cache
-F:\evms\GEMS-Web\GemsWeb\GemsWeb\obj\Debug\GemsWeb.dll
 F:\evms\GEMS-Web\GemsWeb\GemsWeb\bin\GemsWeb.dll
 F:\evms\GEMS-Web\GemsWeb\GemsWeb\bin\GemsWeb.pdb
-F:\evms\GEMS-Web\GemsWeb\GemsWeb\bin\MSCaptcha.xml
+F:\evms\GEMS-Web\GemsWeb\GemsWeb\obj\Debug\ResolveAssemblyReference.cache
+F:\evms\GEMS-Web\GemsWeb\GemsWeb\obj\Debug\GemsWeb.dll
 F:\evms\GEMS-Web\GemsWeb\GemsWeb\obj\Debug\GemsWeb.pdb
+F:\evms\GemsWeb\GemsWeb\bin\GemsWeb.dll
+F:\evms\GemsWeb\GemsWeb\bin\GemsWeb.pdb
+F:\evms\GemsWeb\GemsWeb\obj\Debug\ResolveAssemblyReference.cache
+F:\evms\GemsWeb\GemsWeb\obj\Debug\GemsWeb.dll
+F:\evms\GemsWeb\GemsWeb\obj\Debug\GemsWeb.pdb
+F:\evms\GEMS-Web\GemsWeb\GemsWeb\bin\MSCaptcha.xml

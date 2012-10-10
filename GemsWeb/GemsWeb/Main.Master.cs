@@ -26,7 +26,7 @@ namespace GemsWeb
 
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 Session["L6446"] = "0";
             }

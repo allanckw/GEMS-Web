@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="yes"?>
+<Carts>
+  <Cart rec_id="1" cart_id="qwert@abc.com" Event_ID="70" price="10.00" quantity="1" />
+</Carts>

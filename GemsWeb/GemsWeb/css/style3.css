@@ -1,3 +1,7 @@
+@import url(aspComponents.css);
+@import url(menu.css);
+@import url(login-box.css);
+
 body
 {
 	font: 90%/1.6em 'Ubuntu' , arial, serif;
@@ -5,7 +9,6 @@ body
 	margin: 0;
 	background: url(../images/body.jpg) top repeat-x #121212;
 	background-attachment: fixed;
-	min-height: 1000;
 }
 
 *
@@ -24,7 +27,7 @@ div.fluid
 {
 	background: #1e1e1e;
 	padding: 0 0 0 0;
-	width: 1000px;
+	width: 1020px;
 	margin: 0 auto;
 	position: relative;
 	background-color: white;
@@ -74,7 +77,7 @@ div.fluid
 	color: #222;
 	float: left;
 	padding: 30px 20px 14px 45px;
-	background: url(../images/h21.gif) left bottom no-repeat;
+	background: url(../images/h1.gif) left bottom no-repeat;
 }
 #header h1 a
 {
@@ -97,7 +100,6 @@ div.fluid
 {
 	clear: both;
 	padding: 0 0 0 0;
-	min-height:700px;
 }
 
 p.description
@@ -124,7 +126,7 @@ p.description a:hover
 
 #sidebar
 {
-	width: 240px;
+	width: 280px;
 	float: right;
 	background: url(../images/sidebar.jpg) top right no-repeat #fff;
 	padding: 0 0 0 0;
@@ -241,6 +243,13 @@ p.news a.more, .more
 	color: #0033aa;
 }
 
+input
+{
+	padding: 5px;
+	border: 1px solid #eee;
+	color: #555;
+}
+
 #content h3
 {
 	font: 1.3em Trebuchet MS;
@@ -284,9 +293,8 @@ a:hover
 	text-align: center;
 	border: 1px solid #000;
 	padding: 10px;
-	
-	margin: 0 0 0 0;
-	color:	#F0F0F0;
+	margin: 30px 0 0 0;
+	color: #ccc;
 	width: 980px;
 	margin: 0 auto;
 	font-size: 8pt;
