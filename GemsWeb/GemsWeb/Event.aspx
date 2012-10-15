@@ -63,7 +63,10 @@
                                 <HeaderStyle Width="250px" />
                                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:BoundField>
-                            <asp:BoundField DataField="Location" HeaderText="Location" />
+                            <asp:BoundField DataField="Location" HeaderText="Location">
+                                <HeaderStyle Width="250px" />
+                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            </asp:BoundField>
                         </Columns>
                         <EditRowStyle BackColor="#999999" />
                         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

@@ -21,3 +21,8 @@ F:\evms\GemsWeb\GemsWeb\obj\Debug\ResolveAssemblyReference.cache
 F:\evms\GemsWeb\GemsWeb\obj\Debug\GemsWeb.dll
 F:\evms\GemsWeb\GemsWeb\obj\Debug\GemsWeb.pdb
 F:\evms\GEMS-Web\GemsWeb\GemsWeb\bin\MSCaptcha.xml
+C:\Nus\GitHub\Gems\To test\GEMS-Web\GemsWeb\GemsWeb\bin\GemsWeb.dll
+C:\Nus\GitHub\Gems\To test\GEMS-Web\GemsWeb\GemsWeb\bin\GemsWeb.pdb
+C:\Nus\GitHub\Gems\To test\GEMS-Web\GemsWeb\GemsWeb\obj\Debug\ResolveAssemblyReference.cache
+C:\Nus\GitHub\Gems\To test\GEMS-Web\GemsWeb\GemsWeb\obj\Debug\GemsWeb.dll
+C:\Nus\GitHub\Gems\To test\GEMS-Web\GemsWeb\GemsWeb\obj\Debug\GemsWeb.pdb
