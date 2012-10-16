@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Carts.xml" />
+    <Content Include="contactus.aspx" />
     <Content Include="css\aspComponents.css" />
     <Content Include="css\login-box.css" />
     <Content Include="css\menu.css" />
@@ -190,6 +191,7 @@
     <Content Include="Paypal.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegistrationSuccessful.aspx" />
+    <Content Include="tos.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -198,8 +200,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="contactus.aspx.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contactus.aspx.designer.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\Carts.cs" />
     <Compile Include="Controllers\Alert.cs" />
+    <Compile Include="Controllers\MailHandler.cs" />
     <Compile Include="CustomControls\DatePicker.ascx.cs">
       <DependentUpon>DatePicker.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -279,6 +289,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="tos.aspx.cs">
+      <DependentUpon>tos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tos.aspx.designer.cs">
+      <DependentUpon>tos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

@@ -13,7 +13,7 @@ namespace GemsWeb
     public partial class Event : System.Web.UI.Page
     {
 
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,7 +21,17 @@ namespace GemsWeb
             {
                 int eventID = int.Parse(Request.QueryString["EventID"]);
                 EventClient evClient = new EventClient();
-                Events event_ = evClient.GetEvent(eventID);
+                Events event_;
+                try
+                {
+                    event_ = evClient.GetEvent(eventID);
+                }
+                catch (Exception)
+                {
+                    Alert.Show("Event Does not exist, please try again", true);
+                    return;
+                }
+
                 try
                 {
                     this.hypRegister.NavigateUrl = "~/Register.aspx?EventID=" + eventID.ToString() + "&Name=" + event_.Name;
@@ -61,16 +71,6 @@ namespace GemsWeb
                     ddlEventDay.DataBind();
                     ddlEventDay_SelectedIndexChanged(this.ddlEventDay, new EventArgs());
                     evClient.Close();
-                    //Day dependent now
-                    //Guest[] guests = event_.Guests;
-
-                    //gvGuest.DataSource = guests;
-                    //gvGuest.DataBind();
-
-                    //Program[] programs = event_.Programs;
-                    //gvProgram.DataSource = programs;
-                    //gvProgram.DataBind();
-
 
                     if (publish == null || (publish.StartDateTime > DateTime.Now || publish.EndDateTime < DateTime.Now))
                     {
@@ -80,8 +80,6 @@ namespace GemsWeb
                     {
                         hypRegister.Visible = true;
                     }
-
-
                 }
                 catch (Exception ex)
                 {

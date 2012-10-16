@@ -126,8 +126,6 @@
                                 <div>
                                     <ul>
                                         <li>
-                                            <asp:HyperLink ID="HyperLink20" runat="server" NavigateUrl="~/AboutUs.aspx"><span>About Us</span></asp:HyperLink></li>
-                                        <li>
                                             <asp:HyperLink ID="HyperLink21" runat="server" NavigateUrl="~/contactus.aspx"><span>Contact Us</span></asp:HyperLink></li>
                                         <li>
                                             <asp:HyperLink ID="HyperLink23" runat="server" NavigateUrl="~/tos.aspx"><span>Terms of Service</span></asp:HyperLink></li>
