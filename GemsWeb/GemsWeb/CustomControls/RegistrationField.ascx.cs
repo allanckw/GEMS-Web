@@ -38,5 +38,18 @@ namespace GemsWeb.CustomControls
             set { this.txtFieldResult.Text = value; }
 
         }
+
+        public string HelpText
+        {
+            get
+            {
+                return this.txtFieldResult.ToolTip;
+            }
+            set
+            {
+                if (value.Length > 0)
+                    this.txtFieldResult.ToolTip = value;
+            }
+        }
     }
 }

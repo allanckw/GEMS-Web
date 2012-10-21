@@ -140,9 +140,12 @@ namespace GemsWeb.Controllers
                 expression = "cart_id = '" + userid.ToString() + "'";
 
                 DataRow[] tempRow = cart.Tables[0].Select(expression);
-                if (tempRow.Length == 1)
+                if (tempRow.Length > 0)
                 {
-                    tempRow[0].Delete();
+                    foreach (DataRow r in tempRow)
+                    {
+                        r.Delete();
+                    }
                     cart.WriteXml(xmlFile);
                 }
             }
@@ -193,7 +196,7 @@ namespace GemsWeb.Controllers
                 int max_rec = 0;
                 foreach (XmlNode node in nodes)
                 {
-                    int currentRec = Convert.ToInt32(node.Attributes[columnName].InnerText);
+                    int currentRec = int.Parse(node.Attributes[columnName].InnerText);
                     if ((currentRec > max_rec))
                     {
                         max_rec = currentRec;

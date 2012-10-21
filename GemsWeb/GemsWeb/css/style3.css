@@ -276,12 +276,12 @@ li
 #content img
 {
 	padding: 5px;
-	border: 1px solid #eee;
+	border: none;
 }
 a
 {
 	color: #222;
-	border-bottom: 1px dotted #ccc;
+	border-bottom: none;
 	text-decoration: none;
 }
 a:hover
@@ -303,3 +303,5 @@ a:hover
 {
 	color: #eee;
 }
+
+

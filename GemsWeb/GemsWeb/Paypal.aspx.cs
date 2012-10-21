@@ -22,7 +22,7 @@ namespace GemsWeb
         private void Page_Load(System.Object sender, System.EventArgs e)
         {
             // determining the URL to work with depending on whether sandbox or a real PayPal account should be used
-            bool sandbox = Convert.ToBoolean(WebConfigurationManager.AppSettings["UseSandbox"]);
+            bool sandbox = Boolean.Parse(WebConfigurationManager.AppSettings["UseSandbox"]);
             if (sandbox)
             {
                 URL = "https://www.sandbox.paypal.com/cgi-bin/webscr";
@@ -32,14 +32,8 @@ namespace GemsWeb
                 URL = "https://www.paypal.com/cgi-bin/webscr";
             }
 
-            //This parameter determines the was information about successfull transaction will be passed to the script
-            // specified in the return_url parameter.
-            // "1" - no parameters will be passed.
-            // "2" - the POST method will be used.
-            // "0" - the GET method will be used. 
-            // The parameter is "0" by deault.
             bool sendToReturnURL = false;
-            sendToReturnURL = Convert.ToBoolean(WebConfigurationManager.AppSettings["SendToReturnURL"]);
+            sendToReturnURL = Boolean.Parse(WebConfigurationManager.AppSettings["SendToReturnURL"]);
             if (sendToReturnURL)
             {
                 rm = "2";

@@ -53,7 +53,7 @@
             </asp:UpdatePanel>
         </div>
         <div>
-            <asp:Label ID="lblNoEvents" runat="server" ForeColor="Red" Text="No records were found for the corresponding e=mail address and timeframe"></asp:Label>
+            <asp:Label ID="lblNoEvents" runat="server" ForeColor="Red" Text="No records were found for the corresponding e-mail address and timeframe"></asp:Label>
             <asp:Panel ID="pnlEvents" runat="server" Visible="false">
                 <h3>
                     All Registered Events For Email Address</h3>
@@ -65,12 +65,12 @@
                     OnRowCommand="gvGoods_RowCommand" GridLines="Horizontal" EmptyDataText="There are no events to display"
                     DataKeyNames="EventID" ForeColor="Black">
                     <Columns>
-                        <asp:BoundField DataField="EventID" HeaderText="Event ID" />
-                        <asp:BoundField DataField="EventName" HeaderText="Event Name" />
-                        <asp:BoundField DataField="EventCost" HeaderText="Price " />
-                        <asp:BoundField DataField="EventStartDate" HeaderText="Start Date " DataFormatString="{0:dd MMM yyyy}" />
-                        <asp:BoundField DataField="EventEndDate" HeaderText="End Date " DataFormatString="{0:dd MMM yyyy}" />
-                        <asp:ButtonField ButtonType="Image" CommandName="AddToBasket" ImageUrl="https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif"
+                        <asp:BoundField DataField="EventID" HeaderText="Event ID"  HeaderStyle-HorizontalAlign="Left" />
+                        <asp:BoundField DataField="EventName" HeaderText="Event Name" HeaderStyle-HorizontalAlign="Left" />
+                        <asp:BoundField DataField="EventCost" HeaderText="Price " HeaderStyle-HorizontalAlign="Left" />
+                        <asp:BoundField DataField="EventStartDate" HeaderText="Start Date " DataFormatString="{0:dd MMM yyyy}"  HeaderStyle-HorizontalAlign="Left"/>
+                        <asp:BoundField DataField="EventEndDate" HeaderText="End Date " DataFormatString="{0:dd MMM yyyy}"  HeaderStyle-HorizontalAlign="Left"/>
+                        <asp:ButtonField ButtonType="Image" CommandName="AddToBasket" ImageUrl="https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif" HeaderStyle-HorizontalAlign="Left"
                             Text="Add to Cart" />
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -97,11 +97,11 @@
                     GridLines="Horizontal" EmptyDataText="There are no events to display" 
                     DataKeyNames="EventID" ForeColor="Black">
                     <Columns>
-                        <asp:BoundField DataField="EventID" HeaderText="Event ID" />
-                        <asp:BoundField DataField="EventName" HeaderText="Event Name" />
-                        <asp:BoundField DataField="EventCost" HeaderText="Price " />
-                        <asp:BoundField DataField="EventStartDate" HeaderText="Start Date " DataFormatString="{0:dd MMM yyyy}" />
-                        <asp:BoundField DataField="EventEndDate" HeaderText="End Date " DataFormatString="{0:dd MMM yyyy}" />
+                        <asp:BoundField DataField="EventID" HeaderText="Event ID" HeaderStyle-HorizontalAlign="Left"   Visible="false"  />
+                        <asp:BoundField DataField="EventName" HeaderText="Event Name" HeaderStyle-HorizontalAlign="Left" />
+                        <asp:BoundField DataField="EventCost" HeaderText="Price "  HeaderStyle-HorizontalAlign="Left"/>
+                        <asp:BoundField DataField="EventStartDate" HeaderText="Start Date " DataFormatString="{0:dd MMM yyyy}"  HeaderStyle-HorizontalAlign="Left" />
+                        <asp:BoundField DataField="EventEndDate" HeaderText="End Date " DataFormatString="{0:dd MMM yyyy}"  HeaderStyle-HorizontalAlign="Left"/>
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                     <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />

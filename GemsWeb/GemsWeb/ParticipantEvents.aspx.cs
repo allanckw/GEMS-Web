@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Xml;
 using evmsService.Controllers;
 using GemsWeb.Controllers;
+using System.Diagnostics;
 
 namespace GemsWeb
 {
@@ -17,6 +18,7 @@ namespace GemsWeb
 
             if (!Page.IsPostBack)
             {
+                txtEmail.Text = Session["partiEmail"].ToString();
                 lblNoEvents.Visible = false;
             }
 
@@ -38,8 +40,6 @@ namespace GemsWeb
             {
                 loadData(dpFrom.CalDate, dpTo.CalDate);
             }
-
-
         }
 
         private void loadData(DateTime from, DateTime to)
@@ -85,7 +85,7 @@ namespace GemsWeb
             gv.DataBind();
         }
 
-        protected bool AddToBasket(string cart_id, string eventID, string price)
+        protected bool AddToBasket(string cart_id, string eventID, string price, string eventName)
         {
 
             string xmlFile = Server.MapPath("~/App_Data/Carts.xml");
@@ -131,6 +131,7 @@ namespace GemsWeb
                 cart.SetAttribute("rec_id", rec_id.ToString());
                 cart.SetAttribute("cart_id", cart_id);
                 cart.SetAttribute("Event_ID", eventID);
+                cart.SetAttribute("Event_Name", eventName);
                 cart.SetAttribute("price", price);
                 cart.SetAttribute("quantity", "1");
                 doc.DocumentElement.AppendChild(cart);
@@ -164,7 +165,7 @@ namespace GemsWeb
                 // adding goods to the cart
                 if (isParsed)
                 {
-                    AddToBasket(GetCartID(), GetItemID(index), GetPrice(index));
+                    AddToBasket(GetCartID(), GetItemID(index), GetPrice(index), GetEventName(index));
                 }
             }
         }
@@ -179,6 +180,10 @@ namespace GemsWeb
             return this.gvUnpaid.DataKeys[index].Value.ToString();
         }
 
+        protected string GetEventName(int index)
+        {
+            return this.gvUnpaid.Rows[index].Cells[1].Text;
+        }
 
         protected string GetPrice(int index)
         {

@@ -77,7 +77,7 @@ namespace GemsWeb.Controllers
             }
         }
 
-        public static void sendPaymentReceivedMail(string userid, string tx, string payment)
+        public static void sendPaymentReceivedMail(string userid, string tx, decimal payment)
         {
             StringBuilder sb = new StringBuilder();
             string FromEmail = "no-reply@gems.nus.edu.sg";
@@ -93,11 +93,11 @@ namespace GemsWeb.Controllers
             sb.AppendLine();
             sb.AppendLine("Email From NUS GEMS");
             sb.AppendLine();
-            sb.AppendLine("Thank you for shopping at NUS GEMS");
+            sb.AppendLine("Thank you for shopping with NUS GEMS");
             sb.AppendLine();
             sb.AppendLine();
 
-            sb.AppendLine("We have received your payment of SGD $" + payment);
+            sb.AppendLine("We have received your payment of SGD $" + payment.ToString("0.00"));
             sb.AppendLine();
             sb.AppendLine();
             sb.AppendLine("Your Transaction number is " + tx);

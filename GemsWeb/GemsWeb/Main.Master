@@ -20,12 +20,14 @@
     <link rel="stylesheet" href="css/style3.css" type="text/css" />
     <!-- google font -->
     <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' />
+    
     <!-- Sharing -->
     <script type="text/javascript">        var switchTo5x = true;</script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">
-        stLight.options({ publisher: '65a89062-e37b-40c9-ae58-ed69619c9176' });
+    <script type="text/javascript">        
+        stLight.options({ publisher: "ur-4cd48a5-e94f-78a3-875c-9727e5b09712" });
     </script>
+    <!-- End Sharing -->
     <!-- Place this tag in your head or just before your close body tag -->
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     <script type="text/javascript">
@@ -46,14 +48,14 @@
                             <asp:LoginName ID="LoginName1" runat="server"></asp:LoginName>
                         </a></li>
                         <li>
-                            <asp:LinkButton ID="LinkButton1" runat="server" ValidationGroup="sign0ut">Sign out</asp:LinkButton></li>
+                            <asp:LinkButton ID="LinkButton1" runat="server" ValidationGroup="sign0ut" OnClick="Signout_Click">Sign out</asp:LinkButton></li>
                     </ul>
                 </asp:PlaceHolder>
                 <asp:PlaceHolder ID="pnl1" runat="server">
                     <ul id="nav">
                         <li><a href="#intro">Welcome Guest</a></li>
                         <li>
-                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/login.aspx" ValidationGroup="sign1n">Sign in</asp:HyperLink></li>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/SignIn.aspx" ValidationGroup="sign1n">Sign in</asp:HyperLink></li>
                     </ul>
                 </asp:PlaceHolder>
             </div>
@@ -68,7 +70,6 @@
                         scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 250px;
                         height: 62px;"></iframe>
                     <asp:PlaceHolder ID="phSideBar" runat="server">
-       
                         <p class="news" style="color: Blue; font-weight: bold;">
                             Recommend on Google:
                             <g:plusone></g:plusone>
@@ -126,6 +127,8 @@
                                 <div>
                                     <ul>
                                         <li>
+                                            <asp:HyperLink ID="HyperLink20" runat="server" NavigateUrl="~/AboutUs.aspx"><span>About Us</span></asp:HyperLink></li>
+                                        <li>
                                             <asp:HyperLink ID="HyperLink21" runat="server" NavigateUrl="~/contactus.aspx"><span>Contact Us</span></asp:HyperLink></li>
                                         <li>
                                             <asp:HyperLink ID="HyperLink23" runat="server" NavigateUrl="~/tos.aspx"><span>Terms of Service</span></asp:HyperLink></li>
@@ -154,13 +157,12 @@
         </div>
     </div>
     <div id="footer">
-    <div style="float: left;">
-                &copy; 2012 Copyright CS3213 Software Systems Design (Team 01)
-                <br />
-                National University of Singapore AY2012/2013 Semester 1
-            </div>
+        <div style="float: left;">
+            &copy; 2012 Copyright CS3213 Software Systems Design (Team 01)
+            <br />
+            National University of Singapore AY2012/2013 Semester 1
+        </div>
         <div style="float: right;">
-            
             <table>
                 <tr>
                     <td>

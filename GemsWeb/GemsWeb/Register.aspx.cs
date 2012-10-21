@@ -43,7 +43,28 @@ namespace GemsWeb
             return control;
         }
 
-        private int eventID;
+        private int EventID
+        {
+            get
+            {
+                int evID;
+                bool success = int.TryParse(ViewState["EventID"].ToString(), out evID);
+                if (success)
+                {
+                    return evID;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+
+            set
+            {
+                ViewState["EventID"] = value;
+            }
+        }
+
         private void AddRegistrationField()
         {
             //Determine which control fired the postback event. 
@@ -56,15 +77,19 @@ namespace GemsWeb
 
             String strEvent = Request.QueryString["EventID"];
             int intEvent;
-            String EventName = Request.QueryString["Name"];
-            lblEventName.InnerText = EventName;
+
+
             bool AcceptedEvent = int.TryParse(strEvent, out intEvent);
-           
+
             if (!AcceptedEvent)
             {
                 Alert.Show("Invalid Event", true, "~/Default.aspx");
             }
-            eventID = intEvent;
+
+            String EventName = Request.QueryString["Name"];
+            lblEventName.InnerText = EventName;
+
+            EventID = intEvent;
             Field[] lf = null;
             try
             {
@@ -86,25 +111,23 @@ namespace GemsWeb
                 Field f = lf[i];
                 RegistrationField regField = (RegistrationField)LoadControl("CustomControls\\RegistrationField.ascx");
 
-                //regField.ID = "uc" + ControlID;
                 regField.ID = f.FieldID.ToString();
 
                 regField.IsEmailField = false;
                 regField.IsRequired = false;
-                //if (i == 0)
-                    regField.TextBoxValue = "";
+                regField.HelpText = f.Remarks;
+                regField.TextBoxValue = "";
 
-               // if (i == 1)
-                    regField.FieldLabelString = f.FieldLabel + ": ";
-                    
+                regField.FieldLabelString = f.FieldLabel + ": ";
 
-                    if (f.FieldName.ToLower().IndexOf("email") != -1)
-                    {
-                        regField.IsEmailField = true;
-                    }
-                    if (f.IsRequired)
-                        regField.IsRequired = true;
-                    //temptxt.Text = "TRUE";
+
+                if (f.FieldName.ToLower().IndexOf("email") != -1)
+                {
+                    regField.IsEmailField = true;
+                    Session["mailID"] = i;
+                }
+                if (f.IsRequired)
+                    regField.IsRequired = true;
 
                 //Finally, add the user control to the panel
                 this.phRegister.Controls.Add(regField);
@@ -120,7 +143,23 @@ namespace GemsWeb
             {
 
                 RegistrationClient client = new RegistrationClient();
-                client.RegisterParticipant(eventID, fieldAnswers.ToArray());
+
+                int mailID = int.Parse(Session["mailID"].ToString());
+
+                string email = fieldAnswers[mailID].Answer;
+
+                if (client.isEventRegistered(email, EventID))
+                {
+                    Alert.Show("You are already registered for the event", true);
+                    return;
+                }
+
+                if (!client.isRegistered(email))
+                {
+                    MailHandler.sendVerifyMail(KeyGen.GeneratePwd(email), email);
+                }
+
+                client.RegisterParticipant(EventID, fieldAnswers.ToArray());
                 client.Close();
 
                 Response.Redirect("~/RegistrationSuccessful.aspx");
@@ -128,7 +167,6 @@ namespace GemsWeb
             catch (Exception ex)
             {
                 Alert.Show("Error Sending Registration Request, Please Try Again Later", false, "~/Register.aspx");
-                
             }
         }
 
@@ -157,7 +195,7 @@ namespace GemsWeb
                     }
                 }
 
-                if(lstFieldAnswer.Count != 0)
+                if (lstFieldAnswer.Count != 0)
                     sendRequest(lstFieldAnswer);
                 else
                     Alert.Show("There is Nothing to Send");

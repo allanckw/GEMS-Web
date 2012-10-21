@@ -21,48 +21,58 @@ namespace GemsWeb
             {
                 int eventID = int.Parse(Request.QueryString["EventID"]);
                 EventClient evClient = new EventClient();
-                Events event_;
-                try
-                {
-                    event_ = evClient.GetEvent(eventID);
-                }
-                catch (Exception)
-                {
-                    Alert.Show("Event Does not exist, please try again", true);
-                    return;
-                }
-
+                Events event_ = evClient.GetEvent(eventID);
                 try
                 {
                     this.hypRegister.NavigateUrl = "~/Register.aspx?EventID=" + eventID.ToString() + "&Name=" + event_.Name;
 
                     RegistrationClient client = new RegistrationClient();
                     Publish publish = client.ViewPublish(eventID);
-
                     client.Close();
+
                     menuEvent.Visible = true;
-                    this.mvTab.Visible = true;
+                    mvTab.Visible = true;
+
                     lbleventname.Text = event_.Name;
-                    lbleventdate.Text = "From " + event_.StartDateTime.ToString("dd MMM yyyy") + " To " + event_.EndDateTime.ToString("dd MMM yyyy");
-                    //lbleventstarttime.Text = event_.StartDateTime.ToString("HH:mm");
-                    //lbleventendtime.Text = event_.EndDateTime.ToString("HH:mm");
+                    lbleventdate.Text = "From " + event_.StartDateTime.ToString("dd MMM yyyy") + " To " 
+                        + event_.EndDateTime.ToString("dd MMM yyyy");
+
                     lbleventdescription.Text = event_.Description;
                     hypeventwebsite.Text = event_.Website;
-                    if (event_.Website == "http://")
+
+                    if (event_.Website.Length == 0)
                     {
                         hypeventwebsite.Visible = false;
                         lblWebsite.Visible = false;
                     }
-                    hypeventwebsite.NavigateUrl = event_.Website;
+                    else
+                    {
+                        hypeventwebsite.NavigateUrl = event_.Website;
+                    }
+
                     if (publish != null)
                     {
                         lbleventpublishinfo.Text = publish.Remarks;
+                        lblPublish.Visible = true;
+
+                        if (publish.PaymentAMount > 0)
+                        {
+                            lblpaymentinfo.Text = "$" + publish.PaymentAMount.ToString("0.00");
+                        }
+                        else
+                        {
+                            lblpaymentinfo.Text = "Event is Free! :)";
+                        }
                     }
                     else
                     {
                         lbleventpublishinfo.Text = "";
-
+                        lblPublish.Visible = false;
+                        lblpaymentinfo.Text = "";
                     }
+
+                    lblpaymentinfo.Visible = lblPublish.Visible;
+                    lblpaymentinfo.Visible = lblpayment.Visible;
 
                     ddlEventDay.DataSource = evClient.GetDays(event_.EventID);
                     ddlEventDay.DataValueField = "DayID";
@@ -80,6 +90,8 @@ namespace GemsWeb
                     {
                         hypRegister.Visible = true;
                     }
+
+
                 }
                 catch (Exception ex)
                 {
