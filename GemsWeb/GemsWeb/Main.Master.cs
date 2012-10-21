@@ -19,23 +19,30 @@ namespace GemsWeb
                 }
                 else
                 {
+                    int domain;
+                    bool success = int.TryParse(Session["Domain"].ToString(), out domain);
+                    if (success)
+                    {
+                        if (domain == 0 || domain == 1)
+                            hypCart.NavigateUrl = "~/viewcart.aspx?" + Session["partiEmail"].ToString();
+                    }
                     pnl1.Visible = false;
 
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 Session["Login"] = "0";
             }
 
             pnl2.Visible = !pnl1.Visible;
-          
+
         }
 
         protected void Signout_Click(object sender, EventArgs e)
         {
-            Carts.LoadCart(Session["partiEmail"].ToString().ToString());
-            Carts.DeleteUserCart(Session["partiEmail"].ToString().ToString());
+            //Carts.LoadCart(Session["partiEmail"].ToString().ToString());
+            //Carts.DeleteUserCart(Session["partiEmail"].ToString().ToString());
             Session["Login"] = "0";
             Session["Domain"] = "-1";
             Session["partiEmail"] = "";

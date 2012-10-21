@@ -11,7 +11,7 @@ namespace GemsWeb
 {
 
 
-    public partial class AboutUs
+    public partial class ViewPastTrans
     {
     }
 }

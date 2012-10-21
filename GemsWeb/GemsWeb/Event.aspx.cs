@@ -13,7 +13,8 @@ namespace GemsWeb
     public partial class Event : System.Web.UI.Page
     {
 
-
+        //TODO, Put radio buttons to set the date
+        //1 month, 3 months this year..
         protected void Page_Load(object sender, EventArgs e)
         {
 

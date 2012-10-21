@@ -90,11 +90,9 @@
                                         <li>
                                             <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/ParticipantEvents.aspx"><span>View Registered Events </span></asp:HyperLink></li>
                                         <li>
-                                            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/viewcart.aspx"><span>View Event Cart</span></asp:HyperLink></li>
+                                            <asp:HyperLink ID="hypCart" runat="server" NavigateUrl="~/viewcart.aspx"><span>View Event Cart</span></asp:HyperLink></li>
                                         <li>
                                             <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="#"><span>View Past Transactions</span></asp:HyperLink></li>
-                                        <li>
-                                            <asp:HyperLink ID="HyperLink26" runat="server" NavigateUrl="#"><span>Submit Event Reviews</span></asp:HyperLink></li>
                                     </ul>
                                 </div>
                             </li>
@@ -104,7 +102,7 @@
                                     <div>
                                         <ul>
                                             <li>
-                                                <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="#"><span>Workspace Administration</span></asp:HyperLink></li>
+                                                <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/ManageWorkspace.aspx"><span>Workspace Administration</span></asp:HyperLink></li>
                                             <li>
                                                 <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="#"><span>View Workspace</span></asp:HyperLink></li>
                                         </ul>

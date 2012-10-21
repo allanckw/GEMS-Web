@@ -8,6 +8,7 @@ using System.Web.Security;
 using GemsWeb.Controllers;
 using evmsService.Controllers;
 using evmsService.entities;
+using System.Web.Configuration;
 
 namespace GemsWeb
 {
@@ -60,11 +61,12 @@ namespace GemsWeb
             }
             else if (domainIndex == 1)
             {
-                auth = AuthRequestees(Login1.UserName, Login1.Password);
+                auth = AuthNUSNET(Login1.UserName, Login1.Password);
             }
             else if (domainIndex == 2)
             {
-                auth = AuthNUSNET(Login1.UserName, Login1.Password);
+                auth = AuthRequestees(Login1.UserName, Login1.Password);
+               
             }
 
 
@@ -85,10 +87,13 @@ namespace GemsWeb
                 }
                 else if (domainIndex == 1)
                 {
+                    FormsAuthentication.RedirectFromLoginPage(Login1.UserName.Trim(), false);
+                    Session["partiEmail"] = Login1.UserName.Trim() + "@" + WebConfigurationManager.AppSettings["dom"];
                     //Redirect to NUSNET (Artefacts / Send Requests)
                 }
                 else if (domainIndex == 2)
                 {
+                    
                     //Redirect to Requestee Page (Approval)
                 }
 
@@ -119,6 +124,7 @@ namespace GemsWeb
             {
                 User u = client.SecureAuthenticate(c);
                 client.Close();
+                Session["nusNETuser"] = u;
                 return true;
             }
             catch (Exception ex)

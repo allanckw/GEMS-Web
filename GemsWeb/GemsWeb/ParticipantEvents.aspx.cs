@@ -13,6 +13,8 @@ namespace GemsWeb
 {
     public partial class ParticipantEvents : System.Web.UI.Page
     {
+        //TODO, Put radio buttons to set the date
+        //1 month, 3 months this year..
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -39,6 +41,11 @@ namespace GemsWeb
             else
             {
                 loadData(dpFrom.CalDate, dpTo.CalDate);
+            }
+
+            if (string.Compare(Session["partiEmail"].ToString(), txtEmail.Text.Trim(), true) != 0)
+            {
+                Session["partiEmail"] = txtEmail.Text.Trim();
             }
         }
 

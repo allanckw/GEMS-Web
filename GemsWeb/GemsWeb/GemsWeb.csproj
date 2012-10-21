@@ -60,7 +60,6 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AboutUs.aspx" />
     <Content Include="App_Data\Carts.xml" />
     <Content Include="App_Data\PaymentRequests.xml">
       <SubType>Designer</SubType>
@@ -205,6 +204,7 @@
     <Content Include="RegistrationSuccessful.aspx" />
     <Content Include="tos.aspx" />
     <Content Include="viewcart.aspx" />
+    <Content Include="ViewPastTrans.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -213,13 +213,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutUs.aspx.cs">
-      <DependentUpon>AboutUs.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AboutUs.aspx.designer.cs">
-      <DependentUpon>AboutUs.aspx</DependentUpon>
-    </Compile>
     <Compile Include="contactus.aspx.cs">
       <DependentUpon>contactus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -359,6 +352,13 @@
     </Compile>
     <Compile Include="viewcart.aspx.designer.cs">
       <DependentUpon>viewcart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPastTrans.aspx.cs">
+      <DependentUpon>ViewPastTrans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewPastTrans.aspx.designer.cs">
+      <DependentUpon>ViewPastTrans.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

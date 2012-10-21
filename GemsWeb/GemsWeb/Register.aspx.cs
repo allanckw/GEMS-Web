@@ -83,7 +83,7 @@ namespace GemsWeb
 
             if (!AcceptedEvent)
             {
-                Alert.Show("Invalid Event", true, "~/Default.aspx");
+                Alert.Show("Invalid Event", true);
             }
 
             String EventName = Request.QueryString["Name"];
@@ -100,10 +100,8 @@ namespace GemsWeb
             }
             catch (Exception ex)
             {
-                Response.Redirect("~/Default.aspx");
+                Response.Redirect("~/default.aspx");
             }
-            if (lf.Count() == 0)
-                Alert.Show("Error, Organizer did not Set Fields Hence You Can Not Register", true, "Default.aspx");
 
             //Since these are dynamic user controls, re-add them every time the page loads.
             for (int i = 0; i < lf.Count(); i++)
@@ -120,14 +118,22 @@ namespace GemsWeb
 
                 regField.FieldLabelString = f.FieldLabel + ": ";
 
+                int domain;
+                bool success = int.TryParse(Session["Domain"].ToString(), out domain);
 
                 if (f.FieldName.ToLower().IndexOf("email") != -1)
                 {
                     regField.IsEmailField = true;
                     Session["mailID"] = i;
+
+                    if (success)
+                    {
+                        if (domain == 0 || domain == 1 )
+                            regField.TextBoxValue = Session["partiEmail"].ToString();
+                    }
                 }
-                if (f.IsRequired)
-                    regField.IsRequired = true;
+
+                regField.IsRequired = f.IsRequired;
 
                 //Finally, add the user control to the panel
                 this.phRegister.Controls.Add(regField);

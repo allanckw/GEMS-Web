@@ -39,8 +39,8 @@
                 <div class="login-box-field">
                     <asp:DropDownList ID="ddlDomain" runat="server" Width="140px">
                         <asp:ListItem>Participants</asp:ListItem>
-                        <asp:ListItem>Requestees</asp:ListItem>
                         <asp:ListItem Selected="True">NUSNET</asp:ListItem>
+                        <asp:ListItem>Requestees</asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <br />

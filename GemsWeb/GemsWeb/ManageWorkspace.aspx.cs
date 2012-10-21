@@ -11,6 +11,8 @@ namespace GemsWeb
 {
     public partial class ManageWorkspace : System.Web.UI.Page
     {
+        //TODO, Put radio buttons to set the date
+        //1 month, 3 months this year..
         protected void Page_Init(object sender, EventArgs e)
         {
             /*http://couldbedone.blogspot.com/2007/07/what-wrong-with-accordion-control.html*/

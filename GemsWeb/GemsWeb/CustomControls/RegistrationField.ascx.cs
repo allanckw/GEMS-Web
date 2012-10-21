@@ -47,8 +47,12 @@ namespace GemsWeb.CustomControls
             }
             set
             {
-                if (value.Length > 0)
-                    this.txtFieldResult.ToolTip = value;
+                if (value != null)
+                {
+                    if (value.Length > 0)
+                        this.txtFieldResult.ToolTip = value;
+                }
+
             }
         }
     }
