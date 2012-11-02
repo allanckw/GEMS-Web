@@ -51,6 +51,18 @@ namespace GemsWeb.CustomControls
             set { this.minYear = value; }
         }
 
+        public bool Enabled
+        {
+            get
+            {
+                return this.btnChangeDate.Enabled;
+            }
+            set
+            {
+                this.btnChangeDate.Enabled = value;
+            }
+        }
+
         public int MaximumYear
         {
             get { return this.maxYear; }
