@@ -104,6 +104,8 @@
                                         <br />
                                         <%--'<%# Eval("studentID", "StudentDetails.aspx?id={0}") %>'--%>
                                         <asp:HyperLink ID="lnkArtefact" runat="server" Target="_blank" NavigateUrl='<%# Eval("EventID", "ArtefactBin.aspx?EventID={0}") %>'>View Event Workspace</asp:HyperLink>
+                                        <br />
+                                        <asp:HyperLink ID="lnkRequest" runat="server" Target="_blank" NavigateUrl='<%# Eval("EventID", "RequestPage.aspx?EventID={0}") %>'>View Event Request</asp:HyperLink>
                                         <%--<asp:LinkButton ID="ArtefactBinLink" runat="server" OnClick="window.open('ArtefactBin.aspx?EventID=" + <%# DataBinder.Eval("DataItem.EventID")%> + "', 'ArtefactBin','left=250px, top=245px, width=1100px, height=650px, directories=no, scrollbars=yes, status=no, resizable=no');return false;">View Event Workspace</asp:LinkButton>--%>
                                         <br />
                                         <br />

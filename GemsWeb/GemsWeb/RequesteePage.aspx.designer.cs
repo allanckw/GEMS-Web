@@ -10,7 +10,7 @@
 namespace GemsWeb {
     
     
-    public partial class RequestPage {
+    public partial class RequesteePage {
         
         /// <summary>
         /// form2 control.
@@ -130,13 +130,13 @@ namespace GemsWeb {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// txtToWho control.
+        /// txtFrmWho control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtToWho;
+        protected global::System.Web.UI.WebControls.TextBox txtFrmWho;
         
         /// <summary>
         /// hidRequestID control.
@@ -184,31 +184,13 @@ namespace GemsWeb {
         protected global::System.Web.UI.WebControls.TextBox txtRequestDesc;
         
         /// <summary>
-        /// Label9 control.
+        /// hypLnkFileUrl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
-        
-        /// <summary>
-        /// txtFileUrl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFileUrl;
-        
-        /// <summary>
-        /// regexFileURL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexFileURL;
+        protected global::System.Web.UI.WebControls.HyperLink hypLnkFileUrl;
         
         /// <summary>
         /// Label3 control.
@@ -220,103 +202,31 @@ namespace GemsWeb {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// lblEventName control.
+        /// txtRemarks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEventName;
+        protected global::System.Web.UI.WebControls.TextBox txtRemarks;
         
         /// <summary>
-        /// Label4 control.
+        /// ddlRequesteeStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRequesteeStatus;
         
         /// <summary>
-        /// lblFrmDate control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFrmDate;
-        
-        /// <summary>
-        /// Label5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-        
-        /// <summary>
-        /// lblToDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblToDate;
-        
-        /// <summary>
-        /// Label6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
-        
-        /// <summary>
-        /// txtEventDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEventDesc;
-        
-        /// <summary>
-        /// btnRequestNew control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRequestNew;
-        
-        /// <summary>
-        /// btnRequestSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRequestSave;
-        
-        /// <summary>
-        /// btnRequestCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRequestCancel;
-        
-        /// <summary>
-        /// lblMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsg;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         /// <summary>
         /// lblRequestLogLabel control.

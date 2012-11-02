@@ -103,6 +103,7 @@
     <Content Include="js\menu.js" />
     <Content Include="ManageRequest.aspx" />
     <Content Include="ManageWorkspace.aspx" />
+    <Content Include="RequesteePage.aspx" />
     <Content Include="RequestPage.aspx" />
     <Content Include="SelectEventWorkspace.aspx" />
     <Content Include="SignIn.aspx" />
@@ -310,6 +311,13 @@
     </Compile>
     <Compile Include="ManageWorkspace.aspx.designer.cs">
       <DependentUpon>ManageWorkspace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RequesteePage.aspx.cs">
+      <DependentUpon>RequesteePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequesteePage.aspx.designer.cs">
+      <DependentUpon>RequesteePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="RequestPage.aspx.cs">
       <DependentUpon>RequestPage.aspx</DependentUpon>

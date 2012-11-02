@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RequestPage.aspx.cs" Inherits="GemsWeb.RequestPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RequesteePage.aspx.cs" Inherits="GemsWeb.RequesteePage" %>
 
 <!DOCTYPE html>
 <%@ Register Src="~/CustomControls/DatePicker.ascx" TagName="DatePicker" TagPrefix="GEMS" %>
@@ -168,9 +168,9 @@
                                     </tr>
                                 </table>--%>
 
-                                <table border="0">
+                                <table border="0" width="100%">
                                     <tr style="height:40%">
-                                        <td rowspan="3" align="left" valign="top" style="width: 30%">
+                                        <td rowspan="3" align="left" valign="top" style="width: 25%">
                                             <b>Request Filter</b>
                                             <br />
                                             <b>From:</b><br />
@@ -204,49 +204,36 @@
                                             <asp:ListBox ID="lstRequest" AutoPostBack="true" Width="90%" Height="300px" runat="server"
                                                 OnSelectedIndexChanged="lstRequest_SelectedIndexChanged"></asp:ListBox>
                                         </td>
-                                        <td align="left" valign="top" style="width: 45%;">
-                                            <asp:Label ID="Label2" runat="server" Text="Email To" Width="30%" Font-Bold="true" /><br />
-                                            <asp:TextBox ID="txtToWho" Width="97%" runat="server"></asp:TextBox>
+                                        <td rowspan="2" align="left" valign="top" style="width: 35%;">
+                                            <asp:Label ID="Label2" runat="server" Text="Requestor" Width="30%" Font-Bold="true" /><br />
+                                            <asp:TextBox ID="txtFrmWho" Width="97%" runat="server" ReadOnly="true"></asp:TextBox>
                                             <asp:HiddenField ID="hidRequestID" runat="server" />
                                             <asp:Label ID="Label7" runat="server" Text="Title" Width="30%" Font-Bold="true" /><br />
-                                            <asp:TextBox ID="txtRequestTitle" Width="97%" runat="server"></asp:TextBox><br />
+                                            <asp:TextBox ID="txtRequestTitle" Width="97%" runat="server" ReadOnly="true"></asp:TextBox><br />
                                             <asp:Label ID="Label8" runat="server" Text="Description" Width="30%" Font-Bold="true" /><br />
                                              <asp:TextBox ID="txtRequestDesc" runat="server" Style="resize: none;" Height="150px"
-                                                MaxLength="1000" TextMode="MultiLine" Width="99%" Font-Bold="True"></asp:TextBox><br />
-                                             <asp:Label ID="Label9" runat="server" Text="URL" Width="30%" Font-Bold="true" /><br />
-                                              <asp:TextBox ID="txtFileUrl" Width="97%" runat="server"></asp:TextBox>
-                                            <asp:RegularExpressionValidator ID="regexFileURL" ControlToValidate="txtFileUrl"
-                                                runat="server" ValidationExpression="^[\s\S]{0,2000}$" Text="2000 characters max" />
+                                                MaxLength="1000" TextMode="MultiLine" Width="99%" Font-Bold="True" ReadOnly="true"></asp:TextBox><br />
+                                            <asp:HyperLink ID="hypLnkFileUrl" runat="server" Target="_blank">Click to View URL</asp:HyperLink>
                                         </td>
-                                        <td style="width:5%">
+                                        <td rowspan="2" style="width:5%">
                                         &nbsp;
                                         </td>
-                                        <td align="left" valign="top">
-                                            <asp:Label ID="Label3" runat="server" Text="Event Name" Font-Bold="True"></asp:Label><br />
-                                            &nbsp;<asp:Label ID="lblEventName" runat="server" Text=""></asp:Label><br />
-                                            <asp:Label ID="Label4" runat="server" Text="Event Date" Font-Bold="True"></asp:Label><br />
-                                            &nbsp;<asp:Label ID="lblFrmDate" runat="server" Text=""></asp:Label>
-                                            &nbsp;<asp:Label ID="Label5" runat="server" Text="To" Font-Bold="True" 
-                                                Font-Size="X-Small"></asp:Label>
-                                             &nbsp;<asp:Label ID="lblToDate" runat="server" Text=""></asp:Label><br />
-                                            <asp:Label ID="Label6" runat="server" Text="Description" Font-Bold="True"></asp:Label>
-                                             &nbsp;<asp:TextBox ID="txtEventDesc" runat="server" Style="resize: none;" 
-                                                ReadOnly="true" TextMode="MultiLine" Width="200px" Font-Bold="True" 
-                                                BorderColor="Transparent" Height="150px"></asp:TextBox>
+                                        <td align="left" valign="top" style="width:35%">
+                                        <asp:Label ID="Label3" runat="server" Text="Remarks" Width="30%" Font-Bold="true" /><br />
+                                            <asp:TextBox ID="txtRemarks" runat="server" Style="resize: none;" Height="150px"
+                                                MaxLength="1000" TextMode="MultiLine" Width="99%" Font-Bold="True"></asp:TextBox><br />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td align="right" valign="top">
-                                            <asp:Button ID="btnRequestNew" runat="server" Text="New Request" OnClick="btnRequestNew_Click" />
-                                            <asp:Button ID="btnRequestSave" runat="server" Text="Add/Update" OnClick="btnRequestSave_Click" />
-                                            <asp:Button ID="btnRequestCancel" runat="server" Text="Cancel" OnClick="btnRequestCancel_Click" />
+                                            <asp:DropDownList ID="ddlRequesteeStatus" runat="server" Width="150px">
+                                            </asp:DropDownList>
                                             <br />
-                                            <asp:Label ID="lblMsg" runat="server" Text="" ForeColor="Red" Font-Size="X-Small"
-                                                    Font-Bold="True">
-                                                </asp:Label>
+                                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" 
+                                                onclick="btnSubmit_Click" />
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr style="height:40%">
                                         <td colspan="3" valign="top" align="left">
                                             <asp:Label ID="lblRequestLogLabel" runat="server" Visible="false" Text="Request Past Log" 
                                                 Font-Bold="True"></asp:Label>
@@ -292,8 +279,7 @@
                         <Triggers>
                         <asp:PostBackTrigger ControlID="gvRequestLog" />
                         <asp:PostBackTrigger ControlID="btnSearch" />
-                        <asp:PostBackTrigger ControlID="btnRequestSave" />
-                        <asp:PostBackTrigger ControlID="btnRequestCancel"/>
+                        <asp:PostBackTrigger ControlID="btnSubmit" />
                         </Triggers>
                     </asp:UpdatePanel>
                 </div>
@@ -324,3 +310,4 @@
     </form>
 </body>
 </html>
+

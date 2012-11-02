@@ -14,12 +14,39 @@ namespace GemsWeb
     public partial class SelectEventWorkspace : System.Web.UI.Page
     {
         //User u;
+        bool AuthNUSNET(string username, string password)
+        {
+            AdministrationClient client = new AdministrationClient();
+
+            Credentials c = new Credentials();
+            c.UserID = username;
+            c.Password = KeyGen.Encrypt(password);
+            try
+            {
+                User u = client.SecureAuthenticate(c);
+                client.Close();
+                Session["nusNETuser"] = u;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Alert.Show(ex.Message, false);
+            }
+            finally
+            {
+                client.Close();
+            }
+            return false;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            //To ByPass for NUSNetUser Temporary
+            //AuthNUSNET("A0077307", "12345678");
             if (!Page.IsPostBack)
             {
                 dpFrom.Enabled = false;
-                dpTo.Enabled = false;
+                dpTo.Enabled = false;      
                 //lblNoEvents.Visible = false;
             }
 

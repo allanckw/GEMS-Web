@@ -23,11 +23,11 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
-                //int eventID = int.Parse(Request.QueryString["EventID"]);
-                //EventClient evClient = new EventClient();
-                //Events event_ = evClient.GetEvent(eventID);
-                //evClient.Close();
                 lblSelectedFolder.Text = "-";
+                if (!NUSNetUser().isEventOrganizer)
+                {
+                    ddlAction.SelectedIndex = 1;
+                }
             }
 
             if (NUSNetUser() == null)
@@ -377,15 +377,23 @@ namespace GemsWeb
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlAction.SelectedIndex == 0)
+            if (NUSNetUser().isEventOrganizer)
             {
-                pnlClass.Visible = true;
+                if (ddlAction.SelectedIndex == 0)
+                {
+                    pnlClass.Visible = true;
+                }
+                else
+                {
+                    pnlClass.Visible = false;
+                }
+                pnlFiles.Visible = !pnlClass.Visible;
             }
             else
             {
+                ddlAction.SelectedIndex = 1;
                 pnlClass.Visible = false;
             }
-            pnlFiles.Visible = !pnlClass.Visible;
         }
 
         protected void gvFiles_SelectedIndexChanged(object sender, EventArgs e)
