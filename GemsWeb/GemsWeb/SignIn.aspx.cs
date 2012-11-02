@@ -125,6 +125,7 @@ namespace GemsWeb
                 User u = client.SecureAuthenticate(c);
                 client.Close();
                 Session["nusNETuser"] = u;
+                client.Close();
                 return true;
             }
             catch (Exception ex)
@@ -140,6 +141,22 @@ namespace GemsWeb
 
         bool AuthRequestees(string username, string password)
         {
+            RequestClient reqClient = new RequestClient();
+
+            try
+            {
+                reqClient.ValidateRequestee(username, password);
+                reqClient.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Alert.Show(ex.Message, false);
+            }
+            finally
+            {
+                reqClient.Close();
+            }
             return false;
         }
 
