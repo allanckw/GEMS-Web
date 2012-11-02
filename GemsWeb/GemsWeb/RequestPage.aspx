@@ -15,6 +15,7 @@
                 <asp:HyperLink NavigateUrl="~/default.aspx" runat="server" ID="hyperlink30"><h1>
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Event Management <sup>Beta</sup></h1></asp:HyperLink>
+                &nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div id="container">
                 <p class="description">

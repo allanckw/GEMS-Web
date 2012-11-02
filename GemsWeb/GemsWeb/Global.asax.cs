@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
 using System.Timers;
+using System.IO;
 
 namespace GemsWeb
 {
@@ -27,39 +23,75 @@ namespace GemsWeb
 
         protected void mailTimer_Elapsed(object sender, EventArgs e)
         {
-            string filepath = Server.MapPath("~") + "\\Logs\\lastsent.scd";
+            string filepath = System.Web.Hosting.HostingEnvironment.MapPath("~") + "\\Logs\\lastsent.scd";
             System.IO.StreamReader strReader = new System.IO.StreamReader(filepath);
             string d = "" + strReader.ReadLine();
             strReader.Close();
 
             if (d.Length == 0)
             {
-                DeleteUselessFolders();
+                DeleteUselessFolders(filepath);
             }
             else if (d.Length == 8)
             {
-                DateTime dd = new DateTime(int.Parse(d.Substring(0,4)), int.Parse(d.Substring(4,2)), int.Parse(d.Substring(6,2)));
+                DateTime dd = new DateTime(int.Parse(d.Substring(0, 4)), int.Parse(d.Substring(4, 2)), int.Parse(d.Substring(6, 2)));
                 if (dd.Date < DateTime.Now.Date)
                 {
-                    DeleteUselessFolders();
+                    DeleteUselessFolders(filepath);
                 }
             }
         }
 
-        private void DeleteUselessFolders()
+        private void DeleteUselessFolders(string logFile)
         {
-            string wrkSpaceDir = Server.MapPath("~") + "WorkSpace\\";
+     
+            string wrkSpaceDir = System.Web.Hosting.HostingEnvironment.MapPath("~") + "WorkSpace\\";
             EventClient evClient = new EventClient();
 
-            string[] subdirEntries = System.IO.Directory.GetDirectories(wrkSpaceDir);
+            string[] subdirs = System.IO.Directory.GetDirectories(wrkSpaceDir);
+
+            foreach (string dir in subdirs)
+            {
+                int evFolder;
+                string dirToCheck = dir.Substring(dir.LastIndexOf('\\')).Remove(0, 1);
+                bool parse = int.TryParse(dirToCheck, out evFolder);
+
+
+                if (!evClient.isEventExist(evFolder) || !parse)
+                {
+                    emptyFolder(dir);
+                    System.IO.Directory.Delete(dir);
+                }
+            }
 
             evClient.Close();
+
+            System.IO.StreamWriter strWriter = new System.IO.StreamWriter(logFile, false);
+            strWriter.WriteLine(DateTime.Now.ToString("yyyyMMdd"));
+            strWriter.Close();
+        }
+
+        private void emptyFolder(string dir)
+        {
+            DirectoryInfo dirInfo = new DirectoryInfo(dir);
+
+            foreach (FileInfo fi in dirInfo.GetFiles())
+            {
+                fi.IsReadOnly = false;
+                fi.Delete();
+            }
+
+            foreach (DirectoryInfo di in dirInfo.GetDirectories())
+            {
+                emptyFolder(di.FullName);
+                di.Delete();
+            }
         }
 
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
-
+            scheduler();
         }
 
         void Application_End(object sender, EventArgs e)

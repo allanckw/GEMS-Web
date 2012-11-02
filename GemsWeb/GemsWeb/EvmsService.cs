@@ -3850,12 +3850,6 @@ namespace evmsService.entities
         
         private int EventIDField;
         
-<<<<<<< Updated upstream
-        private string RemarkField;
-        
-        private int RequestIDField;
-        
-=======
         private string EventNameField;
         
         private string RemarkField;
@@ -3866,16 +3860,12 @@ namespace evmsService.entities
         
         private string RequestorField;
         
->>>>>>> Stashed changes
         private evmsService.entities.RequestStatus StatusField;
         
         private string TargetEmailField;
         
-<<<<<<< Updated upstream
-=======
         private string URLField;
         
->>>>>>> Stashed changes
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3915,8 +3905,6 @@ namespace evmsService.entities
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< Updated upstream
-=======
         public string EventName
         {
             get
@@ -3930,7 +3918,6 @@ namespace evmsService.entities
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
->>>>>>> Stashed changes
         public string Remark
         {
             get
@@ -3944,8 +3931,6 @@ namespace evmsService.entities
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< Updated upstream
-=======
         public System.DateTime RequestDate
         {
             get
@@ -3959,7 +3944,6 @@ namespace evmsService.entities
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
->>>>>>> Stashed changes
         public int RequestID
         {
             get
@@ -3973,8 +3957,6 @@ namespace evmsService.entities
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< Updated upstream
-=======
         public string Requestor
         {
             get
@@ -3988,7 +3970,6 @@ namespace evmsService.entities
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
->>>>>>> Stashed changes
         public evmsService.entities.RequestStatus Status
         {
             get
@@ -4013,8 +3994,6 @@ namespace evmsService.entities
                 this.TargetEmailField = value;
             }
         }
-<<<<<<< Updated upstream
-=======
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string URL
@@ -4028,7 +4007,6 @@ namespace evmsService.entities
                 this.URLField = value;
             }
         }
->>>>>>> Stashed changes
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
@@ -4120,11 +4098,8 @@ namespace evmsService.entities
         
         private evmsService.entities.RequestStatus StatusField;
         
-<<<<<<< Updated upstream
-=======
         private string URLField;
         
->>>>>>> Stashed changes
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -4214,8 +4189,6 @@ namespace evmsService.entities
                 this.StatusField = value;
             }
         }
-<<<<<<< Updated upstream
-=======
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string URL
@@ -4229,7 +4202,6 @@ namespace evmsService.entities
                 this.URLField = value;
             }
         }
->>>>>>> Stashed changes
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4477,8 +4449,6 @@ namespace evmsService.entities
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-<<<<<<< Updated upstream
-=======
         private evmsService.entities.BudgetIncome[] budgetincomesField;
         
         private evmsService.entities.EventDay[] daysField;
@@ -4497,7 +4467,6 @@ namespace evmsService.entities
         
         private evmsService.entities.Task[] tasksField;
         
->>>>>>> Stashed changes
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -4509,8 +4478,6 @@ namespace evmsService.entities
                 this.extensionDataField = value;
             }
         }
-<<<<<<< Updated upstream
-=======
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public evmsService.entities.BudgetIncome[] budgetincomes
@@ -4628,7 +4595,6 @@ namespace evmsService.entities
                 this.tasksField = value;
             }
         }
->>>>>>> Stashed changes
     }
 }
 namespace evmsService.Controllers
@@ -6806,11 +6772,7 @@ public interface IRequest
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRequest/CreateNewRequest", ReplyAction="http://tempuri.org/IRequest/CreateNewRequestResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRequest/CreateNewRequestSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-<<<<<<< Updated upstream
-    string CreateNewRequest(evmsService.entities.User user, int eventid, string targetEmail, string description);
-=======
     string CreateNewRequest(evmsService.entities.User user, int eventid, string targetEmail, string description, string url);
->>>>>>> Stashed changes
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRequest/GetRequest", ReplyAction="http://tempuri.org/IRequest/GetRequestResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRequest/GetRequestSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
@@ -6818,11 +6780,7 @@ public interface IRequest
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRequest/EditRequest", ReplyAction="http://tempuri.org/IRequest/EditRequestResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRequest/EditRequestSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-<<<<<<< Updated upstream
-    void EditRequest(evmsService.entities.User user, int requestID, string description);
-=======
     void EditRequest(evmsService.entities.User user, int requestID, string description, string url);
->>>>>>> Stashed changes
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRequest/ViewRequest", ReplyAction="http://tempuri.org/IRequest/ViewRequestResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRequest/ViewRequestSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
@@ -6879,15 +6837,9 @@ public partial class RequestClient : System.ServiceModel.ClientBase<IRequest>, I
     {
     }
     
-<<<<<<< Updated upstream
-    public string CreateNewRequest(evmsService.entities.User user, int eventid, string targetEmail, string description)
-    {
-        return base.Channel.CreateNewRequest(user, eventid, targetEmail, description);
-=======
     public string CreateNewRequest(evmsService.entities.User user, int eventid, string targetEmail, string description, string url)
     {
         return base.Channel.CreateNewRequest(user, eventid, targetEmail, description, url);
->>>>>>> Stashed changes
     }
     
     public evmsService.entities.Request GetRequest(int requestID)
@@ -6895,15 +6847,9 @@ public partial class RequestClient : System.ServiceModel.ClientBase<IRequest>, I
         return base.Channel.GetRequest(requestID);
     }
     
-<<<<<<< Updated upstream
-    public void EditRequest(evmsService.entities.User user, int requestID, string description)
-    {
-        base.Channel.EditRequest(user, requestID, description);
-=======
     public void EditRequest(evmsService.entities.User user, int requestID, string description, string url)
     {
         base.Channel.EditRequest(user, requestID, description, url);
->>>>>>> Stashed changes
     }
     
     public evmsService.entities.Request[] ViewRequest(evmsService.entities.Requestee requestee)
@@ -7070,11 +7016,7 @@ public interface IExport
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExport/GetExportData", ReplyAction="http://tempuri.org/IExport/GetExportDataResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IExport/GetExportDataSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-<<<<<<< Updated upstream
-    evmsService.entities.ExportData GetExportData(evmsService.entities.User u, int eventID, bool NeedEvent, bool NeedFacilities, bool NeedPrograms, bool NeedIncome, bool NeedItems, bool NeedTasks, bool NeedGuest, bool NeedParticipant);
-=======
     evmsService.entities.ExportData GetExportData(evmsService.entities.User u, int eventID, bool NeedFacilities, bool NeedPrograms, bool NeedIncome, bool NeedOptItems, bool NeedTasks, bool NeedGuest, bool NeedParticipant);
->>>>>>> Stashed changes
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -7111,15 +7053,9 @@ public partial class ExportClient : System.ServiceModel.ClientBase<IExport>, IEx
     {
     }
     
-<<<<<<< Updated upstream
-    public evmsService.entities.ExportData GetExportData(evmsService.entities.User u, int eventID, bool NeedEvent, bool NeedFacilities, bool NeedPrograms, bool NeedIncome, bool NeedItems, bool NeedTasks, bool NeedGuest, bool NeedParticipant)
-    {
-        return base.Channel.GetExportData(u, eventID, NeedEvent, NeedFacilities, NeedPrograms, NeedIncome, NeedItems, NeedTasks, NeedGuest, NeedParticipant);
-=======
     public evmsService.entities.ExportData GetExportData(evmsService.entities.User u, int eventID, bool NeedFacilities, bool NeedPrograms, bool NeedIncome, bool NeedOptItems, bool NeedTasks, bool NeedGuest, bool NeedParticipant)
     {
         return base.Channel.GetExportData(u, eventID, NeedFacilities, NeedPrograms, NeedIncome, NeedOptItems, NeedTasks, NeedGuest, NeedParticipant);
->>>>>>> Stashed changes
     }
 }
 

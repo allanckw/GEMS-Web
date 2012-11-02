@@ -101,15 +101,14 @@
     <Content Include="IPNHandler.aspx" />
     <Content Include="js\jquery.js" />
     <Content Include="js\menu.js" />
-<<<<<<< Updated upstream
     <Content Include="ManageRequest.aspx" />
     <Content Include="ManageWorkspace.aspx" />
-=======
->>>>>>> Stashed changes
     <Content Include="RequestPage.aspx" />
     <Content Include="SelectEventWorkspace.aspx" />
     <Content Include="SignIn.aspx" />
     <Content Include="Main.Master" />
+    <Content Include="ViewPastTrans.aspx" />
+    <Content Include="WorkSpace\79\Test\Task.png" />
     <None Include="Logs\lastsent.scd" />
     <None Include="Service References\evmsService\EvmsService.disco" />
     <None Include="Service References\evmsService\configuration91.svcinfo" />
@@ -212,7 +211,6 @@
     <Content Include="RegistrationSuccessful.aspx" />
     <Content Include="tos.aspx" />
     <Content Include="viewcart.aspx" />
-    <Content Include="ViewPastTrans.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -299,7 +297,6 @@
     <Compile Include="IPNHandler.aspx.designer.cs">
       <DependentUpon>IPNHandler.aspx</DependentUpon>
     </Compile>
-<<<<<<< Updated upstream
     <Compile Include="ManageRequest.aspx.cs">
       <DependentUpon>ManageRequest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -309,21 +306,10 @@
     </Compile>
     <Compile Include="ManageWorkspace.aspx.cs">
       <DependentUpon>ManageWorkspace.aspx</DependentUpon>
-=======
-    <Compile Include="RequestPage.aspx.cs">
-      <DependentUpon>RequestPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RequestPage.aspx.designer.cs">
-      <DependentUpon>RequestPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SelectEventWorkspace.aspx.cs">
-      <DependentUpon>SelectEventWorkspace.aspx</DependentUpon>
->>>>>>> Stashed changes
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SelectEventWorkspace.aspx.designer.cs">
-      <DependentUpon>SelectEventWorkspace.aspx</DependentUpon>
+    <Compile Include="ManageWorkspace.aspx.designer.cs">
+      <DependentUpon>ManageWorkspace.aspx</DependentUpon>
     </Compile>
     <Compile Include="RequestPage.aspx.cs">
       <DependentUpon>RequestPage.aspx</DependentUpon>
