@@ -143,6 +143,15 @@ p.description a:hover
 	width: 700px;
 }
 
+#content2
+{
+	padding: 0 0 0 0;
+	background: url(../images/content.jpg) top right no-repeat;
+	min-height: 1000px;
+	float: left;
+	width: 700px;
+}
+
 #content h2
 {
 	font: 1.6em 'Ubuntu' , arial, serif;

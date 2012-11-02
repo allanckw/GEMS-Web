@@ -102,7 +102,7 @@
                                     <div>
                                         <ul>
                                             <li>
-                                                <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/ManageWorkspace.aspx"><span>Workspace Administration</span></asp:HyperLink></li>
+                                                <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/SelectEventWorkspace.aspx"><span>Workspace Administration</span></asp:HyperLink></li>
                                             <li>
                                                 <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="#"><span>View Workspace</span></asp:HyperLink></li>
                                         </ul>

@@ -64,6 +64,7 @@
     <Content Include="App_Data\PaymentRequests.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="ArtefactBin.aspx" />
     <Content Include="contactus.aspx" />
     <Content Include="css\aspComponents.css" />
     <Content Include="css\login-box.css" />
@@ -100,7 +101,10 @@
     <Content Include="IPNHandler.aspx" />
     <Content Include="js\jquery.js" />
     <Content Include="js\menu.js" />
+    <Content Include="ManageRequest.aspx" />
     <Content Include="ManageWorkspace.aspx" />
+    <Content Include="RequestPage.aspx" />
+    <Content Include="SelectEventWorkspace.aspx" />
     <Content Include="SignIn.aspx" />
     <Content Include="Main.Master" />
     <None Include="Service References\evmsService\EvmsService.disco" />
@@ -213,6 +217,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArtefactBin.aspx.cs">
+      <DependentUpon>ArtefactBin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtefactBin.aspx.designer.cs">
+      <DependentUpon>ArtefactBin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="contactus.aspx.cs">
       <DependentUpon>contactus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -284,12 +295,33 @@
     <Compile Include="IPNHandler.aspx.designer.cs">
       <DependentUpon>IPNHandler.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageRequest.aspx.cs">
+      <DependentUpon>ManageRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageRequest.aspx.designer.cs">
+      <DependentUpon>ManageRequest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageWorkspace.aspx.cs">
       <DependentUpon>ManageWorkspace.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ManageWorkspace.aspx.designer.cs">
       <DependentUpon>ManageWorkspace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RequestPage.aspx.cs">
+      <DependentUpon>RequestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestPage.aspx.designer.cs">
+      <DependentUpon>RequestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectEventWorkspace.aspx.cs">
+      <DependentUpon>SelectEventWorkspace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SelectEventWorkspace.aspx.designer.cs">
+      <DependentUpon>SelectEventWorkspace.aspx</DependentUpon>
     </Compile>
     <Compile Include="SignIn.aspx.cs">
       <DependentUpon>SignIn.aspx</DependentUpon>

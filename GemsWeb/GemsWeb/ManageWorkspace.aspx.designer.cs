@@ -31,15 +31,6 @@ namespace GemsWeb {
         protected global::AjaxControlToolkit.Accordion x;
         
         /// <summary>
-        /// AccordionPane1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.AccordionPane AccordionPane1;
-        
-        /// <summary>
         /// AccordionPane2 control.
         /// </summary>
         /// <remarks>
@@ -49,13 +40,13 @@ namespace GemsWeb {
         protected global::AjaxControlToolkit.AccordionPane AccordionPane2;
         
         /// <summary>
-        /// lblSelectedClass control.
+        /// lblSelectedFolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSelectedClass;
+        protected global::System.Web.UI.WebControls.Label lblSelectedFolder;
         
         /// <summary>
         /// treeWS control.
@@ -92,78 +83,6 @@ namespace GemsWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlClass;
-        
-        /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
-        /// <summary>
-        /// hidClass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hidClass;
-        
-        /// <summary>
-        /// txtClassCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtClassCode;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// txtClassName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtClassName;
-        
-        /// <summary>
-        /// btnAddClass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddClass;
-        
-        /// <summary>
-        /// btnDeleteClass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeleteClass;
-        
-        /// <summary>
-        /// btnResetClass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnResetClass;
         
         /// <summary>
         /// RequiredFieldValidator4 control.
@@ -283,15 +202,6 @@ namespace GemsWeb {
         protected global::System.Web.UI.WebControls.FileUpload fuFileUpload;
         
         /// <summary>
-        /// txtFileURL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFileURL;
-        
-        /// <summary>
         /// txtFileURLExt control.
         /// </summary>
         /// <remarks>
@@ -299,6 +209,15 @@ namespace GemsWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFileURLExt;
+        
+        /// <summary>
+        /// regexFileURL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexFileURL;
         
         /// <summary>
         /// ValidationSummary1 control.
