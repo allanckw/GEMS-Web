@@ -145,7 +145,7 @@ namespace GemsWeb.Controllers
             sb.AppendLine("To whom it may concern,");
 
             sb.AppendLine(senderName + " from National University of Singapore has sent you a request regarding " + title);
-            sb.Append("for the event " + evnt.EventID + " held from " + evnt.StartDateTime.Date.ToString("dd MMM yyyy") 
+            sb.AppendLine("for the event " + evnt.Name + " held from " + evnt.StartDateTime.Date.ToString("dd MMM yyyy") 
                 + " to " + evnt.EndDateTime.Date.ToString("dd MMM yyyy"));
 
             sb.AppendLine();
