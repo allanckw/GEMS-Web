@@ -1,7 +1,7 @@
 ﻿using System;
-using System.IO;
+using System.Collections.Generic;
 using System.Linq;
-using System.Web.Security;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using evmsService.entities;
@@ -9,7 +9,7 @@ using GemsWeb.Controllers;
 
 namespace GemsWeb
 {
-    public partial class ArtefactBin : System.Web.UI.Page
+    public partial class ArtefactWorkspace : System.Web.UI.Page
     {
         string wrkSpaceDir = "WorkSpace\\";
         protected void Page_Init(object sender, EventArgs e)
@@ -24,10 +24,24 @@ namespace GemsWeb
             if (!Page.IsPostBack)
             {
                 //EventClient evclient = new EventClient();
-                lblSelectedFolder.Text = "-";
-                //Events ev_ = evclient.GetEvent(EventID());
-                //Events[] evList = evclient.ViewAllEvents(NUSNetUser());
+                //lblSelectedFolder.Text = "-";
+                ////Events ev_ = evclient.GetEvent(EventID());
+                //Events[] evList = evclient.ViewEventsByTag(NUSNetUser(),"");
                 //evclient.Close();
+                //bool authorized = false;
+                //for (int i = 0; i < evList.Count(); i++)
+                //{
+                //    if (evList[i].EventID==EventID())
+                //    {
+                //        authorized = true;
+                //        break;
+                //    }
+                //}
+
+                //if (!authorized)
+                //{
+                //    Alert.Show("You are not authorized to view this workspace!", true, "SelectEventWorkspace.aspx");
+                //}
                 //if (!evList.Contains(ev_))
                 //{
                 //    Alert.Show("You are not authorized to view this workspace!", true, "SelectEventWorkspace.aspx");
@@ -44,7 +58,6 @@ namespace GemsWeb
 
         protected void treeWS_SelectedNodeChanged(object sender, EventArgs e)
         {
-            btnResetFolder_Click(sender, e);
             btnResetFile_Click(sender, e);
 
             TreeNode tn = treeWS.SelectedNode;
@@ -55,8 +68,6 @@ namespace GemsWeb
 
                 lblSelectedFolder.Text = "-";
                 loadFiles();
-                hidFolder.Value = "";
-                hidFile.Value = "";
                 return;
             }
             else
@@ -65,13 +76,7 @@ namespace GemsWeb
                 if (level == 1)
                 {
                     lblSelectedFolder.Text = tn.Value.Trim();
-                    lvlFolderSelected(tn);
                     loadFiles(tn.Value.Trim());
-                    if (ddlAction.SelectedIndex == 0)
-                    {
-                        //pnlAnnouce.Visible = true;
-                        //Folder
-                    }
                 }
 
             }
@@ -111,10 +116,10 @@ namespace GemsWeb
         private void loadTreeView()
         {
             EventClient evClient = new EventClient();
-            Events event_ = null;
+            Events event_ =null;
             try
             {
-                event_ = evClient.GetEvent(EventID());
+                event_= evClient.GetEvent(EventID());
             }
             catch (Exception)
             {
@@ -134,18 +139,6 @@ namespace GemsWeb
             treeWS.ExpandAll();
         }
 
-        private void lvlFolderSelected(TreeNode tn)
-        {
-            ArtefactClient client = new ArtefactClient();
-            WorkspaceFolders wrkSpaceFolder = client.GetWorkSpaceFolder(EventID(), tn.Value);
-            client.Close();
-            hidFolder.Value = tn.Value;
-
-            txtfolderName.Text = tn.Value.Trim();
-            txtfolderName.ReadOnly = true;
-            txtfolderDesc.Text = wrkSpaceFolder.FolderDescription.Trim();
-        }
-
         private void loadFolders(TreeNode tn)
         {
             User u = NUSNetUser();
@@ -154,7 +147,7 @@ namespace GemsWeb
                 return;
             }
             ArtefactClient arclient = new ArtefactClient();
-            WorkspaceFolders[] WrkSpace = null;
+            WorkspaceFolders[] WrkSpace=null;
             try
             {
                 WrkSpace = arclient.GetWorkSpaceFolders(NUSNetUser(), EventID());
@@ -190,15 +183,7 @@ namespace GemsWeb
         }
         #endregion
 
-        #region " Reset  "
-        protected void btnResetFolder_Click(object sender, EventArgs e)
-        {
-            txtfolderName.Text = "";
-            txtfolderDesc.Text = "";
-            txtfolderName.ReadOnly = false;
-            lblSelectedFolder.Text = "-";
-        }
-
+        #region "Reset"
         protected void btnResetFile_Click(object sender, EventArgs e)
         {
             txtFileDesc.Text = "";
@@ -206,72 +191,7 @@ namespace GemsWeb
         }
         #endregion
 
-        #region " Delete "
-        protected void btnDeleteFolder_Click(object sender, EventArgs e)
-        {
-            //string classid = txtClassCode.Text.Trim();
-            string folderid = hidFolder.Value.Trim();
-
-            if (folderid.Trim().Length == 0)
-            {
-                lblMsg.Text = "Please select a folder";
-                return;
-            }
-
-
-            try
-            {
-                ArtefactClient arClient = new ArtefactClient();
-                arClient.DeleteFolder(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim());
-                string dir = workSpaceDir(lblSelectedFolder.Text.Trim());
-                DeleteDirectory(dir);
-                loadTreeView();
-                btnResetFolder_Click(sender, e);
-                Alert.Show("Folder Deleted Successfully!");
-            }
-            catch (Exception)
-            {
-                Alert.Show("Folder Failed to Delete!");
-                throw;
-            }
-        }
-        #endregion
-
         #region " Add "
-        protected void btnAddFolder_Click(object sender, EventArgs e)
-        {
-            ArtefactClient arClient = new ArtefactClient();
-            try
-            {
-                string foldercode = txtfolderName.Text.ToString().Trim().Replace(" ", "_");
-
-                if (lblSelectedFolder.Text.Trim() != "-")
-                {
-                    arClient.UpdateFolder(NUSNetUser(), EventID(), foldercode, txtfolderDesc.Text.Trim(), "");
-                    Alert.Show("Folder updated Successfully!");
-                }
-                else
-                {
-                    //juz add new folder
-                    arClient.CreateFolder(NUSNetUser(), EventID(), foldercode, txtfolderDesc.Text.Trim(), "");
-                    CreateFolder(foldercode);
-                    loadTreeView();
-                    Alert.Show("Folder created!");
-                }
-
-                btnResetFolder_Click(sender, e);
-            }
-            catch (Exception)
-            {
-                Alert.Show("Folder failed to create!");
-                throw;
-            }
-            finally
-            {
-                arClient.Close();
-            }
-        }
-
         protected void btnAddFile_Click(object sender, EventArgs e)
         {
             lblMsg.Text = "";
@@ -319,19 +239,30 @@ namespace GemsWeb
                 {
                     //Upload New file                    
                     arClient.UploadFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), filename, txtFileDesc.Text.Trim(), fileurl);
-                    
+
                     if (fuFileUpload.HasFile)
                     {
                         UploadFile(filename);
                     }
 
                     loadFiles(lblSelectedFolder.Text.Trim());
+                    lblMsg.Text = "Upload Success";
                 }
                 else
                 {
-                    arClient.UpdateFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), hidFile.Value, txtFileDesc.Text.Trim(), fileurl);
+                    WorkspaceFiles wrkFile = arClient.GetWorkSpaceFile(EventID(), lblSelectedFolder.Text.Trim(), hidFile.Value);
+
+                    if (wrkFile.UploadedBy == NUSNetUser().UserID)
+                    {
+                        arClient.UpdateFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), hidFile.Value, txtFileDesc.Text.Trim(), fileurl);
+                        lblMsg.Text = "Upload Success";
+                    }
+                    else
+                    {
+                        lblMsg.Text = "You cannot edit file that does not belong to you!";
+                    }
                 }
-                lblMsg.Text = "Upload Success";
+
                 txtFileDesc.Text = "";
                 txtFileURLExt.Text = "";
                 loadFiles(lblSelectedFolder.Text.Trim());
@@ -340,21 +271,10 @@ namespace GemsWeb
             {
                 lblMsg.Text = "Upload Failed";
                 throw;
-            }     
+            }
 
         }
         #endregion
-
-        public Boolean DeleteDirectory(String target_dir)
-        {
-            Boolean result = false;
-            if (Directory.Exists(target_dir))
-            {
-                result = true;
-                Directory.Delete(target_dir);
-            }
-            return result;
-        }
 
         private int getNodeLevel(string path)
         {
@@ -367,25 +287,35 @@ namespace GemsWeb
             if (e.CommandName == "Del")
             {
                 int index = int.Parse(e.CommandArgument.ToString());
-                
-                string fileID = ((Label)gvFiles.Rows[index].Cells[2].FindControl("lblFileName")).Text.Replace(" ","%20");
+
+                string fileID = ((Label)gvFiles.Rows[index].Cells[2].FindControl("lblFileName")).Text.Replace(" ", "%20");
 
                 string filepath = workSpaceDir(lblSelectedFolder.Text.Trim()) + "\\" + ((Label)gvFiles.Rows[index].Cells[2].FindControl("lblFileName")).Text;
                 ArtefactClient arClient = new ArtefactClient();
                 try
                 {
-                    arClient.DeleteFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), fileID);
+                    WorkspaceFiles wrkFile = arClient.GetWorkSpaceFile(EventID(), lblSelectedFolder.Text.Trim(), fileID);
 
-                    if (filepath.Contains("\\WorkSpace\\"))
+                    if (wrkFile.UploadedBy == NUSNetUser().UserID)
                     {
-                        if (System.IO.File.Exists(filepath))
-                        {
-                            System.IO.File.Delete(filepath);
-                        }
-                    }
+                        arClient.DeleteFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), fileID);
 
-                    lblMsg.Text = "File Successfully removed!";
-                    loadFiles(lblSelectedFolder.Text.Trim());
+                        if (filepath.Contains("\\WorkSpace\\"))
+                        {
+                            if (System.IO.File.Exists(filepath))
+                            {
+                                System.IO.File.Delete(filepath);
+                            }
+                        }
+                        lblMsg.Text = "File Successfully removed!";
+                        txtFileDesc.Text = "";
+                        txtFileURLExt.Text = "";
+                        loadFiles(lblSelectedFolder.Text.Trim());
+                    }
+                    else
+                    {
+                        lblMsg.Text = "You can only delete what is belong to you!";
+                    }
                 }
                 catch (Exception)
                 {
@@ -395,30 +325,9 @@ namespace GemsWeb
                 {
                     arClient.Close();
                 }
-               
+
 
                 //loadFiles(classId, folderID);
-            }
-        }
-
-        protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (NUSNetUser().isEventOrganizer)
-            {
-                if (ddlAction.SelectedIndex == 0)
-                {
-                    pnlClass.Visible = true;
-                }
-                else
-                {
-                    pnlClass.Visible = false;
-                }
-                pnlFiles.Visible = !pnlClass.Visible;
-            }
-            else
-            {
-                ddlAction.SelectedIndex = 1;
-                pnlClass.Visible = false;
             }
         }
 
@@ -456,16 +365,6 @@ namespace GemsWeb
             return Server.MapPath("~") + wrkSpaceDir + EventID().ToString() + "\\" + folderName;
         }
         #endregion
-
-        private void CreateFolder(string folderName)
-        {
-            string userDir = workSpaceDir(folderName);
-
-            if (!System.IO.Directory.Exists(userDir))
-            {
-                System.IO.Directory.CreateDirectory(userDir);
-            }
-        }
 
         private string UploadFile(string fileName)
         {

@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArtefactBin.aspx.cs" Inherits="GemsWeb.ArtefactBin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArtefactWorkspace.aspx.cs" Inherits="GemsWeb.ArtefactWorkspace" %>
 
 <!DOCTYPE html>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="act" %>
 <html>
 <head>
-    <title>Artefact Bin</title>
+    <title>Artefact Workspace</title>
     <link rel="stylesheet" href="css/style3.css" type="text/css" />
 </head>
 <body>
@@ -51,70 +51,17 @@
                                                 <table>
                                                     <tr>
                                                         <td style="width: 20%" align="right">
-                                                            Select Action:
+                                                            Action:
                                                         </td>
                                                         <td style="width: 2%; color: Red">
-                                                            *
+                                                            
                                                         </td>
                                                         <td style="width: 77%">
-                                                            <asp:RadioButtonList ID="ddlAction" OnSelectedIndexChanged="ddlAction_SelectedIndexChanged"
-                                                                runat="server" AutoPostBack="true">
-                                                                <asp:ListItem Selected="True">Manage Folders</asp:ListItem>
-                                                                <asp:ListItem>Manage Files</asp:ListItem>
-                                                            </asp:RadioButtonList>
+                                                            <asp:Label ID="Label1" runat="server" Text="Manage Files"></asp:Label>
                                                         </td>
                                                     </tr>
                                                 </table>
-                                                <asp:Panel ID="pnlClass" runat="server">
-                                                    <table>
-                                                        <tr>
-                                                            <th align="left" colspan="3">
-                                                                Folders / Categories
-                                                            </th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="width: 20%" align="right">
-                                                                Folder Name:
-                                                            </td>
-                                                            <td style="width: 2%; color: Red">
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtfolderName"
-                                                                    Display="Static" Visible="true" ValidationGroup="folder"> * </asp:RequiredFieldValidator>
-                                                            </td>
-                                                            <td style="width: 77%">
-                                                                <%--                                                <asp:HiddenField ID="hidEvent" runat="server" />--%>
-                                                                <asp:HiddenField ID="hidFolder" runat="server" />
-                                                                <asp:TextBox ID="txtfolderName" runat="server" Width="90%" ValidationGroup="folder"
-                                                                    MaxLength="100"></asp:TextBox>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="width: 20%" align="right">
-                                                                Folder Description:
-                                                            </td>
-                                                            <td style="width: 2%; color: Red">
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtfolderDesc"
-                                                                    Display="Static" Visible="true" ValidationGroup="folder"> * </asp:RequiredFieldValidator>
-                                                            </td>
-                                                            <td style="width: 77%">
-                                                                <asp:TextBox ID="txtfolderDesc" runat="server" Width="90%" ValidationGroup="folder"
-                                                                    MaxLength="250"></asp:TextBox>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="3" align="center">
-                                                                <asp:Button ID="btnAddFolder" OnClick="btnAddFolder_Click" runat="server" Text="Add / Update"
-                                                                    ValidationGroup="Folder" class="button" />
-                                                                &nbsp; &nbsp;
-                                                                <asp:Button ID="btnDeleteFolder" OnClick="btnDeleteFolder_Click" runat="server" Text="Delete"
-                                                                    class="button" ValidationGroup="c" />
-                                                                &nbsp; &nbsp;
-                                                                <asp:Button ID="btnResetFolder" OnClick="btnResetFolder_Click" Text="Reset" runat="server"
-                                                                    class="button" ValidationGroup="r1" />
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </asp:Panel>
-                                                <asp:UpdatePanel ID="pnlFiles" runat="server" Visible="false">
+                                                <asp:UpdatePanel ID="pnlFiles" runat="server" Visible="True">
                                                     <ContentTemplate>
                                                         <table>
                                                             <tr>
@@ -236,9 +183,6 @@
                                                     </ContentTemplate>
                                                     <Triggers>
                                                         <asp:PostBackTrigger ControlID="btnAddFile" />
-                                                        <asp:PostBackTrigger ControlID="btnAddFolder" />
-                                                        <asp:PostBackTrigger ControlID="btnDeleteFolder" />
-                                                        <asp:PostBackTrigger ControlID="btnDeleteFolder" />
                                                     </Triggers>
                                                 </asp:UpdatePanel>
                                             </div>

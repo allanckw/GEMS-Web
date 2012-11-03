@@ -81,12 +81,12 @@ namespace GemsWeb
                 if (string.Compare(ev.Organizerid, u.UserID, true) == 0)
                 {
                     //if event organizer, go to the page that can edit folders
-                    hyperArte.NavigateUrl = "http://google.com.sg";
+                    hyperArte.NavigateUrl = "ArtefactBin.aspx?EventID=" + ev.EventID;
                 }
                 else
                 {
                     //else go to the page that cannot edit folders
-                    hyperArte.NavigateUrl = "http://yahoo.com.sg";
+                    hyperArte.NavigateUrl = "ArtefactWorkspace.aspx?EventID=" + ev.EventID;
                 }
 
 
