@@ -85,10 +85,8 @@
                     <tr>
                         <td colspan="2">
                             <h3>
-                                List of Event WorkSpace</h3>
-                            <%--                            <asp:ListBox ID="lstEvent" runat="server" Height="420px" Width="500px" OnSelectedIndexChanged="lstEvent_SelectedIndexChanged"
-                                AutoPostBack="True"></asp:ListBox>--%>
-                            <asp:Repeater ID="rtpEvent" runat="server">
+                                List of Event WorkSpaces</h3>
+                            <asp:Repeater ID="rtpEvent" runat="server" OnItemDataBound="rptEvent_OnItemDataBound">
                                 <ItemTemplate>
                                     <div class="newsItem">
                                         <b>
@@ -102,7 +100,6 @@
                                         &nbsp; To
                                         <%# DateToCustomString((DateTime)Eval("EndDateTime")) %>
                                         <br />
-                                        <%--'<%# Eval("studentID", "StudentDetails.aspx?id={0}") %>'--%>
                                         <asp:HyperLink ID="lnkArtefact" runat="server" Target="_blank" NavigateUrl='<%# Eval("EventID", "ArtefactBin.aspx?EventID={0}") %>'>View Event Workspace</asp:HyperLink>
                                         <br />
                                         <asp:HyperLink ID="lnkRequest" runat="server" Target="_blank" NavigateUrl='<%# Eval("EventID", "RequestPage.aspx?EventID={0}") %>'>View Event Request</asp:HyperLink>

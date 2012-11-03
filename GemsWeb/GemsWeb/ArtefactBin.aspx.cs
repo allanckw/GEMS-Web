@@ -23,11 +23,13 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
+                EventClient evClient = new EventClient();
                 lblSelectedFolder.Text = "-";
-                if (!NUSNetUser().isEventOrganizer)
+                if (string.Compare(evClient.GetEvent(EventID()).Organizerid, NUSNetUser().UserID, true) == 0)
                 {
                     ddlAction.SelectedIndex = 1;
                 }
+                evClient.Close();
             }
 
             if (NUSNetUser() == null)

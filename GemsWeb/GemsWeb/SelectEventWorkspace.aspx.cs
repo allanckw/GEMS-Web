@@ -8,37 +8,12 @@ using GemsWeb.CustomControls;
 using GemsWeb.Controllers;
 using evmsService.entities;
 using System.Text;
+using System.Data;
 
 namespace GemsWeb
 {
     public partial class SelectEventWorkspace : System.Web.UI.Page
     {
-        //User u;
-        bool AuthNUSNET(string username, string password)
-        {
-            AdministrationClient client = new AdministrationClient();
-
-            Credentials c = new Credentials();
-            c.UserID = username;
-            c.Password = KeyGen.Encrypt(password);
-            try
-            {
-                User u = client.SecureAuthenticate(c);
-                client.Close();
-                Session["nusNETuser"] = u;
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Alert.Show(ex.Message, false);
-            }
-            finally
-            {
-                client.Close();
-            }
-            return false;
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //To ByPass for NUSNetUser Temporary
@@ -46,11 +21,11 @@ namespace GemsWeb
             if (!Page.IsPostBack)
             {
                 dpFrom.Enabled = false;
-                dpTo.Enabled = false;      
+                dpTo.Enabled = false;
                 //lblNoEvents.Visible = false;
             }
 
-            System.Web.UI.ScriptManager sc = (System.Web.UI.ScriptManager)Master.FindControl("ScriptManager1");
+            ScriptManager sc = (ScriptManager)Master.FindControl("ScriptManager1");
 
             if (sc != null)
             {
@@ -77,6 +52,47 @@ namespace GemsWeb
             ////Response.Redirect("~/ArtefactBin.aspx?EventID=" + lstEvent.SelectedValue);
             //string url = "~/ArtefactBin.aspx?EventID=" + lstEvent.SelectedValue;
             //Response.Write("<SCRIPT language=\"javascript\">window.open('" + url + "','_blank','top=0,left=0,status=yes,resizable=yes,scrollbars=yes');</script>");
+        }
+
+        protected void rptEvent_OnItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            User u = (User)Session["nusNETuser"];
+            RoleClient client = new RoleClient();
+            // Execute the following logic for Items and Alternating Items.
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Events ev = (Events)e.Item.DataItem;
+                List<EnumFunctions> fx = client.GetRights(ev.EventID, u.UserID).ToList<EnumFunctions>();
+                HyperLink hyperReq = (HyperLink)e.Item.FindControl("lnkRequest");
+
+                //TODO: Turn on after enumfunctions for manage request is Up
+                //if (fx.Contains(EnumFunctions.Manage_Requests) || string.Compare(ev.Organizerid, u.UserID, true) == 0)
+                //{
+                      //If can manage requests, visible
+                //    hyperReq.Visible = true;
+                //}
+                //else
+                //{
+                    //if cannot off it
+                    //hyperReq.Visible = false;
+                //}
+
+                HyperLink hyperArte = (HyperLink)e.Item.FindControl("lnkArtefact");
+                if (string.Compare(ev.Organizerid, u.UserID, true) == 0)
+                {
+                    //if event organizer, go to the page that can edit folders
+                    hyperArte.NavigateUrl = "http://google.com.sg";
+                }
+                else
+                {
+                    //else go to the page that cannot edit folders
+                    hyperArte.NavigateUrl = "http://yahoo.com.sg";
+                }
+
+
+            }
+
+            client.Close();
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -129,6 +145,7 @@ namespace GemsWeb
             try
             {
                 User u = (User)Session["nusNETuser"];
+
                 if (u == null)
                 {
                     Alert.Show("Please Login First!", true, "SignIn.aspx");
@@ -136,20 +153,9 @@ namespace GemsWeb
                 }
 
                 EventClient client = new EventClient();
-                Events[] userEvent = client.ViewEventsByDateAndTag(u, start, end, txtTag.Text.Trim());
-                if (txtTag.Text.Trim() != "")
-                {
-                    userEvent = client.ViewEventsbyDate(u, start, end);
-                }
-
+                List<Events> userEvent = client.ViewEventsByDateAndTag(u, start, end, txtTag.Text.Trim()).ToList<Events>();
                 client.Close();
 
-                //lstEvent.DataSource = userEvent;
-
-                //lstEvent.DataValueField = "EventID";
-                //lstEvent.DataTextField = "Name";
-
-                //lstEvent.DataBind();
                 rtpEvent.DataSource = userEvent;
                 rtpEvent.DataBind();
             }
@@ -170,20 +176,20 @@ namespace GemsWeb
             dpTo.Enabled = true;
             if (rdlstToDateRange.SelectedValue != "-1")
                 dpTo.Enabled = false;
-                switch (rdlstToDateRange.SelectedValue)
-                {
-                    case "30":
-                        dpTo.CalDate = DateTime.Now.AddMonths(1);
-                        break;
-                    case "90":
-                        dpTo.CalDate = DateTime.Now.AddMonths(3);
-                        break;
-                    case "365":
-                        dpTo.CalDate = DateTime.Now.AddYears(1);
-                        break;
-                    default:
-                        break;
-                }
+            switch (rdlstToDateRange.SelectedValue)
+            {
+                case "30":
+                    dpTo.CalDate = DateTime.Now.AddMonths(1);
+                    break;
+                case "90":
+                    dpTo.CalDate = DateTime.Now.AddMonths(3);
+                    break;
+                case "365":
+                    dpTo.CalDate = DateTime.Now.AddYears(1);
+                    break;
+                default:
+                    break;
+            }
         }
 
         protected void rdlstFromDateRange_SelectedIndexChanged(object sender, EventArgs e)
@@ -208,30 +214,5 @@ namespace GemsWeb
                 }
             }
         }
-
-        //        Protected Function customStringtoDateS(ByVal s As String) As String
-        //    Dim fD As New Date(CInt(s.ToString().Trim().Substring(0, 4)), _
-        //   CInt(s.ToString().Trim().Substring(4, 2)), _
-        //   CInt(s.ToString().Trim().Substring(6, 2)))
-
-        //    Return fD.ToShortDateString()
-        //End Function
-        //protected void lstEvent_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (lstEvent.SelectedIndex == -1)
-        //    {
-        //        return;
-        //    }
-
-        //    ArtefactBinLink.Attributes.Add("onclick", "window.open('ArtefactBin.aspx?EventID=" + lstEvent.SelectedValue.ToString() + "', 'ArtefactBin','left=250px, top=245px, width=1100px, height=650px, directories=no, scrollbars=yes, status=no, resizable=no');return false;");
-        //}
-
-        //protected string EventID()
-        //{
-        //    if (lstEvent.SelectedIndex == -1)
-        //        return "Nothing";
-
-        //    return lstEvent.SelectedValue.ToString();
-        //}
     }
 }
