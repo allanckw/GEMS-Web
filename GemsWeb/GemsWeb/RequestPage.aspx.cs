@@ -253,7 +253,7 @@ namespace GemsWeb
                     string otp = client.CreateNewRequest(NUSNetUser(), EventID(), txtToWho.Text.Trim(), txtRequestDesc.Text.Trim(), txtFileUrl.Text.Trim(), txtRequestTitle.Text.Trim());
 
                     string url = Request.Url.ToString().Replace(Request.RawUrl.Replace("%2f", "/"), "") + "/SignIn.aspx?mode=2";
-                    MailHandler.sendReportMail(NUSNetUser().Name, EventID(), txtRequestTitle.Text.Trim(), txtToWho.Text.Trim(), url, otp);
+                    MailHandler.sendRequesteeMail(NUSNetUser().Name, EventID(), txtRequestTitle.Text.Trim(), txtToWho.Text.Trim(), url, otp);
 
                     Alert.Show("Request Created Successfully!");
                     btnRequestNew_Click(sender, e);

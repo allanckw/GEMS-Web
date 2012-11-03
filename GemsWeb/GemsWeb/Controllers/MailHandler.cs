@@ -3,20 +3,15 @@ using System.Data;
 using System.Net.Mail;
 using System.Text;
 using System.Net;
+using evmsService.entities;
 
 namespace GemsWeb.Controllers
 {
-
-
-    //Sends an email..
-    //Remember to unlock vendor data after implementation, require discussion with koh
     public class MailHandler
     {
-
         public MailHandler()
         {
         }
-
         private const string smtpServer = "smtp.gmail.com";
         private const string smtpUserName = "nus.gems@gmail.com";
         private const string smtpPwd = "2l2in2b3";
@@ -53,7 +48,7 @@ namespace GemsWeb.Controllers
             sb.AppendLine("Please note that your password cannot be changed.");
             sb.AppendLine();
 
-            sb.AppendLine("Regards");
+            sb.AppendLine("Thanks and Regards");
             sb.AppendLine();
             sb.AppendLine("NUS GEMS Server Administrator");
             sb.AppendLine();
@@ -105,7 +100,7 @@ namespace GemsWeb.Controllers
             sb.AppendLine();
 
 
-            sb.AppendLine("Regards");
+            sb.AppendLine("Thanks and Regards");
             sb.AppendLine();
             sb.AppendLine("NUS GEMS Server Administrator");
             sb.AppendLine();
@@ -129,10 +124,10 @@ namespace GemsWeb.Controllers
             }
         }
 
-        public static void sendReportMail(string senderName, int eventID, string title, string targetEmail, string url, string pwd)
+        public static void sendRequesteeMail(string senderName, int eventID, string title, string targetEmail, string url, string pwd)
         {
             EventClient evClient = new EventClient();
-            string eventName = evClient.GetEventName(eventID);
+            Events evnt = evClient.GetEvent(eventID);
             evClient.Close();
 
             StringBuilder sb = new StringBuilder();
@@ -150,6 +145,9 @@ namespace GemsWeb.Controllers
             sb.AppendLine("To whom it may concern,");
 
             sb.AppendLine(senderName + " from National University of Singapore has sent you a request regarding " + title);
+            sb.Append("for the event " + evnt.EventID + " held from " + evnt.StartDateTime.Date.ToString("dd MMM yyyy") 
+                + " to " + evnt.EndDateTime.Date.ToString("dd MMM yyyy"));
+
             sb.AppendLine();
             sb.AppendLine("For more details about the request, please login at our website <a href='" + url + "'> here </a>");
 
@@ -159,7 +157,7 @@ namespace GemsWeb.Controllers
             sb.AppendLine();
             sb.AppendLine();
 
-            sb.AppendLine("Regards");
+            sb.AppendLine("Thanks and Regards");
             sb.AppendLine();
             sb.AppendLine("NUS GEMS Server Administrator");
             sb.AppendLine();
@@ -196,7 +194,6 @@ namespace GemsWeb.Controllers
             mailMsg.Body += Environment.NewLine + "E-mail: " + email + Environment.NewLine + Environment.NewLine;
             mailMsg.Body += "Message: " + Environment.NewLine;
             mailMsg.Body += message;
-
 
             NetworkCredential basicAuthenticationInfo = new NetworkCredential(smtpUserName, smtpPwd);
             SmtpClient MailObj = new SmtpClient(smtpServer, port);
