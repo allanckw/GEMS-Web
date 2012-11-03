@@ -37,6 +37,21 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
+                RoleClient roleClient = new RoleClient();
+
+                bool authenticated = roleClient.isEventFacilitator(NUSNetUser().UserID, EventID());
+                
+                if (!authenticated)
+                    Response.Redirect("Error403.aspx");
+
+                List<EnumFunctions> fx = roleClient.GetRights(EventID(), NUSNetUser().UserID).ToList<EnumFunctions>();
+                roleClient.Close();
+                //if (fx.Contains(EnumFunctions.ManageRequest))
+                //    Response.Redirect("/~error403.aspx");
+                
+
+                
+
                 ddlStatus.Items.Clear();
                 ddlStatus.DataSource = Enum.GetNames(typeof(RequestStatus));
                 ddlStatus.DataBind();

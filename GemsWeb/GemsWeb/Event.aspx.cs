@@ -104,7 +104,7 @@ namespace GemsWeb
 
         protected void menuEvent_MenuItemClick(object sender, MenuEventArgs e)
         {
-            mvTab.ActiveViewIndex = int.Parse(e.Item.Value);
+            mvProgramGuest.ActiveViewIndex = int.Parse(e.Item.Value);
             //Load Program/Guest as accordingly
         }
 
@@ -116,15 +116,23 @@ namespace GemsWeb
             EventDay evDay = evClient.GetDay(dayID);
             Guest[] guests = evDay.Guests;
 
-            gvGuest.DataSource = guests;
-            gvGuest.DataBind();
+            rtpGuest.DataSource = guests;
+            rtpGuest.DataBind();
+            //gvGuest.DataSource = guests;
+            //gvGuest.DataBind();
 
             Program[] programs = evDay.Programs;
-            gvProgram.DataSource = programs;
-            gvProgram.DataBind();
+            rptProgramme.DataSource = programs;
+            rptProgramme.DataBind();
+            //gvProgram.DataSource = programs;
+            //gvProgram.DataBind();
             evClient.Close();
         }
 
+        protected string DateTimeToCustomString(DateTime d)
+        {
+            return d.ToString("hh:mm tt");
+        }
     }
 
 }

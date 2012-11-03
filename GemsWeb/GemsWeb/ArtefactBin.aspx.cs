@@ -23,9 +23,15 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
- 
+                bool authenticated=false;
                 lblSelectedFolder.Text = "-";
+                EventClient evClient = new EventClient();
+                if(evClient.GetEvent(EventID()).Organizerid==NUSNetUser().UserID)
+                    authenticated = true;
+                evClient.Close();
 
+                if (!authenticated)
+                    Response.Redirect("Error403.aspx");
             }
 
             if (NUSNetUser() == null)
@@ -105,17 +111,7 @@ namespace GemsWeb
         private void loadTreeView()
         {
             EventClient evClient = new EventClient();
-            Events event_ = null;
-            try
-            {
-                event_ = evClient.GetEvent(EventID());
-            }
-            catch (Exception)
-            {
-                evClient.Close();
-                Alert.Show("You are not authorized to view this workspace!", true, "SelectEventWorkspace.aspx");
-                return;
-            }
+            Events event_ = evClient.GetEvent(EventID());
 
             evClient.Close();
 
@@ -131,7 +127,7 @@ namespace GemsWeb
         private void lvlFolderSelected(TreeNode tn)
         {
             ArtefactClient client = new ArtefactClient();
-            WorkspaceFolders wrkSpaceFolder = client.GetWorkSpaceFolder(EventID(), tn.Value);
+            WorkspaceFolders wrkSpaceFolder = client.GetWorkSpaceFolder(NUSNetUser(), EventID(), tn.Value);
             client.Close();
             hidFolder.Value = tn.Value;
 
@@ -148,18 +144,7 @@ namespace GemsWeb
                 return;
             }
             ArtefactClient arclient = new ArtefactClient();
-            WorkspaceFolders[] WrkSpace = null;
-            try
-            {
-                WrkSpace = arclient.GetWorkSpaceFolders(NUSNetUser(), EventID());
-            }
-            catch (Exception)
-            {
-                arclient.Close();
-                Alert.Show("You are not authorized to view this workspace!", true, "SelectEventWorkspace.aspx");
-                return;
-                //throw;
-            }
+            WorkspaceFolders[] WrkSpace = arclient.GetWorkSpaceFolders(NUSNetUser(), EventID());
 
             if (WrkSpace == null || WrkSpace.Count() == 0)
             {

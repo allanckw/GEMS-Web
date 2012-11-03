@@ -105,7 +105,7 @@
     <Content Include="js\menu.js" />
     <Content Include="RequesteePage.aspx" />
     <Content Include="RequestPage.aspx" />
-    <Content Include="SelectEventWorkspace.aspx" />
+    <Content Include="SelectEventPage.aspx" />
     <Content Include="SignIn.aspx" />
     <Content Include="Main.Master" />
     <Content Include="ViewPastTrans.aspx" />
@@ -229,6 +229,10 @@
     </Compile>
     <Compile Include="ArtefactWorkspace.aspx.cs">
       <DependentUpon>ArtefactWorkspace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtefactWorkspace.aspx.designer.cs">
+      <DependentUpon>ArtefactWorkspace.aspx</DependentUpon>
     </Compile>
     <Compile Include="contactus.aspx.cs">
       <DependentUpon>contactus.aspx</DependentUpon>
@@ -322,12 +326,12 @@
     <Compile Include="RequestPage.aspx.designer.cs">
       <DependentUpon>RequestPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SelectEventWorkspace.aspx.cs">
-      <DependentUpon>SelectEventWorkspace.aspx</DependentUpon>
+    <Compile Include="SelectEventPage.aspx.cs">
+      <DependentUpon>SelectEventPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SelectEventWorkspace.aspx.designer.cs">
-      <DependentUpon>SelectEventWorkspace.aspx</DependentUpon>
+    <Compile Include="SelectEventPage.aspx.designer.cs">
+      <DependentUpon>SelectEventPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="SignIn.aspx.cs">
       <DependentUpon>SignIn.aspx</DependentUpon>

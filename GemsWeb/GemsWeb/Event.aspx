@@ -14,6 +14,7 @@
                     <%--<asp:MenuItem Value="1" Text="Event's Day Information"></asp:MenuItem>--%>
                 </Items>
             </asp:Menu>
+            <!--Add a MultiView control to "contain" View controls which will serve as tab pages.-->
             <asp:MultiView ID="mvTab" runat="server" ActiveViewIndex="0">
                 <!--Add View controls, one for each 'tab'-->
                 <asp:View ID="tab0" runat="server">
@@ -83,64 +84,122 @@
                     <br />
                     <br />
                     <!-- Program information -->
-                    Programme Information<br />
-                    <asp:GridView ID="gvProgram" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                        ForeColor="#333333" GridLines="None" EmptyDataText="No Programmes Added">
-                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                        <Columns>
-                            <asp:BoundField DataField="Name" HeaderText="Name">
-                                <HeaderStyle />
-                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="StartDateTime" HeaderText="Start Time" DataFormatString=" {0:HH:mm}">
-                                <HeaderStyle />
-                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="EndDateTime" HeaderText="End Time" DataFormatString=" {0:HH:mm}">
-                                <HeaderStyle />
-                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Description" HeaderText="Description">
-                                <HeaderStyle Width="250px" />
-                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                            </asp:BoundField>
-                        </Columns>
-                        <EditRowStyle BackColor="#999999" />
-                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                    </asp:GridView>
+                    <asp:Menu ID="menu1" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False"
+                        OnMenuItemClick="menuEvent_MenuItemClick" Height="30px" Width="560px" ForeColor="#666666"
+                        BackColor="#E3EAEB" Font-Bold="True" Font-Underline="True" DynamicHorizontalOffset="2"
+                        Font-Names="Verdana" Font-Size="0.8em" StaticSubMenuIndent="10px">
+                        <Items>
+                            <asp:MenuItem Value="0" Text="Event's Programme"></asp:MenuItem>
+                            <asp:MenuItem Value="1" Text="Guests for the Event"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                    <asp:MultiView ID="mvProgramGuest" runat="server" ActiveViewIndex="0">
+                        <asp:View ID="mvPGtab0" runat="server">
+                            <h2>
+                                Programme Information</h2>
+                            <asp:Repeater ID="rptProgramme" runat="server">
+                                <ItemTemplate>
+                                    <div class="newsItem">
+                                        <b>
+                                            <asp:Label ID="Label1" runat="server" Text="Progam Name: " ForeColor="#0000CC">                                                                 
+                                            <%# DataBinder.Eval(Container, "DataItem.Name")%>
+                                            </asp:Label>
+                                        </b>
+                                        <br />
+                                        <b>From</b>
+                                        <%# DateTimeToCustomString((DateTime)Eval("StartDateTime"))%>
+                                        <b>To</b>
+                                        <%# DateTimeToCustomString((DateTime)Eval("EndDateTime"))%>
+                                        <br />
+                                        Description:<br />
+                                        <%# Eval("Description").ToString().Trim()%>
+                                        <br />
+                                        Location:
+                                        <%# Eval("Location").ToString().Trim()%>
+                                        <br />
+                                        <br />
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <%--<asp:GridView ID="gvProgram" runat="server" AutoGenerateColumns="False" CellPadding="4"
+                                ForeColor="#333333" GridLines="None" EmptyDataText="No Programmes Added">
+                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                <Columns>
+                                    <asp:BoundField DataField="Name" HeaderText="Name">
+                                        <HeaderStyle />
+                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="StartDateTime" HeaderText="Start Time" DataFormatString=" {0:HH:mm}">
+                                        <HeaderStyle />
+                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="EndDateTime" HeaderText="End Time" DataFormatString=" {0:HH:mm}">
+                                        <HeaderStyle />
+                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="Description" HeaderText="Description">
+                                        <HeaderStyle Width="250px" />
+                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                    </asp:BoundField>
+                                </Columns>
+                                <EditRowStyle BackColor="#999999" />
+                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            </asp:GridView>--%>
+                        </asp:View>
+                        <asp:View ID="mvPGtab1" runat="server">
+                            <h2>
+                                Guest Information</h2>
+                            <asp:Repeater ID="rtpGuest" runat="server">
+                                <ItemTemplate>
+                                    <div class="newsItem">
+                                        <b>
+                                            <asp:Label ID="Label1" runat="server" Text="Guest Name: " ForeColor="#0000CC">                                                                 
+                                            <%# DataBinder.Eval(Container, "DataItem.Name")%>
+                                            </asp:Label>
+                                        </b>
+                                        <br />
+                                        Description:<br />
+                                        <%# Eval("Description")%>
+                                        <br />
+                                        <br />
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <%--<asp:GridView ID="gvGuest" runat="server" AutoGenerateColumns="False" CellPadding="4"
+                                EmptyDataText="No Guest Added" ForeColor="#333333" GridLines="None">
+                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                <Columns>
+                                    <asp:BoundField DataField="Name" HeaderText="Name">
+                                        <HeaderStyle Width="150px" />
+                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="Description" HeaderText="Description">
+                                        <HeaderStyle Width="400px" />
+                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                    </asp:BoundField>
+                                </Columns>
+                                <EditRowStyle BackColor="#999999" />
+                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            </asp:GridView>--%>
+                        </asp:View>
+                    </asp:MultiView>
                     <br />
-                    Guest Information<asp:GridView ID="gvGuest" runat="server" AutoGenerateColumns="False"
-                        CellPadding="4" EmptyDataText="No Guest Added" ForeColor="#333333" GridLines="None">
-                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                        <Columns>
-                            <asp:BoundField DataField="Name" HeaderText="Name">
-                                <HeaderStyle Width="150px" />
-                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Description" HeaderText="Description">
-                                <HeaderStyle Width="400px" />
-                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                            </asp:BoundField>
-                        </Columns>
-                        <EditRowStyle BackColor="#999999" />
-                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                    </asp:GridView>
                 </asp:View>
                 <%--                <asp:View ID="tab1" runat="server">
 

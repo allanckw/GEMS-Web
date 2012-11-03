@@ -23,29 +23,12 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
-                //EventClient evclient = new EventClient();
-                //lblSelectedFolder.Text = "-";
-                ////Events ev_ = evclient.GetEvent(EventID());
-                //Events[] evList = evclient.ViewEventsByTag(NUSNetUser(),"");
-                //evclient.Close();
-                //bool authorized = false;
-                //for (int i = 0; i < evList.Count(); i++)
-                //{
-                //    if (evList[i].EventID==EventID())
-                //    {
-                //        authorized = true;
-                //        break;
-                //    }
-                //}
+                RoleClient roleClient = new RoleClient();
+                bool authenticated = roleClient.isEventFacilitator(NUSNetUser().UserID, EventID());
+                roleClient.Close();
 
-                //if (!authorized)
-                //{
-                //    Alert.Show("You are not authorized to view this workspace!", true, "SelectEventWorkspace.aspx");
-                //}
-                //if (!evList.Contains(ev_))
-                //{
-                //    Alert.Show("You are not authorized to view this workspace!", true, "SelectEventWorkspace.aspx");
-                //}
+                if (!authenticated)
+                    Response.Redirect("Error403.aspx");
             }
 
             if (NUSNetUser() == null)
@@ -250,7 +233,7 @@ namespace GemsWeb
                 }
                 else
                 {
-                    WorkspaceFiles wrkFile = arClient.GetWorkSpaceFile(EventID(), lblSelectedFolder.Text.Trim(), hidFile.Value);
+                    WorkspaceFiles wrkFile = arClient.GetWorkSpaceFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), hidFile.Value);
 
                     if (wrkFile.UploadedBy == NUSNetUser().UserID)
                     {
@@ -294,7 +277,7 @@ namespace GemsWeb
                 ArtefactClient arClient = new ArtefactClient();
                 try
                 {
-                    WorkspaceFiles wrkFile = arClient.GetWorkSpaceFile(EventID(), lblSelectedFolder.Text.Trim(), fileID);
+                    WorkspaceFiles wrkFile = arClient.GetWorkSpaceFile(NUSNetUser(),EventID(), lblSelectedFolder.Text.Trim(), fileID);
 
                     if (wrkFile.UploadedBy == NUSNetUser().UserID)
                     {

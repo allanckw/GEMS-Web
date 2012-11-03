@@ -10,7 +10,7 @@
 namespace GemsWeb {
     
     
-    public partial class ViewPastTrans {
+    public partial class SelectEventWorkspace {
         
         /// <summary>
         /// UpdatePanel1 control.
@@ -58,6 +58,15 @@ namespace GemsWeb {
         protected global::GemsWeb.CustomControls.DatePicker dpTo;
         
         /// <summary>
+        /// txtTag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTag;
+        
+        /// <summary>
         /// btnSearch control.
         /// </summary>
         /// <remarks>
@@ -67,12 +76,12 @@ namespace GemsWeb {
         protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// gvPastTransaction control.
+        /// rtpEvent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvPastTransaction;
+        protected global::System.Web.UI.WebControls.Repeater rtpEvent;
     }
 }

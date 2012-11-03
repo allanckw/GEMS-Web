@@ -5686,6 +5686,10 @@ public interface IRole
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRole/ViewUserEventRoles", ReplyAction="http://tempuri.org/IRole/ViewUserEventRolesResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRole/ViewUserEventRolesSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
     evmsService.entities.Role[] ViewUserEventRoles(string userID, int eventID);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRole/isEventFacilitator", ReplyAction="http://tempuri.org/IRole/isEventFacilitatorResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IRole/isEventFacilitatorSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    bool isEventFacilitator(string userid, int eventID);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -5785,6 +5789,11 @@ public partial class RoleClient : System.ServiceModel.ClientBase<IRole>, IRole
     public evmsService.entities.Role[] ViewUserEventRoles(string userID, int eventID)
     {
         return base.Channel.ViewUserEventRoles(userID, eventID);
+    }
+    
+    public bool isEventFacilitator(string userid, int eventID)
+    {
+        return base.Channel.isEventFacilitator(userid, eventID);
     }
 }
 
@@ -6943,7 +6952,7 @@ public interface IArtefact
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArtefact/GetWorkSpaceFile", ReplyAction="http://tempuri.org/IArtefact/GetWorkSpaceFileResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IArtefact/GetWorkSpaceFileSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    evmsService.entities.WorkspaceFiles GetWorkSpaceFile(int eventID, string folderName, string fileName);
+    evmsService.entities.WorkspaceFiles GetWorkSpaceFile(evmsService.entities.User user, int eventID, string folderName, string fileName);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArtefact/GetWorkSpaceFiles", ReplyAction="http://tempuri.org/IArtefact/GetWorkSpaceFilesResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IArtefact/GetWorkSpaceFilesSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
@@ -6951,7 +6960,7 @@ public interface IArtefact
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArtefact/GetWorkSpaceFolder", ReplyAction="http://tempuri.org/IArtefact/GetWorkSpaceFolderResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IArtefact/GetWorkSpaceFolderSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    evmsService.entities.WorkspaceFolders GetWorkSpaceFolder(int eventID, string folderName);
+    evmsService.entities.WorkspaceFolders GetWorkSpaceFolder(evmsService.entities.User user, int eventID, string folderName);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -7023,9 +7032,9 @@ public partial class ArtefactClient : System.ServiceModel.ClientBase<IArtefact>,
         base.Channel.UpdateFile(user, eventID, folderName, fileName, fileDesc, url);
     }
     
-    public evmsService.entities.WorkspaceFiles GetWorkSpaceFile(int eventID, string folderName, string fileName)
+    public evmsService.entities.WorkspaceFiles GetWorkSpaceFile(evmsService.entities.User user, int eventID, string folderName, string fileName)
     {
-        return base.Channel.GetWorkSpaceFile(eventID, folderName, fileName);
+        return base.Channel.GetWorkSpaceFile(user, eventID, folderName, fileName);
     }
     
     public evmsService.entities.WorkspaceFiles[] GetWorkSpaceFiles(evmsService.entities.User user, int eventID, string folderName)
@@ -7033,9 +7042,9 @@ public partial class ArtefactClient : System.ServiceModel.ClientBase<IArtefact>,
         return base.Channel.GetWorkSpaceFiles(user, eventID, folderName);
     }
     
-    public evmsService.entities.WorkspaceFolders GetWorkSpaceFolder(int eventID, string folderName)
+    public evmsService.entities.WorkspaceFolders GetWorkSpaceFolder(evmsService.entities.User user, int eventID, string folderName)
     {
-        return base.Channel.GetWorkSpaceFolder(eventID, folderName);
+        return base.Channel.GetWorkSpaceFolder(user, eventID, folderName);
     }
 }
 
