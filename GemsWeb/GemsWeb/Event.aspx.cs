@@ -114,18 +114,15 @@ namespace GemsWeb
             int dayID = int.Parse(ddlEventDay.SelectedValue);
             EventClient evClient = new EventClient();
             EventDay evDay = evClient.GetDay(dayID);
-            Guest[] guests = evDay.Guests;
+            List<Guest> guests = evDay.Guests.ToList<Guest>();
 
             rtpGuest.DataSource = guests;
             rtpGuest.DataBind();
-            //gvGuest.DataSource = guests;
-            //gvGuest.DataBind();
 
-            Program[] programs = evDay.Programs;
+
+            List<Program> programs = evDay.Programs.ToList<Program>();
             rptProgramme.DataSource = programs;
             rptProgramme.DataBind();
-            //gvProgram.DataSource = programs;
-            //gvProgram.DataBind();
             evClient.Close();
         }
 

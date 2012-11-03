@@ -14,10 +14,20 @@ namespace GemsWeb
     {
         protected void Page_Load(System.Object sender, System.EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                bool authenticated = true;
+                int domain = int.Parse(Session["Domain"].ToString());
+                if (domain >= 2)
+                    authenticated = false;
+
+                if (!authenticated)
+                    Response.Redirect("~/Error403.aspx");
+
+            }
             // if the cart identifier is not passed in the request string
             if (Request.QueryString.Count == 0)
             {
-                
                 this.btnPayPal.Visible = false;
                 this.gvCarts.Visible = false;
             }

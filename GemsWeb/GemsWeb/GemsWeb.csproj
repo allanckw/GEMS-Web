@@ -75,6 +75,9 @@
     <Content Include="CustomControls\RegistrationField.ascx" />
     <Content Include="default.aspx" />
     <Content Include="Error403.aspx" />
+    <Content Include="Error404.aspx" />
+    <Content Include="Error500.aspx" />
+    <Content Include="ErrorGeneral.aspx" />
     <Content Include="Event.aspx" />
     <Content Include="ExpressCheckoutCancel.aspx" />
     <Content Include="ExpressCheckoutSuccess.aspx" />
@@ -109,7 +112,6 @@
     <Content Include="SignIn.aspx" />
     <Content Include="Main.Master" />
     <Content Include="ViewPastTrans.aspx" />
-    <Content Include="WorkSpace\79\Test\Task.png" />
     <None Include="Logs\lastsent.scd" />
     <None Include="Service References\evmsService\EvmsService.disco" />
     <None Include="Service References\evmsService\configuration91.svcinfo" />
@@ -273,6 +275,27 @@
     <Compile Include="Error403.aspx.designer.cs">
       <DependentUpon>Error403.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Error404.aspx.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error404.aspx.designer.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error500.aspx.cs">
+      <DependentUpon>Error500.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error500.aspx.designer.cs">
+      <DependentUpon>Error500.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorGeneral.aspx.cs">
+      <DependentUpon>ErrorGeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorGeneral.aspx.designer.cs">
+      <DependentUpon>ErrorGeneral.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Event.aspx.cs">
       <DependentUpon>Event.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -403,7 +426,9 @@
       <DependentUpon>ViewPastTrans.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="WorkSpace\79\Test\" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>

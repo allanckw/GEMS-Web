@@ -20,8 +20,16 @@ namespace GemsWeb
 
             if (!Page.IsPostBack)
             {
+                bool authenticated = true;
                 txtEmail.Text = Session["partiEmail"].ToString();
                 lblNoEvents.Visible = false;
+
+                int domain = int.Parse(Session["Domain"].ToString());
+                if (domain >= 2)
+                    authenticated = false;
+
+                if (!authenticated)
+                    Response.Redirect("~/Error403.aspx");
             }
 
             System.Web.UI.ScriptManager sc = (System.Web.UI.ScriptManager)Master.FindControl("ScriptManager1");

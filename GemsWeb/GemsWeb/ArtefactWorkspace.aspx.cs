@@ -27,8 +27,12 @@ namespace GemsWeb
                 bool authenticated = roleClient.isEventFacilitator(NUSNetUser().UserID, EventID());
                 roleClient.Close();
 
+                int domain = int.Parse(Session["Domain"].ToString());
+                if (domain >= 2)
+                    authenticated = false;
+
                 if (!authenticated)
-                    Response.Redirect("Error403.aspx");
+                    Response.Redirect("~/Error403.aspx");
             }
 
             if (NUSNetUser() == null)
@@ -130,10 +134,10 @@ namespace GemsWeb
                 return;
             }
             ArtefactClient arclient = new ArtefactClient();
-            WorkspaceFolders[] WrkSpace=null;
+            List<WorkspaceFolders> WrkSpace=null;
             try
             {
-                WrkSpace = arclient.GetWorkSpaceFolders(NUSNetUser(), EventID());
+                WrkSpace = arclient.GetWorkSpaceFolders(NUSNetUser(), EventID()).ToList<WorkspaceFolders>();
             }
             catch (Exception)
             {
@@ -160,7 +164,7 @@ namespace GemsWeb
         private void loadFiles(string folderName = "-")
         {
             ArtefactClient arclient = new ArtefactClient();
-            WorkspaceFiles[] WrkSpaceFile = arclient.GetWorkSpaceFiles(NUSNetUser(), EventID(), folderName);
+            List<WorkspaceFiles> WrkSpaceFile = arclient.GetWorkSpaceFiles(NUSNetUser(), EventID(), folderName).ToList<WorkspaceFiles>();
             gvFiles.DataSource = WrkSpaceFile;
             gvFiles.DataBind();
         }

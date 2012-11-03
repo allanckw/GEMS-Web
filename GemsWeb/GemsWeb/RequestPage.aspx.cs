@@ -40,9 +40,14 @@ namespace GemsWeb
                 RoleClient roleClient = new RoleClient();
 
                 bool authenticated = roleClient.isEventFacilitator(NUSNetUser().UserID, EventID());
-                
+
+                int domain = int.Parse(Session["Domain"].ToString());
+                if (domain >= 2)
+                    authenticated = false;
+
                 if (!authenticated)
-                    Response.Redirect("Error403.aspx");
+                    Response.Redirect("~/Error403.aspx");
+
 
                 List<EnumFunctions> fx = roleClient.GetRights(EventID(), NUSNetUser().UserID).ToList<EnumFunctions>();
                 roleClient.Close();
@@ -62,15 +67,6 @@ namespace GemsWeb
                 getEventSummary();
                 RequestEvents(DateTime.Now.AddMonths(-1), DateTime.Now);
             }
-
-            //System.Web.UI.ScriptManager sc = (System.Web.UI.ScriptManager)Master.FindControl("ScriptManager1");
-
-            //if (sc != null)
-            //{
-            //    sc.RegisterPostBackControl(btnSearch);
-            //    sc.RegisterPostBackControl(btnRequestSave);
-            //    sc.RegisterPostBackControl(btnRequestCancel);
-            //}
         }
 
         protected void rdlstFromDateRange_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,11 +120,11 @@ namespace GemsWeb
                 requestStatus = (RequestStatus)Enum.Parse(typeof(RequestStatus), ddlStatus.Items[0].Value);
             }
 
-            Request[] requests;
+            List<Request> requests;
             try
             {
                 RequestClient client = new RequestClient();
-                requests = client.ViewRequestViaRequester(EventID(), NUSNetUser(), start, end, requestStatus, viewAll);
+                requests = client.ViewRequestViaRequester(EventID(), NUSNetUser(), start, end, requestStatus, viewAll).ToList<Request>();
                 client.Close();
 
                 lstRequest.Items.Clear();
@@ -187,11 +183,6 @@ namespace GemsWeb
                 txtRequestDesc.Text = request.Description;
                 txtFileUrl.Text = request.URL;
             }
-            //txtToWho.Text = request.TargetEmail;
-            //txtRequestTitle.Text = request.Title;
-            //txtRequestDesc.Text = request.Description;
-            //txtFileUrl.Text = request.URL;
-
             txtToWho.ReadOnly = true;
             txtRequestTitle.ReadOnly = true;
             lblRequestLogLabel.Visible = false;
@@ -252,20 +243,26 @@ namespace GemsWeb
 
         protected void btnRequestSave_Click(object sender, EventArgs e)
         {
+            //WARNING: Do not use a fake email to test!
             if (hidRequestID.Value == "")
             {
                 //Add New Request
                 RequestClient client = new RequestClient();
                 try
                 {
-                    client.CreateNewRequest(NUSNetUser(), EventID(), txtToWho.Text.Trim(), txtRequestDesc.Text.Trim(), txtFileUrl.Text.Trim(), txtRequestTitle.Text.Trim());
+                    string otp = client.CreateNewRequest(NUSNetUser(), EventID(), txtToWho.Text.Trim(), txtRequestDesc.Text.Trim(), txtFileUrl.Text.Trim(), txtRequestTitle.Text.Trim());
+
+                    string url = Request.Url.ToString().Replace(Request.RawUrl.Replace("%2f", "/"), "") + "/SignIn.aspx?mode=2";
+                    MailHandler.sendReportMail(NUSNetUser().Name, EventID(), txtRequestTitle.Text.Trim(), txtToWho.Text.Trim(), url, otp);
+
                     Alert.Show("Request Created Successfully!");
                     btnRequestNew_Click(sender, e);
                     RequestEvents(dpFrom.CalDate, dpTo.CalDate);
+
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    Alert.Show("Error Creating Request");
+                    Alert.Show("Error Creating Request with error: " + ex.Message);
                     //throw;
                 }
                 finally

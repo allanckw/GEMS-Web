@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using evmsService.entities;
@@ -25,13 +25,18 @@ namespace GemsWeb
             {
                 bool authenticated=false;
                 lblSelectedFolder.Text = "-";
+
                 EventClient evClient = new EventClient();
                 if(evClient.GetEvent(EventID()).Organizerid==NUSNetUser().UserID)
                     authenticated = true;
                 evClient.Close();
 
+                int domain = int.Parse(Session["Domain"].ToString());
+                if (domain >= 2)
+                    authenticated = false;
+
                 if (!authenticated)
-                    Response.Redirect("Error403.aspx");
+                    Response.Redirect("~/Error403.aspx");
             }
 
             if (NUSNetUser() == null)
@@ -144,7 +149,7 @@ namespace GemsWeb
                 return;
             }
             ArtefactClient arclient = new ArtefactClient();
-            WorkspaceFolders[] WrkSpace = arclient.GetWorkSpaceFolders(NUSNetUser(), EventID());
+            List<WorkspaceFolders> WrkSpace = arclient.GetWorkSpaceFolders(NUSNetUser(), EventID()).ToList<WorkspaceFolders>();
 
             if (WrkSpace == null || WrkSpace.Count() == 0)
             {
@@ -163,7 +168,7 @@ namespace GemsWeb
         private void loadFiles(string folderName = "-")
         {
             ArtefactClient arclient = new ArtefactClient();
-            WorkspaceFiles[] WrkSpaceFile = arclient.GetWorkSpaceFiles(NUSNetUser(), EventID(), folderName);
+            List<WorkspaceFiles> WrkSpaceFile = arclient.GetWorkSpaceFiles(NUSNetUser(), EventID(), folderName).ToList<WorkspaceFiles>();
             gvFiles.DataSource = WrkSpaceFile;
             gvFiles.DataBind();
         }

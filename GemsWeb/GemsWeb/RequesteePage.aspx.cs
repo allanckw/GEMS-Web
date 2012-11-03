@@ -12,21 +12,19 @@ namespace GemsWeb
     public partial class RequesteePage : System.Web.UI.Page
     {
         #region "Page Global Function"
+
         private Requestee RequesteeUser()
         {
+            Requestee r;
             try
             {
-                //Temporary ByPass
-                //Requestee u = (Requestee)Session["nusNETuser"];
-                Requestee u = new Requestee();
-                u.TargetEmail = "Your Email Here";
-                u.Otp = "";
-                return u;
+                 r = (Requestee)Session["ReQuestEE"];
             }
-            catch (Exception ex)
+            catch (Exception)
             {
+                return null;
             }
-            return null;
+            return r;
         }
 
         protected string RequestorName(string s)
@@ -42,6 +40,16 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
+                bool authenticated = true;
+                int domain = int.Parse(Session["Domain"].ToString());
+                if (domain != 2)
+                    authenticated = false;
+
+                if (!authenticated)
+                    Response.Redirect("~/Error403.aspx");
+
+
+
                 ddlStatus.Items.Clear();
                 ddlStatus.DataSource = Enum.GetNames(typeof(RequestStatus));
                 ddlStatus.DataBind();
@@ -54,6 +62,7 @@ namespace GemsWeb
                 dpFrom.Enabled = false;
                 dpTo.Enabled = false;
                 RequestEvents(DateTime.Now.AddMonths(-1), DateTime.Now);
+
             }
         }
 
@@ -109,11 +118,11 @@ namespace GemsWeb
                 requestStatus = (RequestStatus)Enum.Parse(typeof(RequestStatus), ddlStatus.Items[0].Value);
             }
 
-            Request[] requests;
+            List<Request> requests;
             try
             {
                 RequestClient client = new RequestClient();
-                requests = client.ViewRequests(RequesteeUser(), start, end, requestStatus, viewAll);
+                requests = client.ViewRequests(RequesteeUser(), start, end, requestStatus, viewAll).ToList<Request>();
                 client.Close();
 
                 lstRequest.Items.Clear();
@@ -202,9 +211,9 @@ namespace GemsWeb
                 retRequest(requestID);
                 Alert.Show("Request Status Updated Successfully!");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Alert.Show("Error Changing Request Status");
+                Alert.Show("Error Updating the request with message: " + ex.Message);
                 //throw;
             }
             finally

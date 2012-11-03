@@ -77,14 +77,14 @@ namespace GemsWeb.Controllers
             }
         }
 
-        public static void sendPaymentReceivedMail(string userid, string tx, decimal payment)
+        public static void sendPaymentReceivedMail(string targetMail, string tx, decimal payment)
         {
             StringBuilder sb = new StringBuilder();
             string FromEmail = "no-reply@gems.nus.edu.sg";
 
             MailMessage mailMsg = new MailMessage();
 
-            mailMsg.To.Add(userid);
+            mailMsg.To.Add(targetMail);
             mailMsg.From = new MailAddress(FromEmail, "No-Reply (NUS GEMS)");
 
             mailMsg.Subject = "Payment Received Notification";
@@ -129,26 +129,32 @@ namespace GemsWeb.Controllers
             }
         }
 
-        public static void sendReportMail(string userid, string id, string Type, string nature, string desc)
+        public static void sendReportMail(string senderName, int eventID, string title, string targetEmail, string url, string pwd)
         {
+            EventClient evClient = new EventClient();
+            string eventName = evClient.GetEventName(eventID);
+            evClient.Close();
+
             StringBuilder sb = new StringBuilder();
             string FromEmail = "no-reply@gems.nus.edu.sg";
 
             MailMessage mailMsg = new MailMessage();
 
-            mailMsg.To.Add(smtpUserName);
+            mailMsg.To.Add(targetEmail);
+
             mailMsg.From = new System.Net.Mail.MailAddress(FromEmail, "No-Reply (NUS GEMS)");
-            mailMsg.Subject = "Report for " + Type + " - " + nature;
+            mailMsg.Subject = "New Request From NUS GEMS (General Events Management System)";
             mailMsg.IsBodyHtml = true;
 
             sb.AppendLine();
+            sb.AppendLine("To whom it may concern,");
 
-            sb.AppendLine(userid + " has reported that the postid " + id + " of " + Type + " is of nature " + nature);
+            sb.AppendLine(senderName + " from National University of Singapore has sent you a request regarding " + title);
             sb.AppendLine();
-            sb.AppendLine("Description of reporter: ");
+            sb.AppendLine("For more details about the request, please login at our website <a href='" + url + "'> here </a>");
 
             sb.AppendLine();
-            sb.AppendLine(desc);
+            sb.AppendLine("Your userid is " + targetEmail + " and your password is " + pwd);
 
             sb.AppendLine();
             sb.AppendLine();
@@ -173,7 +179,7 @@ namespace GemsWeb.Controllers
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
         }
 
@@ -182,7 +188,7 @@ namespace GemsWeb.Controllers
             MailMessage mailMsg = new MailMessage();
             mailMsg.To.Add(smtpUserName);
             mailMsg.From = new MailAddress(email, name);
-           
+
             mailMsg.Subject = "NUS GEMS Enquiry - " + nature;
             mailMsg.IsBodyHtml = false;
 

@@ -93,8 +93,9 @@ namespace GemsWeb
                 }
                 else if (domainIndex == 2)
                 {
-                    
+                    FormsAuthentication.SetAuthCookie(Login1.UserName.Trim(), false);
                     //Redirect to Requestee Page (Approval)
+                    Response.Redirect("~/RequesteePage.aspx");
                 }
 
                 FormsAuthentication.RedirectFromLoginPage(Login1.UserName, true);
@@ -145,8 +146,9 @@ namespace GemsWeb
 
             try
             {
-                reqClient.ValidateRequestee(username, password);
+                Requestee r = reqClient.ValidateRequestee(username, password);
                 reqClient.Close();
+                Session["ReQuestEE"] = r;
                 return true;
             }
             catch (Exception ex)

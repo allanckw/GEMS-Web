@@ -15,6 +15,18 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
+                if (!Page.IsPostBack)
+                {
+                    bool authenticated = true;
+                    int domain = int.Parse(Session["Domain"].ToString());
+                    if (domain >= 2)
+                        authenticated = false;
+
+                    if (!authenticated)
+                        Response.Redirect("~/Error403.aspx");
+
+                }
+
                 dpFrom.Enabled = false;
                 dpTo.Enabled = false;
                 retPastTransaction(DateTime.Now.AddMonths(-1), DateTime.Now);
@@ -27,7 +39,8 @@ namespace GemsWeb
             ParticipantsTransactionsClient ptClient = new ParticipantsTransactionsClient();
             try
             {
-                ParticipantTransaction[] trans = ptClient.ViewParticipantsTransactions(ParticipantEmail(), start, end);
+                List<ParticipantTransaction> trans = 
+                    ptClient.ViewParticipantsTransactions(ParticipantEmail(), start, end).ToList<ParticipantTransaction>();
                 gvPastTransaction.DataSource = trans;
                 gvPastTransaction.DataBind();
             }

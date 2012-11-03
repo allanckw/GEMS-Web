@@ -9,19 +9,19 @@ namespace GemsWeb
 
         private void scheduler()
         {
-            Timer mailTimer = new System.Timers.Timer();
+            Timer deleteTimer = new System.Timers.Timer();
             // Set the Interval to 5 seconds (5000 milliseconds).
             //mailTimer.Interval = 5000
 
             //Set the Interval to 24hours (86 400 000 milliseconds).
-            mailTimer.Interval = 86400000;
+            deleteTimer.Interval = 86400000;
 
-            mailTimer.AutoReset = true;
-            mailTimer.Elapsed += new ElapsedEventHandler(mailTimer_Elapsed);
-            mailTimer.Enabled = true;
+            deleteTimer.AutoReset = true;
+            deleteTimer.Elapsed += new ElapsedEventHandler(DeleteTimer_Elapsed);
+            deleteTimer.Enabled = true;
         }
 
-        protected void mailTimer_Elapsed(object sender, EventArgs e)
+        protected void DeleteTimer_Elapsed(object sender, EventArgs e)
         {
             string filepath = System.Web.Hosting.HostingEnvironment.MapPath("~") + "\\Logs\\lastsent.scd";
             System.IO.StreamReader strReader = new System.IO.StreamReader(filepath);
@@ -30,19 +30,19 @@ namespace GemsWeb
 
             if (d.Length == 0)
             {
-                DeleteUselessFolders(filepath);
+                removeUnwantedFolders(filepath);
             }
             else if (d.Length == 8)
             {
                 DateTime dd = new DateTime(int.Parse(d.Substring(0, 4)), int.Parse(d.Substring(4, 2)), int.Parse(d.Substring(6, 2)));
                 if (dd.Date < DateTime.Now.Date)
                 {
-                    DeleteUselessFolders(filepath);
+                    removeUnwantedFolders(filepath);
                 }
             }
         }
 
-        private void DeleteUselessFolders(string logFile)
+        private void removeUnwantedFolders(string logFile)
         {
      
             string wrkSpaceDir = System.Web.Hosting.HostingEnvironment.MapPath("~") + "WorkSpace\\";

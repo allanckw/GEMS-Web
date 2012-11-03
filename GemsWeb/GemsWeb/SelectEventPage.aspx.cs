@@ -20,6 +20,15 @@ namespace GemsWeb
             //AuthNUSNET("A0077307", "12345678");
             if (!Page.IsPostBack)
             {
+                bool authenticated = true;
+
+                int domain = int.Parse(Session["Domain"].ToString());
+                if (domain >= 2)
+                    authenticated = false;
+
+                if (!authenticated)
+                    Response.Redirect("~/Error403.aspx");
+
                 dpFrom.Enabled = false;
                 dpTo.Enabled = false;
                 //lblNoEvents.Visible = false;

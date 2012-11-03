@@ -17,17 +17,16 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-
                         </td>
                     </tr>
                     <tr>
                         <td>
-                        <h4>From</h4>
+                            <h4>
+                                From</h4>
                         </td>
                         <td>
-                            <asp:RadioButtonList ID="rdlstFromDateRange" runat="server" AutoPostBack="true" 
-                                RepeatDirection="Horizontal" 
-                                onselectedindexchanged="rdlstFromDateRange_SelectedIndexChanged">
+                            <asp:RadioButtonList ID="rdlstFromDateRange" runat="server" AutoPostBack="true" RepeatDirection="Horizontal"
+                                OnSelectedIndexChanged="rdlstFromDateRange_SelectedIndexChanged">
                                 <asp:ListItem Value="-1">Custom Date Range </asp:ListItem>
                                 <asp:ListItem Value="30" Selected="True">Last 1 Month</asp:ListItem>
                                 <asp:ListItem Value="90">Last 3 Month</asp:ListItem>
@@ -39,18 +38,17 @@
                         <td>
                         </td>
                         <td>
-                           <GEMS:DatePicker ID="dpFrom" runat="server" DisplayFutureDate="true" 
-                                Visible="True" />
+                            <GEMS:DatePicker ID="dpFrom" runat="server" DisplayFutureDate="true" Visible="True" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                        <h4>To</h4>
+                            <h4>
+                                To</h4>
                         </td>
                         <td>
-                             <asp:RadioButtonList ID="rdlstToDateRange" runat="server" AutoPostBack="true" 
-                                 RepeatDirection="Horizontal" 
-                                 onselectedindexchanged="rdlstToDateRange_SelectedIndexChanged">
+                            <asp:RadioButtonList ID="rdlstToDateRange" runat="server" AutoPostBack="true" RepeatDirection="Horizontal"
+                                OnSelectedIndexChanged="rdlstToDateRange_SelectedIndexChanged">
                                 <asp:ListItem Value="-1">Custom Date Range </asp:ListItem>
                                 <asp:ListItem Value="30" Selected="True">Next 1 Month</asp:ListItem>
                                 <asp:ListItem Value="90">Next 3 Month</asp:ListItem>
@@ -62,13 +60,14 @@
                         <td>
                         </td>
                         <td>
-                            <GEMS:DatePicker ID="dpTo" runat="server" MonthsFromCurrent="1" 
-                                DisplayFutureDate="true" Visible="True"/>
+                            <GEMS:DatePicker ID="dpTo" runat="server" MonthsFromCurrent="1" DisplayFutureDate="true"
+                                Visible="True" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <h4>Tag</h4>
+                            <h4>
+                                Tag</h4>
                         </td>
                         <td>
                             <asp:TextBox ID="txtTag" runat="server" Width="200px" />
