@@ -65,6 +65,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="ArtefactBin.aspx" />
+    <Content Include="ArtefactWorkspace.aspx" />
     <Content Include="contactus.aspx" />
     <Content Include="css\aspComponents.css" />
     <Content Include="css\login-box.css" />
@@ -73,6 +74,7 @@
     <Content Include="CustomControls\DatePicker.ascx" />
     <Content Include="CustomControls\RegistrationField.ascx" />
     <Content Include="default.aspx" />
+    <Content Include="Error403.aspx" />
     <Content Include="Event.aspx" />
     <Content Include="ExpressCheckoutCancel.aspx" />
     <Content Include="ExpressCheckoutSuccess.aspx" />
@@ -225,6 +227,9 @@
     <Compile Include="ArtefactBin.aspx.designer.cs">
       <DependentUpon>ArtefactBin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ArtefactWorkspace.aspx.cs">
+      <DependentUpon>ArtefactWorkspace.aspx</DependentUpon>
+    </Compile>
     <Compile Include="contactus.aspx.cs">
       <DependentUpon>contactus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -256,6 +261,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error403.aspx.cs">
+      <DependentUpon>Error403.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error403.aspx.designer.cs">
+      <DependentUpon>Error403.aspx</DependentUpon>
     </Compile>
     <Compile Include="Event.aspx.cs">
       <DependentUpon>Event.aspx</DependentUpon>

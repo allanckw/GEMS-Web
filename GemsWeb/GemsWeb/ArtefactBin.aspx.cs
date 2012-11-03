@@ -23,15 +23,9 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
-                //EventClient evclient = new EventClient();
+ 
                 lblSelectedFolder.Text = "-";
-                //Events ev_ = evclient.GetEvent(EventID());
-                //Events[] evList = evclient.ViewAllEvents(NUSNetUser());
-                //evclient.Close();
-                //if (!evList.Contains(ev_))
-                //{
-                //    Alert.Show("You are not authorized to view this workspace!", true, "SelectEventWorkspace.aspx");
-                //}
+
             }
 
             if (NUSNetUser() == null)
