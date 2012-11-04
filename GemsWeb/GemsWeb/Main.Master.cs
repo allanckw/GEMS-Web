@@ -51,6 +51,7 @@ namespace GemsWeb
             catch (Exception)
             {
                 Session["Login"] = "0";
+                Session["Domain"] = "-1";
             }
 
             pnl2.Visible = !pnl1.Visible;
