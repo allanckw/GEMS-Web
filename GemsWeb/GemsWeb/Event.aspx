@@ -3,6 +3,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCENTER" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <Triggers>
+            <asp:PostBackTrigger ControlID="ddlEventDay" />
+        </Triggers>
         <ContentTemplate>
             <!--Add a MultiView control to "contain" View controls which will serve as tab pages.-->
             <asp:Menu ID="menuEvent" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False"
@@ -82,7 +85,19 @@
                         </tr>
                     </table>
                     <br />
+                    <h4>
+                        <asp:HyperLink ID="hypRegister" NavigateUrl="#" Text="Register For the Event Now!"
+                            runat="server" /></h4>
                     <br />
+                    <br />
+                    <h5>
+                        <a href="#">Share This Event</a></h5>
+                    <div id="share">
+                        <span class='st_facebook_hcount' displaytext='Facebook'></span><span class='st_twitter_hcount'
+                            displaytext='Tweet'></span><span class='st_googleplus_hcount' displaytext='Google +'>
+                            </span><span class='st_sina_hcount' displaytext='Sina'></span><span class='st_email_hcount'
+                                displaytext='Email'></span>
+                    </div>
                     <!-- Program information -->
                     <asp:Menu ID="menu1" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False"
                         OnMenuItemClick="menuEvent_MenuItemClick" Height="30px" Width="560px" ForeColor="#666666"
@@ -121,38 +136,6 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
-                            <%--<asp:GridView ID="gvProgram" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                ForeColor="#333333" GridLines="None" EmptyDataText="No Programmes Added">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                <Columns>
-                                    <asp:BoundField DataField="Name" HeaderText="Name">
-                                        <HeaderStyle />
-                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="StartDateTime" HeaderText="Start Time" DataFormatString=" {0:HH:mm}">
-                                        <HeaderStyle />
-                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="EndDateTime" HeaderText="End Time" DataFormatString=" {0:HH:mm}">
-                                        <HeaderStyle />
-                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="Description" HeaderText="Description">
-                                        <HeaderStyle Width="250px" />
-                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                    </asp:BoundField>
-                                </Columns>
-                                <EditRowStyle BackColor="#999999" />
-                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                            </asp:GridView>--%>
                         </asp:View>
                         <asp:View ID="mvPGtab1" runat="server">
                             <h2>
@@ -173,55 +156,12 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
-                            <%--<asp:GridView ID="gvGuest" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                EmptyDataText="No Guest Added" ForeColor="#333333" GridLines="None">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                <Columns>
-                                    <asp:BoundField DataField="Name" HeaderText="Name">
-                                        <HeaderStyle Width="150px" />
-                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="Description" HeaderText="Description">
-                                        <HeaderStyle Width="400px" />
-                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                    </asp:BoundField>
-                                </Columns>
-                                <EditRowStyle BackColor="#999999" />
-                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                            </asp:GridView>--%>
                         </asp:View>
                     </asp:MultiView>
                     <br />
                 </asp:View>
-                <%--                <asp:View ID="tab1" runat="server">
-
-                </asp:View>
-                <asp:View ID="tab2" runat="server">
-                    <!-- Guest Information information -->
-                </asp:View>--%>
             </asp:MultiView>
         </ContentTemplate>
     </asp:UpdatePanel>
     <br />
-    <h4>
-        <asp:HyperLink ID="hypRegister" NavigateUrl="#" Text="Register For the Event Now!"
-            runat="server" /></h4>
-    <br />
-    <br />
-    <h5>
-        <a href="#">Share This Event</a></h5>
-    <div id="share">
-        <span class='st_facebook_hcount' displaytext='Facebook'></span><span class='st_twitter_hcount'
-            displaytext='Tweet'></span><span class='st_googleplus_hcount' displaytext='Google +'>
-            </span><span class='st_sina_hcount' displaytext='Sina'></span><span class='st_email_hcount'
-                displaytext='Email'></span>
-    </div>
 </asp:Content>

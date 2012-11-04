@@ -20,11 +20,10 @@
     <link rel="stylesheet" href="css/style3.css" type="text/css" />
     <!-- google font -->
     <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' />
-    
     <!-- Sharing -->
     <script type="text/javascript">        var switchTo5x = true;</script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">        
+    <script type="text/javascript">
         stLight.options({ publisher: "ur-4cd48a5-e94f-78a3-875c-9727e5b09712" });
     </script>
     <!-- End Sharing -->
@@ -81,51 +80,32 @@
                     <div id="menu">
                         <ul class="menu">
                             <li>
-                                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/default.aspx" class="parent"><span>Home</span></asp:HyperLink>
+                                <asp:HyperLink ID="hypHome" runat="server" NavigateUrl="~/default.aspx" class="parent"><span>Home</span></asp:HyperLink>
                             </li>
-                            <li>
-                                <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="#" class="parent"><span>Participants..</span></asp:HyperLink>
-                                <div>
-                                    <ul>
-                                        <li>
-                                            <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/ParticipantEvents.aspx"><span>View Registered Events </span></asp:HyperLink></li>
-                                        <li>
-                                            <asp:HyperLink ID="hypCart" runat="server" NavigateUrl="~/viewcart.aspx"><span>View Event Cart</span></asp:HyperLink></li>
-                                        <li>
-                                            <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="#"><span>View Past Transactions</span></asp:HyperLink></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <asp:PlaceHolder ID="PlaceHolder1" runat="server">
+                            <asp:PlaceHolder ID="plcParti" runat="server">
                                 <li>
-                                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="#" class="parent"><span>Events Artefacts..</span></asp:HyperLink>
+                                    <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="#" class="parent"><span>Participants..</span></asp:HyperLink>
                                     <div>
                                         <ul>
                                             <li>
-                                                <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/SelectEventPage.aspx"><span>Event Page Selection</span></asp:HyperLink></li>
+                                                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/ParticipantEvents.aspx"><span>View Registered Events </span></asp:HyperLink></li>
                                             <li>
-                                                <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="#"><span>View Workspace</span></asp:HyperLink></li>
+                                                <asp:HyperLink ID="hypCart" runat="server" NavigateUrl="~/viewcart.aspx"><span>View Event Cart</span></asp:HyperLink></li>
+                                            <li>
+                                                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="#"><span>View Past Transactions</span></asp:HyperLink></li>
                                         </ul>
                                     </div>
                                 </li>
                             </asp:PlaceHolder>
-                            <li>
-                                <asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="#" class="parent"><span>Events Requests</span></asp:HyperLink>
-                                <div>
-                                    <ul>
-                                        <li>
-                                            <asp:HyperLink ID="HyperLink17" runat="server" NavigateUrl="#"><span>Create Requests</span></asp:HyperLink></li>
-                                        <li>
-                                            <asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="#"><span>View and Approve Requests</span></asp:HyperLink></li>
-                                    </ul>
-                                </div>
-                            </li>
+                            <asp:PlaceHolder ID="plcNUSNET" runat="server">
+                                <li>
+                                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/SelectEventPage.aspx" class="parent"><span>Event Artefact and Requests...</span></asp:HyperLink>
+                                </li>
+                            </asp:PlaceHolder>
                             <li>
                                 <asp:HyperLink ID="HyperLink19" runat="server" NavigateUrl="#" class="last"><span>Support..</span></asp:HyperLink>
                                 <div>
                                     <ul>
-                                        <li>
-                                            <asp:HyperLink ID="HyperLink20" runat="server" NavigateUrl="~/AboutUs.aspx"><span>About Us</span></asp:HyperLink></li>
                                         <li>
                                             <asp:HyperLink ID="HyperLink21" runat="server" NavigateUrl="~/contactus.aspx"><span>Contact Us</span></asp:HyperLink></li>
                                         <li>

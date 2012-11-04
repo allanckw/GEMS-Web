@@ -17,6 +17,7 @@ namespace GemsWeb
                 if (login == 0)
                 {
                     pnl1.Visible = true;
+                    hypHome.NavigateUrl = "~/default.aspx";
                 }
                 else
                 {
@@ -26,6 +27,22 @@ namespace GemsWeb
                     {
                         if (domain == 0 || domain == 1)
                             hypCart.NavigateUrl = "~/viewcart.aspx?" + Session["partiEmail"].ToString();
+
+                        if (domain == 0)
+                        {
+                            this.plcNUSNET.Visible = false;
+                        }
+                        else if (domain == 1)
+                        {
+                            hypHome.NavigateUrl = "~/SelectEventPage.aspx";
+                            this.plcNUSNET.Visible = true;
+                        }
+                        else if (domain == 2)
+                        {
+                            hypHome.NavigateUrl = "~/RequesteePage.aspx";
+                            this.plcNUSNET.Visible = false;
+                            this.plcParti.Visible = false;
+                        }
                     }
                     pnl1.Visible = false;
 
@@ -48,6 +65,9 @@ namespace GemsWeb
             Session["Domain"] = "-1";
             Session["partiEmail"] = "";
             Session["username"] = "";
+            Session["ReQuestEE"] = "";
+            Session["nusNETuser"] = "";
+
             FormsAuthentication.SignOut();
             Response.Redirect("~/default.aspx");
         }

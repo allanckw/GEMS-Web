@@ -39,9 +39,18 @@ namespace GemsWeb
                     {
                         lblMsg.Visible = false;
                     }
-                    if (Request.RawUrl.ToString().ToLower().Contains("participantevents.aspx"))
+                    if (Request.RawUrl.ToString().ToLower().Contains("participantevents.aspx") ||
+                        Request.RawUrl.ToString().ToLower().Contains("viewpasttrans.aspx"))
                     {
                         ddlDomain.SelectedIndex = 0;
+                    }
+                    else if (Request.RawUrl.ToString().ToLower().Contains("selecteventpage.aspx"))
+                    {
+                        ddlDomain.SelectedIndex = 1;
+                    }
+                    else if (Request.RawUrl.ToString().ToLower().Contains("requestee.aspx"))
+                    {
+                        ddlDomain.SelectedIndex = 2;
                     }
                 }
 

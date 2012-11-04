@@ -11,8 +11,8 @@ namespace GemsWeb.CustomControls
     public partial class DatePicker : System.Web.UI.UserControl
     {
 
-        private int minYear = 80;
-        private int maxYear = 0;
+        private int minYear = 1980;
+        private int maxYear = 2050;
         private bool fDate = false;
 
         private int monthFromCurrent = 0;
@@ -130,7 +130,7 @@ namespace GemsWeb.CustomControls
             //Year list can be extended
             int year = 0;
 
-            for (year = DateTime.Now.Year - minYear; year <= DateTime.Now.Year + maxYear; year++)
+            for (year = MinimumYear; year <= MaximumYear; year++)
             {
                 drpCalYear.Items.Add(year.ToString());
             }
