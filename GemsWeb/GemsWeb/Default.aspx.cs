@@ -41,12 +41,6 @@ namespace GemsWeb
 
                 rtpEvent.DataSource = arrEventPublish;
                 rtpEvent.DataBind();
-                //lstEvent.DataSource = arrEventPublish;
-
-                //lstEvent.DataValueField = "EventID";
-                //lstEvent.DataTextField = "Name";
-
-                //lstEvent.DataBind();
 
             }
             catch (Exception ex)
@@ -63,11 +57,6 @@ namespace GemsWeb
             //Search and populate lstEvent
             RequestEvents(dpFrom.CalDate, dpTo.CalDate);
         }
-
-        //protected void btnGO_Click(object sender, EventArgs e)
-        //{
-        //    Response.Redirect("~/Event.aspx?EventID=" + lstEvent.SelectedValue);
-        //}
 
         protected string DateToCustomString(DateTime eventDateTime)
         {

@@ -6,12 +6,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCENTER" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
+            <h3>
+                <a href="#">View Past Payment Transactions</a></h3>
+            <br />
             <table>
                 <tr>
                     <td>
-                        <b>Search Past Transaction</b>
-                        <br />
-                        <b>From:</b><br />
+                        <b>From:</b>
+                    </td>
+                    <td>
                         <asp:RadioButtonList ID="rdlstFromDateRange" runat="server" AutoPostBack="true" RepeatDirection="Horizontal"
                             OnSelectedIndexChanged="rdlstFromDateRange_SelectedIndexChanged">
                             <asp:ListItem Value="-1">Custom Date Range </asp:ListItem>
@@ -21,7 +24,13 @@
                         </asp:RadioButtonList>
                         <GEMS:DatePicker ID="dpFrom" MonthsFromCurrent="-1" runat="server" Visible="True" />
                         <br />
-                        <b>To:</b><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>To:</b>
+                    </td>
+                    <td>
                         <asp:RadioButtonList ID="rdlstToDateRange" runat="server" AutoPostBack="true" RepeatDirection="Horizontal"
                             OnSelectedIndexChanged="rdlstToDateRange_SelectedIndexChanged">
                             <asp:ListItem Value="-1">Custom Date Range </asp:ListItem>
@@ -29,59 +38,63 @@
                         </asp:RadioButtonList>
                         <GEMS:DatePicker ID="dpTo" runat="server" Visible="True" />
                         <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
                         <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <asp:GridView ID="gvPastTransaction" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                            ForeColor="#333333" GridLines="None" EmptyDataText="No Past Transaction Available"
-                            Font-Size="X-Small" AllowPaging="True" PageSize="20">
+                        List of Transactions
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <asp:GridView ID="gvPastTransaction" runat="server" AutoGenerateColumns="False" CellPadding="2"
+                            ForeColor="Black"  BackColor="White" EmptyDataText="There are no transaction to display"
+                            BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" GridLines="Horizontal" Width="125%"
+                            Font-Size="Small">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
-                                <asp:TemplateField HeaderStyle-Width="150px" HeaderText="Date & Time">
+                                <asp:TemplateField HeaderStyle-Width="150px" HeaderText="Date & Time" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="lblDate" runat="server" Text='<%# Eval("TransactionDateTime").ToString().Trim() %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderStyle-Width="120px" HeaderText="TransactionID">
+                                <asp:TemplateField HeaderStyle-Width="120px" HeaderText="TransactionID" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="lblUploader" runat="server" Text='<%# Eval("TransactionID").ToString().Trim() %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderStyle-Width="120px" HeaderText="Event Name">
+                                <asp:TemplateField HeaderStyle-Width="120px" HeaderText="Event Name" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Label ID="lblTransEvent" runat="server" Text='<%# getEventName(Eval("EventID").ToString().Trim()) %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderStyle-Width="80px" HeaderText="Amount">
+                                <asp:TemplateField HeaderStyle-Width="80px" HeaderText="Amount" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <center>
-                                            <asp:Label ID="lblTransAmt" runat="server" Text='<%# currencyFormat(Eval("Amount").ToString().Trim()) %>'></asp:Label>
-                                        </center>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderStyle-Width="200px" HeaderText="Remarks">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblTransRemark" runat="server" Text='<%# Eval("Remarks").ToString().Trim() %>'></asp:Label>
+                                        <asp:Label ID="lblTransAmt" runat="server" Text='<%# currencyFormat(Eval("Amount").ToString().Trim()) %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
-                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                            <AlternatingRowStyle Width="95%" />
+                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                            <SortedDescendingHeaderStyle BackColor="#242121" />
                         </asp:GridView>
                     </td>
                 </tr>
             </table>
         </ContentTemplate>
         <Triggers>
-        <asp:PostBackTrigger ControlID="btnSearch" />
+            <asp:PostBackTrigger ControlID="btnSearch" />
         </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

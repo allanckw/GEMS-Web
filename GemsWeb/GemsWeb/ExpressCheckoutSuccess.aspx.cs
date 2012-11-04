@@ -147,8 +147,7 @@ namespace GemsWeb
                 t.EventID = int.Parse(dr["Event_ID"].ToString());
                 t.TransactionDateTime = DateTime.Now;
                 t.TransactionID = tx;
-                dr["Event_ID"].ToString();
-
+                t.Remarks = "";
                 transList.Add(t);
             }
 

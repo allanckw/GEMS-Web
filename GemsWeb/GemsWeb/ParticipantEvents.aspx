@@ -12,10 +12,10 @@
                             <a href="#">Search Registered Events and Make Payments (if any)</a></h3>
                         <table>
                             <tr>
-                                <td>
-                                    Email:
+                                <td style="width: 20%">
+                                    <asp:Label ID="lblEmail" runat="server" Text="Email:"></asp:Label>
                                 </td>
-                                <td style="height: 22px; width: 422px;">
+                                <td style="width: 80%">
                                     <asp:TextBox ID="txtEmail" runat="server" Width="180px"></asp:TextBox><asp:RequiredFieldValidator
                                         ID="RequiredFieldValidator8" runat="server" ErrorMessage="E-mail required" ControlToValidate="txtEmail"
                                         Visible="true"> * </asp:RequiredFieldValidator>
@@ -25,18 +25,32 @@
                             </tr>
                             <tr>
                                 <td>
-                                    From
+                                    <b>From:</b>
                                 </td>
                                 <td>
-                                    <GEMS:DatePicker ID="dpFrom" runat="server" DisplayFutureDate="true" />
+                                    <asp:RadioButtonList ID="rdlstFromDateRange" runat="server" AutoPostBack="true" RepeatDirection="Horizontal"
+                                        OnSelectedIndexChanged="rdlstFromDateRange_SelectedIndexChanged">
+                                        <asp:ListItem Value="-1">Custom Date Range </asp:ListItem>
+                                        <asp:ListItem Value="0" Selected="True">Today</asp:ListItem>
+                                    </asp:RadioButtonList>
+                                    <GEMS:DatePicker ID="dpFrom" MonthsFromCurrent="-1" runat="server" Visible="True" />
+                                    <br />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    To
+                                    <b>To:</b>
                                 </td>
                                 <td>
-                                    <GEMS:DatePicker ID="dpTo" runat="server" MonthsFromCurrent="1" DisplayFutureDate="true" />
+                                    <asp:RadioButtonList ID="rdlstToDateRange" runat="server" AutoPostBack="true" RepeatDirection="Horizontal"
+                                        OnSelectedIndexChanged="rdlstToDateRange_SelectedIndexChanged">
+                                        <asp:ListItem Value="-1">Custom Date Range </asp:ListItem>
+                                        <asp:ListItem Value="30" Selected="True">Next 1 Month</asp:ListItem>
+                                        <asp:ListItem Value="90">Next 3 Month</asp:ListItem>
+                                        <asp:ListItem Value="365">Next Year</asp:ListItem>
+                                    </asp:RadioButtonList>
+                                    <GEMS:DatePicker ID="dpTo" runat="server" Visible="True" />
+                                    <br />
                                 </td>
                             </tr>
                             <tr>
@@ -52,6 +66,8 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
+        <br />
+        <br />
         <div>
             <asp:Label ID="lblNoEvents" runat="server" ForeColor="Red" Text="No records were found for the corresponding e-mail address and timeframe"></asp:Label>
             <asp:Panel ID="pnlEvents" runat="server" Visible="false">
@@ -65,13 +81,15 @@
                     OnRowCommand="gvGoods_RowCommand" GridLines="Horizontal" EmptyDataText="There are no events to display"
                     DataKeyNames="EventID" ForeColor="Black">
                     <Columns>
-                        <asp:BoundField DataField="EventID" HeaderText="Event ID"  HeaderStyle-HorizontalAlign="Left" />
+                        <asp:BoundField DataField="EventID" HeaderText="Event ID" HeaderStyle-HorizontalAlign="Left" />
                         <asp:BoundField DataField="EventName" HeaderText="Event Name" HeaderStyle-HorizontalAlign="Left" />
                         <asp:BoundField DataField="EventCost" HeaderText="Price " HeaderStyle-HorizontalAlign="Left" />
-                        <asp:BoundField DataField="EventStartDate" HeaderText="Start Date " DataFormatString="{0:dd MMM yyyy}"  HeaderStyle-HorizontalAlign="Left"/>
-                        <asp:BoundField DataField="EventEndDate" HeaderText="End Date " DataFormatString="{0:dd MMM yyyy}"  HeaderStyle-HorizontalAlign="Left"/>
-                        <asp:ButtonField ButtonType="Image" CommandName="AddToBasket" ImageUrl="https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif" HeaderStyle-HorizontalAlign="Left"
-                            Text="Add to Cart" />
+                        <asp:BoundField DataField="EventStartDate" HeaderText="Start Date " DataFormatString="{0:dd MMM yyyy}"
+                            HeaderStyle-HorizontalAlign="Left" />
+                        <asp:BoundField DataField="EventEndDate" HeaderText="End Date " DataFormatString="{0:dd MMM yyyy}"
+                            HeaderStyle-HorizontalAlign="Left" />
+                        <asp:ButtonField ButtonType="Image" CommandName="AddToBasket" ImageUrl="https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif"
+                            HeaderStyle-HorizontalAlign="Left" Text="Add to Cart" />
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                     <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
@@ -84,24 +102,25 @@
                     <SortedDescendingHeaderStyle BackColor="#242121" />
                 </asp:GridView>
                 <br />
-                <asp:ImageButton ID="btnViewCart" runat="server" ImageUrl="~/images/viewcart.jpeg" 
-                    Style="float: right;" onclick="btnViewCart_Click" />
-                <br />
-                <hr />
+                <asp:ImageButton ID="btnViewCart" runat="server" ImageUrl="~/images/viewcart.jpeg"
+                    Style="float: right;" OnClick="btnViewCart_Click" />
                 <br />
                 <h4>
                     Paid Events / Events that does not required Payment</h4>
                 <asp:GridView ID="gvPaid" runat="server" AutoGenerateColumns="False" CellPadding="4"
                     AllowPaging="True" PageSize="5" Width="100%" BackColor="White" BorderColor="#CCCCCC"
                     BorderStyle="None" OnPageIndexChanging="gv_PageIndexChanging" BorderWidth="1px"
-                    GridLines="Horizontal" EmptyDataText="There are no events to display" 
-                    DataKeyNames="EventID" ForeColor="Black">
+                    GridLines="Horizontal" EmptyDataText="There are no events to display" DataKeyNames="EventID"
+                    ForeColor="Black">
                     <Columns>
-                        <asp:BoundField DataField="EventID" HeaderText="Event ID" HeaderStyle-HorizontalAlign="Left"   Visible="false"  />
+                        <asp:BoundField DataField="EventID" HeaderText="Event ID" HeaderStyle-HorizontalAlign="Left"
+                            Visible="false" />
                         <asp:BoundField DataField="EventName" HeaderText="Event Name" HeaderStyle-HorizontalAlign="Left" />
-                        <asp:BoundField DataField="EventCost" HeaderText="Price "  HeaderStyle-HorizontalAlign="Left"/>
-                        <asp:BoundField DataField="EventStartDate" HeaderText="Start Date " DataFormatString="{0:dd MMM yyyy}"  HeaderStyle-HorizontalAlign="Left" />
-                        <asp:BoundField DataField="EventEndDate" HeaderText="End Date " DataFormatString="{0:dd MMM yyyy}"  HeaderStyle-HorizontalAlign="Left"/>
+                        <asp:BoundField DataField="EventCost" HeaderText="Price " HeaderStyle-HorizontalAlign="Left" />
+                        <asp:BoundField DataField="EventStartDate" HeaderText="Start Date " DataFormatString="{0:dd MMM yyyy}"
+                            HeaderStyle-HorizontalAlign="Left" />
+                        <asp:BoundField DataField="EventEndDate" HeaderText="End Date " DataFormatString="{0:dd MMM yyyy}"
+                            HeaderStyle-HorizontalAlign="Left" />
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                     <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
@@ -114,8 +133,9 @@
                     <SortedDescendingHeaderStyle BackColor="#242121" />
                 </asp:GridView>
             </asp:Panel>
-            <br />
-            <br />
         </div>
+        <br /><br /><br />
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ViewPastTrans.aspx">View Past Transactions</asp:HyperLink>
+        <br />
     </div>
 </asp:Content>

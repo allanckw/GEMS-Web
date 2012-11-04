@@ -18,7 +18,6 @@ namespace GemsWeb
         {
             this.Form.DefaultButton = ((ImageButton)Login1.FindControl("LoginButton")).UniqueID;
 
-
             if (!Page.IsPostBack)
             {
                 DropDownList ddlDomain = (DropDownList)Login1.FindControl("ddlDomain");
@@ -40,7 +39,8 @@ namespace GemsWeb
                         lblMsg.Visible = false;
                     }
                     if (Request.RawUrl.ToString().ToLower().Contains("participantevents.aspx") ||
-                        Request.RawUrl.ToString().ToLower().Contains("viewpasttrans.aspx"))
+                        Request.RawUrl.ToString().ToLower().Contains("viewpasttrans.aspx") ||
+                        Request.RawUrl.ToString().ToLower().Contains("viewcart.aspx"))
                     {
                         ddlDomain.SelectedIndex = 0;
                     }
@@ -90,9 +90,6 @@ namespace GemsWeb
                 if (domainIndex == 0)
                 {
                     Session["partiEmail"] = Login1.UserName.Trim();
-                    FormsAuthentication.SetAuthCookie(Login1.UserName.Trim(), false);
-
-                    Response.Redirect("~/ParticipantEvents.aspx");
                 }
                 else if (domainIndex == 1)
                 {

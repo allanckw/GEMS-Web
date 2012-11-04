@@ -30,6 +30,16 @@ namespace GemsWeb
 
                 if (!authenticated)
                     Response.Redirect("~/Error403.aspx");
+
+                if (domain == 0)
+                    txtEmail.Visible = false;
+
+                if (domain == 1)
+                    txtEmail.Visible = true;
+
+                lblEmail.Visible = txtEmail.Visible;
+
+               
             }
 
             System.Web.UI.ScriptManager sc = (System.Web.UI.ScriptManager)Master.FindControl("ScriptManager1");
@@ -100,7 +110,7 @@ namespace GemsWeb
             gv.DataBind();
         }
 
-        protected bool AddToBasket(string cart_id, string eventID, string price, string eventName)
+        protected bool AddToEventCart(string cart_id, string eventID, string price, string eventName)
         {
 
             string xmlFile = Server.MapPath("~/App_Data/Carts.xml");
@@ -166,7 +176,38 @@ namespace GemsWeb
             return true;
         }
 
-        protected void gvGoods_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
+        protected void rdlstToDateRange_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dpTo.Enabled = true;
+            if (rdlstToDateRange.SelectedValue != "-1")
+                dpTo.Enabled = false;
+            switch (rdlstToDateRange.SelectedValue)
+            {
+                case "30":
+                    dpTo.CalDate = DateTime.Now.AddMonths(1);
+                    break;
+                case "90":
+                    dpTo.CalDate = DateTime.Now.AddMonths(3);
+                    break;
+                case "365":
+                    dpTo.CalDate = DateTime.Now.AddYears(1);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        protected void rdlstFromDateRange_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dpFrom.Enabled = true;
+            if (rdlstFromDateRange.SelectedValue != "-1")
+            {
+                dpFrom.Enabled = false;
+                dpFrom.CalDate = DateTime.Now;
+            }
+        }
+
+        protected void gvEvents_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
         {
             // handling the event of the "Add To Basket" button pressure
             if (e.CommandName == "AddToBasket")
@@ -180,7 +221,7 @@ namespace GemsWeb
                 // adding goods to the cart
                 if (isParsed)
                 {
-                    AddToBasket(GetCartID(), GetItemID(index), GetPrice(index), GetEventName(index));
+                    AddToEventCart(GetCartID(), GetItemID(index), GetPrice(index), GetEventName(index));
                 }
             }
         }

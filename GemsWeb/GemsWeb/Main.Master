@@ -92,7 +92,7 @@
                                             <li>
                                                 <asp:HyperLink ID="hypCart" runat="server" NavigateUrl="~/viewcart.aspx"><span>View Event Cart</span></asp:HyperLink></li>
                                             <li>
-                                                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="#"><span>View Past Transactions</span></asp:HyperLink></li>
+                                                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/ViewPastTrans.aspx"><span>View Past Transactions</span></asp:HyperLink></li>
                                         </ul>
                                     </div>
                                 </li>
