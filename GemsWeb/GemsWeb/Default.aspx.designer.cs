@@ -22,6 +22,15 @@ namespace GemsWeb {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
+        /// rdlstFromDateRange control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdlstFromDateRange;
+        
+        /// <summary>
         /// dpFrom control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace GemsWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::GemsWeb.CustomControls.DatePicker dpFrom;
+        
+        /// <summary>
+        /// rdlstToDateRange control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdlstToDateRange;
         
         /// <summary>
         /// dpTo control.
@@ -58,21 +76,12 @@ namespace GemsWeb {
         protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// lstEvent control.
+        /// rtpEvent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstEvent;
-        
-        /// <summary>
-        /// btnGO control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGO;
+        protected global::System.Web.UI.WebControls.Repeater rtpEvent;
     }
 }

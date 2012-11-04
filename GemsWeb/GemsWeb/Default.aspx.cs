@@ -18,6 +18,8 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
+                dpFrom.Enabled = false;
+                dpTo.Enabled = false;
                 RequestEvents(DateTime.Now, DateTime.Now.AddMonths(1));
             }
         }
@@ -37,12 +39,14 @@ namespace GemsWeb
 
                 client.Close();
 
-                lstEvent.DataSource = arrEventPublish;
+                rtpEvent.DataSource = arrEventPublish;
+                rtpEvent.DataBind();
+                //lstEvent.DataSource = arrEventPublish;
 
-                lstEvent.DataValueField = "EventID";
-                lstEvent.DataTextField = "Name";
+                //lstEvent.DataValueField = "EventID";
+                //lstEvent.DataTextField = "Name";
 
-                lstEvent.DataBind();
+                //lstEvent.DataBind();
 
             }
             catch (Exception ex)
@@ -60,9 +64,45 @@ namespace GemsWeb
             RequestEvents(dpFrom.CalDate, dpTo.CalDate);
         }
 
-        protected void btnGO_Click(object sender, EventArgs e)
+        //protected void btnGO_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("~/Event.aspx?EventID=" + lstEvent.SelectedValue);
+        //}
+
+        protected string DateToCustomString(DateTime eventDateTime)
         {
-            Response.Redirect("~/Event.aspx?EventID=" + lstEvent.SelectedValue);
+            return eventDateTime.ToString("dd MMM yyyy");
+        }
+
+        protected void rdlstToDateRange_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dpTo.Enabled = true;
+            if (rdlstToDateRange.SelectedValue != "-1")
+                dpTo.Enabled = false;
+            switch (rdlstToDateRange.SelectedValue)
+            {
+                case "30":
+                    dpTo.CalDate = DateTime.Now.AddMonths(1);
+                    break;
+                case "90":
+                    dpTo.CalDate = DateTime.Now.AddMonths(3);
+                    break;
+                case "365":
+                    dpTo.CalDate = DateTime.Now.AddYears(1);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        protected void rdlstFromDateRange_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dpFrom.Enabled = true;
+            if (rdlstFromDateRange.SelectedValue != "-1")
+            {
+                dpFrom.Enabled = false;
+                dpFrom.CalDate = DateTime.Now;
+            }
         }
     }
 }
