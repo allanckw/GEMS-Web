@@ -7,7 +7,7 @@
         <h3>
             <a href="#">You have successfully registered for the event </a>
         </h3>
-        <asp:HyperLink ID="hypGoBack" NavigateUrl="~/SignIn.aspx?mode=0" Text="View Registered Event and Make Payment (if any)" runat="server" />
+        <asp:HyperLink ID="hypGoBack" NavigateUrl="~/ParticipantEvents.aspx" Text="View Registered Event and Make Payment (if any)" runat="server" />
         <br />
     </div>
 </asp:Content>

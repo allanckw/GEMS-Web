@@ -117,7 +117,6 @@ namespace GemsWeb
                 {
                     try
                     {
-                       
                         savePaymentToDatabase(partiMail);
                     }
                     catch (Exception ex)
