@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using evmsService.entities;
 using GemsWeb.Controllers;
+using System.Web.Security;
 
 namespace GemsWeb
 {
@@ -35,6 +36,21 @@ namespace GemsWeb
             return uploader;
         }
         #endregion
+
+        protected void Signout_Click(object sender, EventArgs e)
+        {
+            //Carts.LoadCart(Session["partiEmail"].ToString().ToString());
+            //Carts.DeleteUserCart(Session["partiEmail"].ToString().ToString());
+            Session["Login"] = "0";
+            Session["Domain"] = "-1";
+            Session["partiEmail"] = "";
+            Session["username"] = "";
+            Session["ReQuestEE"] = "";
+            Session["nusNETuser"] = "";
+
+            FormsAuthentication.SignOut();
+            Response.Redirect("~/default.aspx");
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {

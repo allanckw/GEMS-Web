@@ -7,7 +7,6 @@ namespace GemsWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             MailHandler.url = Request.Url.ToString().Replace(Request.RawUrl.Replace("%2f", "/"), "");
             string userid = (string)Session["username"];
             int login = 0;

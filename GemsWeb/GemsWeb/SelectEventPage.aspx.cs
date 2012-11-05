@@ -87,7 +87,7 @@ namespace GemsWeb
                 Events ev = (Events)e.Item.DataItem;
                 //List<EnumFunctions> fx = client.GetRights(ev.EventID, u.UserID).ToList<EnumFunctions>();
                 HyperLink hyperReq = (HyperLink)e.Item.FindControl("lnkRequest");
-
+                hyperReq.Attributes.Add("onclick", "window.open('RequestPage.aspx?EventID=" + ev.EventID + "', 'Request Page','left=250px, top=245px, width=1100px, height=650px, location=no, directories=no, scrollbars=yes, status=no, resizable=no');return false;");
                 //TODO: Turn on after enumfunctions for manage request is Up
                 if (client.haveRightsTo(ev.EventID,NUSNetUser().UserID,EnumFunctions.Manage_Requests))//fx.Contains(EnumFunctions.Manage_Requests) || string.Compare(ev.Organizerid, u.UserID, true) == 0)
                 {
@@ -104,12 +104,14 @@ namespace GemsWeb
                 if (client.haveRightsTo(ev.EventID,NUSNetUser().UserID,EnumFunctions.Manage_Artefacts))//string.Compare(ev.Organizerid, NUSNetUser().UserID, true) == 0)
                 {
                     //if event organizer, go to the page that can edit folders
-                    hyperArte.NavigateUrl = "ArtefactBin.aspx?EventID=" + ev.EventID;
+                    //hyperArte.NavigateUrl = "ArtefactBin.aspx?EventID=" + ev.EventID;
+                    hyperArte.Attributes.Add("onclick", "window.open('ArtefactBin.aspx?EventID=" + ev.EventID + "', 'Artefact Bin','left=250px, top=245px, width=1100px, height=650px, location=no, directories=no, scrollbars=yes, status=no, resizable=no');return false;");
                 }
                 else
                 {
                     //else go to the page that cannot edit folders
-                    hyperArte.NavigateUrl = "ArtefactWorkspace.aspx?EventID=" + ev.EventID;
+                    //hyperArte.NavigateUrl = "ArtefactWorkspace.aspx?EventID=" + ev.EventID;
+                    hyperArte.Attributes.Add("onclick", "window.open('ArtefactWorkspace.aspx?EventID=" + ev.EventID + "', 'Artefact Workspace','left=250px, top=245px, width=1100px, height=650px, location=no, directories=no, scrollbars=yes, status=no, resizable=no');return false;");
                 }
 
 

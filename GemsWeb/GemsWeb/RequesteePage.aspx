@@ -17,7 +17,15 @@
                 <asp:HyperLink NavigateUrl="~/default.aspx" runat="server" ID="hyperlink30"><h1>
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Event Management <sup>Beta</sup></h1></asp:HyperLink>
-                &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:PlaceHolder ID="pnl2" runat="server">
+                    <ul id="nav">
+                        <li><a href="#intro">Welcome
+                            <asp:LoginName ID="LoginName1" runat="server"></asp:LoginName>
+                        </a></li>
+                        <li>
+                            <asp:LinkButton ID="LinkButton1" runat="server" ValidationGroup="sign0ut" OnClick="Signout_Click">Sign out</asp:LinkButton></li>
+                    </ul>
+                </asp:PlaceHolder>
             </div>
             <div id="container">
                 <p class="description">
@@ -89,10 +97,8 @@
                                         <asp:DropDownList ID="ddlRequesteeStatus" Enabled="false" runat="server" Width="150px">
                                         </asp:DropDownList>
                                         <br />
-                                        <asp:Button ID="btnApprove" runat="server" Text="Approve" 
-                                            onclick="btnApprove_Click" />
-                                        &nbsp;<asp:Button ID="btnReject" runat="server" Text="Reject" 
-                                            onclick="btnReject_Click" />
+                                        <asp:Button ID="btnApprove" runat="server" Text="Approve" OnClick="btnApprove_Click" />
+                                        &nbsp;<asp:Button ID="btnReject" runat="server" Text="Reject" OnClick="btnReject_Click" />
                                     </td>
                                 </tr>
                                 <tr style="height: 40%">
