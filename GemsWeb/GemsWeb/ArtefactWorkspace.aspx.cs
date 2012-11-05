@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using evmsService.entities;
 using GemsWeb.Controllers;
+using System.IO;
 
 namespace GemsWeb
 {
@@ -23,21 +24,46 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
-                RoleClient roleClient = new RoleClient();
-                bool authenticated = roleClient.isEventFacilitator(NUSNetUser().UserID, EventID());
-                roleClient.Close();
+                //RoleClient roleClient = new RoleClient();
+                //bool authenticated = roleClient.isEventFacilitator(NUSNetUser().UserID, EventID());
+                //roleClient.Close();
 
-                int domain = int.Parse(Session["Domain"].ToString());
-                if (domain >= 2)
-                    authenticated = false;
+                //int domain = int.Parse(Session["Domain"].ToString());
+                //if (domain >= 2)
+                //    authenticated = false;
+
+                //if (!authenticated)
+                //    Response.Redirect("~/Error403.aspx");
+
+                lblSelectedFolder.Text = "-";
+
+                int domain = -1;
+                try
+                {
+                    domain = int.Parse(Session["Domain"].ToString());
+                }
+                catch (Exception)
+                {
+                    domain = -1;
+                }
+                if (domain != 1)
+                    Response.Redirect("~/Error404.aspx");
+
+                bool authenticated = false;
+                if (EventID() == -1)
+                    Response.Redirect("~/Error404.aspx");
+
+                RoleClient roleClient = new RoleClient();
+                
+                if (NUSNetUser() != null)
+                {
+                    authenticated = roleClient.isEventFacilitator(NUSNetUser().UserID, EventID());
+                }
+
+                roleClient.Close();
 
                 if (!authenticated)
                     Response.Redirect("~/Error403.aspx");
-            }
-
-            if (NUSNetUser() == null)
-            {
-                Alert.Show("Please Login First", true);
             }
 
             loadTreeView();
@@ -205,10 +231,20 @@ namespace GemsWeb
                 return;
             }
 
+            if (fuFileUpload.HasFile)
+            {
+                int filesz = fuFileUpload.PostedFile.ContentLength / 1024;
+                if (filesz>10240)
+                {
+                    lblMsg.Text = "File Size cannot exceed 10MB!";
+                    return;
+                }
+            }
+
             string filename = null;
             string fileurl = "";
 
-            ArtefactClient arClient = new ArtefactClient();
+          
 
             if (fuFileUpload.HasFile)
             {
@@ -220,6 +256,13 @@ namespace GemsWeb
                 filename = fileurl.Substring(fileurl.LastIndexOf("/") + 1);
             }
 
+            if (filename.Length>250)
+            {
+                lblMsg.Text = "File Name cannot exceed 250 character!";
+                return;
+            }
+
+            ArtefactClient arClient = new ArtefactClient();
             try
             {
                 if (hidFile.Value == "")
@@ -257,7 +300,6 @@ namespace GemsWeb
             catch (Exception)
             {
                 lblMsg.Text = "Upload Failed";
-                throw;
             }
 
         }
@@ -340,8 +382,15 @@ namespace GemsWeb
 
         private int EventID()
         {
-            int eventID = int.Parse(Request.QueryString["EventID"]);
-            return eventID;
+            try
+            {
+                int eventID = int.Parse(Request.QueryString["EventID"]);
+                return eventID;
+            }
+            catch (Exception)
+            {
+                return -1;   
+            }            
         }
 
         private string workSpaceDir(string folderName = "-")

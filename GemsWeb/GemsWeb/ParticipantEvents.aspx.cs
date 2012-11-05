@@ -207,7 +207,7 @@ namespace GemsWeb
             }
         }
 
-        protected void gvEvents_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
+        protected void gvGoods_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
         {
             // handling the event of the "Add To Basket" button pressure
             if (e.CommandName == "AddToBasket")

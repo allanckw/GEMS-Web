@@ -86,10 +86,13 @@
                                 </tr>
                                 <tr>
                                     <td align="right" valign="top">
-                                        <asp:DropDownList ID="ddlRequesteeStatus" runat="server" Width="150px">
+                                        <asp:DropDownList ID="ddlRequesteeStatus" Enabled="false" runat="server" Width="150px">
                                         </asp:DropDownList>
                                         <br />
-                                        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+                                        <asp:Button ID="btnApprove" runat="server" Text="Approve" 
+                                            onclick="btnApprove_Click" />
+                                        &nbsp;<asp:Button ID="btnReject" runat="server" Text="Reject" 
+                                            onclick="btnReject_Click" />
                                     </td>
                                 </tr>
                                 <tr style="height: 40%">
@@ -139,7 +142,8 @@
                         <Triggers>
                             <asp:PostBackTrigger ControlID="gvRequestLog" />
                             <asp:PostBackTrigger ControlID="btnSearch" />
-                            <asp:PostBackTrigger ControlID="btnSubmit" />
+                            <asp:PostBackTrigger ControlID="btnApprove" />
+                            <asp:PostBackTrigger ControlID="btnReject" />
                         </Triggers>
                     </asp:UpdatePanel>
                 </div>

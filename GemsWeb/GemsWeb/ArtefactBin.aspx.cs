@@ -23,25 +23,39 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
-                bool authenticated=false;
                 lblSelectedFolder.Text = "-";
+                string eventOrganizerID = "";
 
+                int domain = -1;
+                try
+                {
+                    domain = int.Parse(Session["Domain"].ToString());
+                }
+                catch (Exception)
+                {
+                    domain = -1;
+                }
+
+                if (domain != 1)
+                    Response.Redirect("~/Error404.aspx");
+
+                if (EventID() == -1)
+                    Response.Redirect("~/Error404.aspx");
+
+                bool authenticated = false;
                 EventClient evClient = new EventClient();
-                if(evClient.GetEvent(EventID()).Organizerid==NUSNetUser().UserID)
-                    authenticated = true;
+                eventOrganizerID = evClient.GetEvent(EventID()).Organizerid;
                 evClient.Close();
 
-                int domain = int.Parse(Session["Domain"].ToString());
-                if (domain >= 2)
-                    authenticated = false;
+                if (NUSNetUser() != null)
+                {
+                    if (eventOrganizerID == NUSNetUser().UserID)
+                        authenticated = true;
+
+                }
 
                 if (!authenticated)
                     Response.Redirect("~/Error403.aspx");
-            }
-
-            if (NUSNetUser() == null)
-            {
-                Alert.Show("Please Login First", true);
             }
 
             loadTreeView();
@@ -282,10 +296,20 @@ namespace GemsWeb
                 return;
             }
 
+            if (fuFileUpload.HasFile)
+            {
+                int filesz = fuFileUpload.PostedFile.ContentLength / 1024;
+                if (filesz > 10240)
+                {
+                    lblMsg.Text = "File Size cannot exceed 10MB!";
+                    return;
+                }
+            }
+
             string filename = null;
             string fileurl = "";
 
-            ArtefactClient arClient = new ArtefactClient();
+            
 
             if (fuFileUpload.HasFile)
             {
@@ -297,13 +321,21 @@ namespace GemsWeb
                 filename = fileurl.Substring(fileurl.LastIndexOf("/") + 1);
             }
 
+            if (filename.Length > 250)
+            {
+                lblMsg.Text = "File Name cannot exceed 250 character!";
+                return;
+            }
+
+            ArtefactClient arClient = new ArtefactClient();
+
             try
             {
                 if (hidFile.Value == "")
                 {
                     //Upload New file                    
                     arClient.UploadFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), filename, txtFileDesc.Text.Trim(), fileurl);
-                    
+
                     if (fuFileUpload.HasFile)
                     {
                         UploadFile(filename);
@@ -324,7 +356,7 @@ namespace GemsWeb
             {
                 lblMsg.Text = "Upload Failed";
                 throw;
-            }     
+            }
 
         }
         #endregion
@@ -351,8 +383,8 @@ namespace GemsWeb
             if (e.CommandName == "Del")
             {
                 int index = int.Parse(e.CommandArgument.ToString());
-                
-                string fileID = ((Label)gvFiles.Rows[index].Cells[2].FindControl("lblFileName")).Text.Replace(" ","%20");
+
+                string fileID = ((Label)gvFiles.Rows[index].Cells[2].FindControl("lblFileName")).Text.Replace(" ", "%20");
 
                 string filepath = workSpaceDir(lblSelectedFolder.Text.Trim()) + "\\" + ((Label)gvFiles.Rows[index].Cells[2].FindControl("lblFileName")).Text;
                 ArtefactClient arClient = new ArtefactClient();
@@ -379,7 +411,7 @@ namespace GemsWeb
                 {
                     arClient.Close();
                 }
-               
+
 
                 //loadFiles(classId, folderID);
             }
@@ -428,8 +460,16 @@ namespace GemsWeb
 
         private int EventID()
         {
-            int eventID = int.Parse(Request.QueryString["EventID"]);
-            return eventID;
+            try
+            {
+                int eventID = int.Parse(Request.QueryString["EventID"]);
+                return eventID;
+            }
+            catch (Exception)
+            {
+
+                return -1;
+            }
         }
 
         private string workSpaceDir(string folderName = "-")

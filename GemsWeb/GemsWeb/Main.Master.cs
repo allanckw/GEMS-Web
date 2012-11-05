@@ -34,7 +34,7 @@ namespace GemsWeb
                         }
                         else if (domain == 1)
                         {
-                            hypHome.NavigateUrl = "~/SelectEventPage.aspx";
+                            //hypHome.NavigateUrl = "~/SelectEventPage.aspx";
                             this.plcNUSNET.Visible = true;
                         }
                         else if (domain == 2)

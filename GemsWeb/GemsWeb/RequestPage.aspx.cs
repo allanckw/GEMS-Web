@@ -37,24 +37,53 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
-                RoleClient roleClient = new RoleClient();
-
-                bool authenticated = roleClient.isEventFacilitator(NUSNetUser().UserID, EventID());
-
-                int domain = int.Parse(Session["Domain"].ToString());
-                if (domain >= 2)
+                bool authenticated=true;
+                int domain = -1;
+                try
+                {
+                    domain = int.Parse(Session["Domain"].ToString());
+                }
+                catch (Exception)
+                {
+                    domain = -1;
+                }
+                
+                if (domain != 1)
                     authenticated = false;
 
                 if (!authenticated)
-                    Response.Redirect("~/Error403.aspx");
+                    Response.Redirect("~/Error404.aspx");
 
+                //EventClient evClient = new EventClient();
+                //string eventOrganizerID = evClient.GetEvent(EventID()).Organizerid;
+                //evClient.Close();
 
-                List<EnumFunctions> fx = roleClient.GetRights(EventID(), NUSNetUser().UserID).ToList<EnumFunctions>();
+                RoleClient roleClient = new RoleClient();
+                authenticated = false;
+                if (NUSNetUser() != null)
+                {
+                    if (roleClient.haveRightsTo(EventID(),NUSNetUser().UserID,EnumFunctions.Manage_Requests))
+                             authenticated = true;    
+                    //if (eventOrganizerID == NUSNetUser().UserID)
+                    //{
+                    //    authenticated = true;
+                    //}
+                    //else
+                    //{
+                    //    if (roleClient.isEventFacilitator(NUSNetUser().UserID, EventID()))
+                    //    {
+                    //        //List<EnumFunctions> fx = roleClient.GetRights(EventID(), NUSNetUser().UserID).ToList<EnumFunctions>();
+                    //        //if (fx.Contains(EnumFunctions.Manage_Requests))
+                    //        if (roleClient.haveRightsTo(EventID(),NUSNetUser().UserID,EnumFunctions.Manage_Requests))
+                    //            authenticated = true;          
+                    //    }
+                    //}
+                }
+
                 roleClient.Close();
-                //if (fx.Contains(EnumFunctions.ManageRequest))
-                //    Response.Redirect("/~error403.aspx");
-                
 
+                if (!authenticated)
+                    Response.Redirect("~/Error403.aspx");
                 
 
                 ddlStatus.Items.Clear();

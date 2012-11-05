@@ -40,16 +40,21 @@ namespace GemsWeb
         {
             if (!Page.IsPostBack)
             {
-                bool authenticated = true;
-                int domain = int.Parse(Session["Domain"].ToString());
+                int domain = -1;
+                try
+                {
+                   domain = int.Parse(Session["Domain"].ToString());
+                }
+                catch (Exception)
+                {
+                    domain = -1;
+                }
+                
                 if (domain != 2)
-                    authenticated = false;
+                    Response.Redirect("~/Error404.aspx");//authenticated = false;
 
-                if (!authenticated)
-                    Response.Redirect("~/Error403.aspx");
-
-
-
+                btnApprove.Visible = false;
+                btnReject.Visible = false;
                 ddlStatus.Items.Clear();
                 ddlStatus.DataSource = Enum.GetNames(typeof(RequestStatus));
                 ddlStatus.DataBind();
@@ -175,6 +180,15 @@ namespace GemsWeb
                 }
             }
 
+            btnApprove.Visible = false;
+            btnReject.Visible = false;
+
+            if (request.Status == RequestStatus.Pending)
+            {
+                btnApprove.Visible = true;
+                btnReject.Visible = true;
+            }
+
             hypLnkFileUrl.Visible = false;
             if (request.URL.Trim().Length>0)
             {
@@ -198,13 +212,13 @@ namespace GemsWeb
             retRequest(requestID, e.NewPageIndex);
         }
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
+
+        private void UpdateRequestFromRequestee(RequestStatus requestStatus)
         {
             if (hidRequestID.Value == "")
                 return;
             RequestClient client = new RequestClient();
             int requestID = int.Parse(hidRequestID.Value);
-            RequestStatus requestStatus = (RequestStatus)Enum.Parse(typeof(RequestStatus), ddlRequesteeStatus.SelectedValue);
             try
             {
                 client.ChangeStatus(RequesteeUser(), requestID, requestStatus, txtRemarks.Text.Trim());
@@ -220,7 +234,6 @@ namespace GemsWeb
             {
                 client.Close();
             }
-            
         }
 
         protected void Clear()
@@ -231,7 +244,17 @@ namespace GemsWeb
             txtRequestTitle.Text = "";
             lblRequestLogLabel.Visible = false;
             gvRequestLog.Visible = false;
-            ddlRequesteeStatus.SelectedIndex = 0;
+            //ddlRequesteeStatus.SelectedIndex = 0;
+        }
+
+        protected void btnApprove_Click(object sender, EventArgs e)
+        {
+            UpdateRequestFromRequestee(RequestStatus.Approved);
+        }
+
+        protected void btnReject_Click(object sender, EventArgs e)
+        {
+            UpdateRequestFromRequestee(RequestStatus.Rejected);
         }
     }
 }

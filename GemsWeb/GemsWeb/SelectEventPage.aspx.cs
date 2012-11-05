@@ -14,6 +14,21 @@ namespace GemsWeb
 {
     public partial class SelectEventWorkspace : System.Web.UI.Page
     {
+        #region "Page Global Function"
+        private User NUSNetUser()
+        {
+            try
+            {
+                User u = (User)Session["nusNETuser"];
+                return u;
+            }
+            catch (Exception ex)
+            {
+            }
+            return null;
+        }
+        #endregion
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //To ByPass for NUSNetUser Temporary
@@ -65,29 +80,28 @@ namespace GemsWeb
 
         protected void rptEvent_OnItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            User u = (User)Session["nusNETuser"];
             RoleClient client = new RoleClient();
             // Execute the following logic for Items and Alternating Items.
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Events ev = (Events)e.Item.DataItem;
-                List<EnumFunctions> fx = client.GetRights(ev.EventID, u.UserID).ToList<EnumFunctions>();
+                //List<EnumFunctions> fx = client.GetRights(ev.EventID, u.UserID).ToList<EnumFunctions>();
                 HyperLink hyperReq = (HyperLink)e.Item.FindControl("lnkRequest");
 
                 //TODO: Turn on after enumfunctions for manage request is Up
-                //if (fx.Contains(EnumFunctions.Manage_Requests) || string.Compare(ev.Organizerid, u.UserID, true) == 0)
-                //{
-                      //If can manage requests, visible
-                //    hyperReq.Visible = true;
-                //}
-                //else
-                //{
+                if (client.haveRightsTo(ev.EventID,NUSNetUser().UserID,EnumFunctions.Manage_Requests))//fx.Contains(EnumFunctions.Manage_Requests) || string.Compare(ev.Organizerid, u.UserID, true) == 0)
+                {
+                     // If can manage requests, visible
+                    hyperReq.Visible = true;
+                }
+                else
+                {
                     //if cannot off it
-                    //hyperReq.Visible = false;
-                //}
+                    hyperReq.Visible = false;
+                }
 
                 HyperLink hyperArte = (HyperLink)e.Item.FindControl("lnkArtefact");
-                if (string.Compare(ev.Organizerid, u.UserID, true) == 0)
+                if (client.haveRightsTo(ev.EventID,NUSNetUser().UserID,EnumFunctions.Manage_Artefacts))//string.Compare(ev.Organizerid, NUSNetUser().UserID, true) == 0)
                 {
                     //if event organizer, go to the page that can edit folders
                     hyperArte.NavigateUrl = "ArtefactBin.aspx?EventID=" + ev.EventID;
