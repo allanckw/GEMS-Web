@@ -7,6 +7,7 @@ namespace GemsWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             MailHandler.url = Request.Url.ToString().Replace(Request.RawUrl.Replace("%2f", "/"), "");
             string userid = (string)Session["username"];
             int login = 0;
@@ -54,6 +55,9 @@ namespace GemsWeb
             }
 
             pnl2.Visible = !pnl1.Visible;
+
+            if (Request.Url.ToString().ToLower().Contains("gemsweb"))
+                Response.Redirect("~/default.aspx");
 
         }
 
