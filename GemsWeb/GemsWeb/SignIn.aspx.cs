@@ -20,6 +20,7 @@ namespace GemsWeb
 
             if (!Page.IsPostBack)
             {
+
                 DropDownList ddlDomain = (DropDownList)Login1.FindControl("ddlDomain");
                 int mode;
                 bool parseSuccess = int.TryParse(Request.QueryString["mode"], out mode);

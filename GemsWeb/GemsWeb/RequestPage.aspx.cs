@@ -168,7 +168,7 @@ namespace GemsWeb
             }
             catch (Exception ex)
             {
-                Alert.Show("Error Retreiving List of Request from Server", false, "~/Default.aspx");
+                Alert.Show(ex.Message, false, "~/Default.aspx");
                 return;
             }
 

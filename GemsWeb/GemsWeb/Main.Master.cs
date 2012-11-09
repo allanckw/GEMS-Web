@@ -56,9 +56,6 @@ namespace GemsWeb
 
             pnl2.Visible = !pnl1.Visible;
 
-            if (Request.Url.ToString().ToLower().Contains("gemsweb"))
-                Response.Redirect("~/default.aspx");
-
         }
 
         protected void Signout_Click(object sender, EventArgs e)

@@ -398,7 +398,7 @@ namespace GemsWeb
             if (folderName == "-")
                 folderName = "";
 
-            return Server.MapPath("~") + wrkSpaceDir + EventID().ToString() + "\\" + folderName;
+            return Server.MapPath("~\\") + wrkSpaceDir + EventID().ToString() + "\\" + folderName;
         }
         #endregion
 
