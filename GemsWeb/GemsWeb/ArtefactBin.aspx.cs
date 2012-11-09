@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using evmsService.entities;
 using GemsWeb.Controllers;
+using System.Web.Configuration;
 
 namespace GemsWeb
 {
@@ -511,7 +512,15 @@ namespace GemsWeb
             if (url != "")
                 return url;
 
-            string path = Request.Url.ToString().Replace(Request.RawUrl.Replace("%2f", "/"), "") + "/" + wrkSpaceDir.Replace("\\", "/") + EventID() + "/" + lblSelectedFolder.Text.Trim() + "/" + fileName;
+            string path = Request.Url.ToString().Replace(Request.RawUrl.Replace("%2f", "/"), "");
+
+            bool GEMSWEB = false;
+            GEMSWEB = Boolean.Parse(WebConfigurationManager.AppSettings["GEMSWEBDeployed"]);
+            if (!GEMSWEB)
+                path += "/" + wrkSpaceDir.Replace("\\", "/") + EventID() + "/" + lblSelectedFolder.Text.Trim() + "/" + fileName;
+            else
+                path += "/GEMSWeb/" + wrkSpaceDir.Replace("\\", "/") + EventID() + "/" + lblSelectedFolder.Text.Trim() + "/" + fileName;
+
             return path;
         }
     }
