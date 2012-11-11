@@ -179,7 +179,7 @@ namespace GemsWeb
             }
             ArtefactClient arclient = new ArtefactClient();
             List<WorkspaceFolders> WrkSpace = arclient.GetWorkSpaceFolders(NUSNetUser(), EventID()).ToList<WorkspaceFolders>();
-
+            arclient.Close();
             if (WrkSpace == null || WrkSpace.Count() == 0)
             {
                 return;
@@ -198,6 +198,7 @@ namespace GemsWeb
         {
             ArtefactClient arclient = new ArtefactClient();
             List<WorkspaceFiles> WrkSpaceFile = arclient.GetWorkSpaceFiles(NUSNetUser(), EventID(), folderName).ToList<WorkspaceFiles>();
+            arclient.Close();
             gvFiles.DataSource = WrkSpaceFile;
             gvFiles.DataBind();
         }
@@ -234,21 +235,25 @@ namespace GemsWeb
                 return;
             }
 
-
+            ArtefactClient arClient = new ArtefactClient();
             try
             {
-                ArtefactClient arClient = new ArtefactClient();
                 arClient.DeleteFolder(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim());
                 string dir = workSpaceDir(lblSelectedFolder.Text.Trim());
                 DeleteDirectory(dir);
                 loadTreeView();
                 btnResetFolder_Click(sender, e);
-                Alert.Show("Folder Deleted Successfully!");
+                //Alert.Show("Folder Deleted Successfully!");
+                lblMsg.Text = "Folder Deleted Successfully!";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Alert.Show("Folder Failed to Delete!");
-                throw;
+                Alert.Show(ex.Message);
+                lblMsg.Text = "Folder Failed to Delete!";
+            }
+            finally
+            {
+                arClient.Close();
             }
         }
         #endregion

@@ -192,6 +192,7 @@ namespace GemsWeb
         {
             ArtefactClient arclient = new ArtefactClient();
             List<WorkspaceFiles> WrkSpaceFile = arclient.GetWorkSpaceFiles(NUSNetUser(), EventID(), folderName).ToList<WorkspaceFiles>();
+            arclient.Close();
             gvFiles.DataSource = WrkSpaceFile;
             gvFiles.DataBind();
         }
