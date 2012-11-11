@@ -391,14 +391,23 @@ namespace GemsWeb
         }
         #endregion
 
-        public Boolean DeleteDirectory(String target_dir)
+        public bool DeleteDirectory(string target_dir)
         {
-            Boolean result = false;
-            if (Directory.Exists(target_dir))
+            bool result = false;
+
+            if (System.IO.Directory.Exists(target_dir))
             {
-                result = true;
-                Directory.Delete(target_dir);
+                string[] files = Directory.GetFiles(target_dir);
+
+                foreach (string file__1 in files)
+                {
+                    File.SetAttributes(file__1, FileAttributes.Normal);
+                    File.Delete(file__1);
+                }
+
+                Directory.Delete(target_dir, false);
             }
+
             return result;
         }
 
