@@ -29,7 +29,7 @@
                         <ContentTemplate>
                             <table border="0">
                                 <tr style="height: 40%">
-                                    <td rowspan="3" align="left" valign="top" style="width: 30%">
+                                    <td rowspan="2" align="left" valign="top" style="width: 30%">
                                         <b>Request Filter</b>
                                         <br />
                                         <b>From:</b><br />
@@ -57,26 +57,21 @@
                                         <br />
                                         <asp:Button ID="btnSearch" runat="server" Text="Search Request" OnClick="btnSearch_Click"
                                             Height="30px" Width="200px" />
-                                        <br />
-                                        <b>List of Request</b>
-                                        <br />
-                                        <asp:ListBox ID="lstRequest" AutoPostBack="true" Width="90%" Height="300px" runat="server"
-                                            OnSelectedIndexChanged="lstRequest_SelectedIndexChanged"></asp:ListBox>
                                     </td>
                                     <td align="left" valign="top" style="width: 45%;">
                                         <asp:Label ID="Label2" runat="server" Text="Email To" Width="30%" Font-Bold="true" /><br />
-                                        <asp:TextBox ID="txtToWho" Width="97%" runat="server" MaxLength="150"></asp:TextBox><br />
+                                        <asp:TextBox ID="txtToWho" Width="95%" runat="server" MaxLength="150"></asp:TextBox><br />
                                         <asp:RegularExpressionValidator ID="regEmail" ControlToValidate="txtToWho" ValidationExpression="^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"
                                             Display="Dynamic" Visible="true" runat="server" ForeColor="Red"> Invalid E-mail Format </asp:RegularExpressionValidator>
                                         <asp:HiddenField ID="hidRequestID" runat="server" />
                                         <asp:Label ID="Label7" runat="server" Text="Title" Width="30%" Font-Bold="true" /><br />
-                                        <asp:TextBox ID="txtRequestTitle" Width="97%" runat="server"></asp:TextBox><br />
+                                        <asp:TextBox ID="txtRequestTitle" Width="95%" runat="server"></asp:TextBox><br />
                                         <asp:Label ID="Label8" runat="server" Text="Description" Width="30%" Font-Bold="true" /><br />
                                         <asp:TextBox ID="txtRequestDesc" runat="server" Style="resize: none;" Height="150px"
-                                            MaxLength="999" TextMode="MultiLine" Width="99%" Font-Bold="True"></asp:TextBox><br />
+                                            MaxLength="999" TextMode="MultiLine" Width="97%" Font-Bold="True"></asp:TextBox><br />
                                         <asp:Label ID="Label9" runat="server" Text="URL" Width="30%" Font-Bold="true" /><br />
-                                        <asp:TextBox ID="txtFileUrl" Width="97%" runat="server"></asp:TextBox>
-                                        <br />
+                                        <asp:TextBox ID="txtFileUrl" Width="95%" runat="server"></asp:TextBox>
+
                                         <asp:RegularExpressionValidator ID="regexFileURL" ControlToValidate="txtFileUrl"
                                             runat="server" ValidationExpression="^[\s\S]{0,2000}$" Text="2000 characters max" />
                                     </td>
@@ -98,8 +93,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="right" valign="top">
-                                        <asp:Button ID="btnRequestNew" runat="server" Text="New Request" OnClick="btnRequestNew_Click" />
+                                <td align="right">
+                                <asp:Button ID="btnRequestNew" runat="server" Text="New Request" OnClick="btnRequestNew_Click" />
                                         &nbsp;&nbsp;
                                         <asp:Button ID="btnRequestSave" runat="server" Text="Add/Update" OnClick="btnRequestSave_Click" />&nbsp;&nbsp;
                                         <asp:Button ID="btnRequestCancel" runat="server" Text="Cancel" OnClick="btnRequestCancel_Click" />&nbsp;&nbsp;
@@ -107,10 +102,19 @@
                                         <asp:Label ID="lblMsg" runat="server" Text="" ForeColor="Red" Font-Size="X-Small"
                                             Font-Bold="True">
                                         </asp:Label>
-                                    </td>
+                                </td>
+                                <td></td>
                                 </tr>
+                            </table>
+                            <table>
                                 <tr>
-                                    <td colspan="3" valign="top" align="left">
+                                    <td align="left" valign="top" style="width: 30%">
+                                        <b>List of Request</b>
+                                        <br />
+                                        <asp:ListBox ID="lstRequest" AutoPostBack="true" Width="280px" Height="300px" runat="server"
+                                            OnSelectedIndexChanged="lstRequest_SelectedIndexChanged"></asp:ListBox>
+                                    </td>
+                                    <td align="left" valign="top">
                                         <asp:Label ID="lblRequestLogLabel" runat="server" Visible="false" Text="Request Past Log"
                                             Font-Bold="True"></asp:Label>
                                         <asp:GridView ID="gvRequestLog" runat="server" AutoGenerateColumns="False" CellPadding="4"

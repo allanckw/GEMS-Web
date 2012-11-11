@@ -50,9 +50,23 @@ namespace GemsWeb
 
                 if (NUSNetUser() != null)
                 {
-                    if (eventOrganizerID == NUSNetUser().UserID)
-                        authenticated = true;
+                    RoleClient roleClient = new RoleClient();
+                    try
+                    {
+                        if (roleClient.haveRightsTo(EventID(), NUSNetUser().UserID, EnumFunctions.Manage_Artefacts))
+                        {
+                            authenticated = true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
 
+                        authenticated = false;
+                    }
+                    finally
+                    {
+                        roleClient.Close();
+                    }
                 }
 
                 if (!authenticated)
