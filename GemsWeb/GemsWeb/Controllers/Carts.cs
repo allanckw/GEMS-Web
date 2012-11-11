@@ -230,20 +230,18 @@ namespace GemsWeb.Controllers
             return found;
         }
 
-        /// <summary>
-        /// creating a Log file
-        /// </summary>
-        /// <param name="sErrMsg">a text to be written in the Log file</param>
-        //public static void WriteFile(string sErrMsg)
-        //{
-        //    CultureInfo ci = new CultureInfo("en-us");
-        //    StreamWriter sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "Logs\\" + customDatetoString(DateTime.Today) + ".log", true, Encoding.ASCII);
-        //    sw.Write(DateTime.Now.ToString(ci));
-        //    sw.Write(": ");
-        //    sw.Write(sErrMsg);
-        //    sw.Write(Environment.NewLine);
-        //    sw.Close();
-        //}
+        public static void LogFile(string transID, string sErrMsg)
+        {
+            StreamWriter sw = new StreamWriter
+                (AppDomain.CurrentDomain.BaseDirectory + "Logs\\" + customDatetoString(DateTime.Today) + ".log", true, Encoding.ASCII);
+
+            sw.WriteLine(DateTime.Now.ToString("dd MMM yyyy HH:mm:ss"));
+            sw.WriteLine("Error / Exception has occured for Transaction ID:"  + transID);
+            sw.WriteLine("Error Message: " + sErrMsg);
+            sw.WriteLine();
+
+            sw.Close();
+        }
 
         public static string customDatetoString(System.DateTime d)
         {

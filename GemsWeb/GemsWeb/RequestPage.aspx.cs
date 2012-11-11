@@ -64,20 +64,6 @@ namespace GemsWeb
                 {
                     if (roleClient.haveRightsTo(EventID(),NUSNetUser().UserID,EnumFunctions.Manage_Requests))
                              authenticated = true;    
-                    //if (eventOrganizerID == NUSNetUser().UserID)
-                    //{
-                    //    authenticated = true;
-                    //}
-                    //else
-                    //{
-                    //    if (roleClient.isEventFacilitator(NUSNetUser().UserID, EventID()))
-                    //    {
-                    //        //List<EnumFunctions> fx = roleClient.GetRights(EventID(), NUSNetUser().UserID).ToList<EnumFunctions>();
-                    //        //if (fx.Contains(EnumFunctions.Manage_Requests))
-                    //        if (roleClient.haveRightsTo(EventID(),NUSNetUser().UserID,EnumFunctions.Manage_Requests))
-                    //            authenticated = true;          
-                    //    }
-                    //}
                 }
 
                 roleClient.Close();

@@ -20,6 +20,7 @@ namespace GemsWeb
 
             if (!Page.IsPostBack)
             {
+                checkSignedIn();
 
                 DropDownList ddlDomain = (DropDownList)Login1.FindControl("ddlDomain");
                 int mode;
@@ -56,6 +57,23 @@ namespace GemsWeb
                 }
 
 
+            }
+        }
+        private void checkSignedIn()
+        {
+            int login = 0;
+            try
+            {
+                login = int.Parse(Session["Login"].ToString());
+                if (login > 0)
+                {
+                    Alert.Show("You are already signed in!", true);
+                }
+            }
+            catch (Exception)
+            {
+                Session["Login"] = "0";
+                Session["Domain"] = "-1";
             }
         }
 

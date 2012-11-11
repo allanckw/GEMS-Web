@@ -4,8 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCENTER" runat="server">
     <asp:PlaceHolder ID="ph1" runat="server">
         <center>
-        <span style="color: Blue; font-weight: bold;">Enter the email address you used to create
-        your account, and we will send you your password. </span>
+        <span style="color: Blue; font-weight: bold;">Enter the e-mail address and select the domain and we will send you your password via e-mail. </span>
     <table cellpadding="0">
         <tr>
             <th align="center" colspan="2" style="background-color: #005A97; color: White;">
@@ -41,7 +40,7 @@
                 Domain: 
             </td>
             <td>
-                <asp:DropDownList ID="ddoDomain" runat="server">
+                <asp:DropDownList ID="ddlDomain" runat="server">
                     <asp:ListItem>Participant</asp:ListItem>
                     <asp:ListItem>Requestee</asp:ListItem>
                 </asp:DropDownList>

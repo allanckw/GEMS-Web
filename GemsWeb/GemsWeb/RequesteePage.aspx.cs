@@ -19,7 +19,7 @@ namespace GemsWeb
             Requestee r;
             try
             {
-                 r = (Requestee)Session["ReQuestEE"];
+                r = (Requestee)Session["ReQuestEE"];
             }
             catch (Exception)
             {
@@ -32,6 +32,15 @@ namespace GemsWeb
         {
             AdministrationClient adClient = new AdministrationClient();
             string uploader = adClient.GetUserName(s);
+            adClient.Close();
+            return uploader;
+        }
+
+
+        protected string RequestorEmail(string s)
+        {
+            AdministrationClient adClient = new AdministrationClient();
+            string uploader = adClient.GetUserEmail(s);
             adClient.Close();
             return uploader;
         }
@@ -59,13 +68,13 @@ namespace GemsWeb
                 int domain = -1;
                 try
                 {
-                   domain = int.Parse(Session["Domain"].ToString());
+                    domain = int.Parse(Session["Domain"].ToString());
                 }
                 catch (Exception)
                 {
                     domain = -1;
                 }
-                
+
                 if (domain != 2)
                     Response.Redirect("~/Error404.aspx");//authenticated = false;
 
@@ -158,7 +167,7 @@ namespace GemsWeb
             }
             catch (Exception ex)
             {
-                Alert.Show("Error Retreiving List of Request from Server", false, "~/Default.aspx");
+                Alert.Show("Error Retreiving List of Request from Server: " + ex.Message, false, "~/Default.aspx");
                 return;
             }
 
@@ -189,7 +198,7 @@ namespace GemsWeb
             txtRequestDesc.Text = request.Description;
             for (int i = 0; i < ddlRequesteeStatus.Items.Count; i++)
             {
-                if (ddlRequesteeStatus.Items[i].Value==request.Status.ToString())
+                if (ddlRequesteeStatus.Items[i].Value == request.Status.ToString())
                 {
                     ddlRequesteeStatus.SelectedIndex = i;
                     break;
@@ -206,7 +215,7 @@ namespace GemsWeb
             }
 
             hypLnkFileUrl.Visible = false;
-            if (request.URL.Trim().Length>0)
+            if (request.URL.Trim().Length > 0)
             {
                 hypLnkFileUrl.Visible = true;
                 hypLnkFileUrl.NavigateUrl = request.URL;
@@ -235,11 +244,15 @@ namespace GemsWeb
                 return;
             RequestClient client = new RequestClient();
             int requestID = int.Parse(hidRequestID.Value);
+            Request r = client.GetRequest(requestID);
             try
             {
-                client.ChangeStatus(RequesteeUser(), requestID, requestStatus, txtRemarks.Text.Trim());
+                client.ChangeStatus(RequesteeUser(), r.RequestID, requestStatus, txtRemarks.Text.Trim());
                 retRequest(requestID);
-                Alert.Show("Request Status Updated Successfully!");
+                MailHandler.sendRequestorMail(txtRequestTitle.Text, RequestorEmail(r.Requestor),
+                    txtRemarks.Text.Trim(), requestStatus.ToString(), RequesteeUser().TargetEmail);
+
+                Alert.Show("The Request has been successfully updated");
             }
             catch (Exception ex)
             {
@@ -265,6 +278,7 @@ namespace GemsWeb
 
         protected void btnApprove_Click(object sender, EventArgs e)
         {
+
             UpdateRequestFromRequestee(RequestStatus.Approved);
         }
 

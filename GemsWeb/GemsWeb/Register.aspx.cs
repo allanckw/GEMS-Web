@@ -162,7 +162,7 @@ namespace GemsWeb
 
                 if (!client.isRegistered(email))
                 {
-                    MailHandler.sendVerifyMail(KeyGen.GeneratePwd(email), email);
+                    MailHandler.sendParticipantMail(KeyGen.GeneratePwd(email), email);
                 }
 
                 client.RegisterParticipant(EventID, fieldAnswers.ToArray());

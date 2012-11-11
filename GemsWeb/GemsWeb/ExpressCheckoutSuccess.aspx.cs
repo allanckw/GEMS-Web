@@ -109,30 +109,32 @@ namespace GemsWeb
                 info2.NumberDecimalSeparator = ".";
                 info2.NumberGroupSeparator = ",";
                 info2.NumberGroupSizes = new int[] { 3 };
-
-               
+                string tx = this.Request["txn_id"];
 
                 // if the request is verified
                 if (String.Compare(IPNResponse, "VERIFIED", false) == 0)
                 {
                     try
                     {
-                        savePaymentToDatabase(partiMail);
+                        savePaymentToDatabase(partiMail, tx);
                     }
                     catch (Exception ex)
                     {
-
+                        Carts.LogFile(tx, ex.Message);
                     }
+                }
+                else
+                {
+                    Carts.LogFile(tx, "IPN Response was Invalid, Was Given: " + IPNResponse);
                 }
             }
             readStream.Close();
             response.Close();
         }
 
-        protected void savePaymentToDatabase(string email)
+        protected void savePaymentToDatabase(string email, string tx)
         {
             decimal paymentAmt = (decimal)Session["TotalExpense"];
-            string tx = this.Request["txn_id"];
 
             ParticipantsTransactionsClient client = new ParticipantsTransactionsClient();
             List<ParticipantTransaction> transList = new List<ParticipantTransaction>();
