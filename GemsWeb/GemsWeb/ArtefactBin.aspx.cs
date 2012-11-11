@@ -216,6 +216,8 @@ namespace GemsWeb
         {
             txtFileDesc.Text = "";
             txtFileURLExt.Text = "";
+            gvFiles.SelectedIndex = -1;
+            hidFile.Value = "";
         }
         #endregion
 
@@ -277,7 +279,7 @@ namespace GemsWeb
             catch (Exception)
             {
                 Alert.Show("Folder failed to create!");
-                throw;
+                //throw;
             }
             finally
             {
@@ -324,7 +326,7 @@ namespace GemsWeb
             string filename = null;
             string fileurl = "";
 
-            
+
 
             if (fuFileUpload.HasFile)
             {
@@ -434,23 +436,15 @@ namespace GemsWeb
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (NUSNetUser().isEventOrganizer)
+            if (ddlAction.SelectedIndex == 0)
             {
-                if (ddlAction.SelectedIndex == 0)
-                {
-                    pnlClass.Visible = true;
-                }
-                else
-                {
-                    pnlClass.Visible = false;
-                }
-                pnlFiles.Visible = !pnlClass.Visible;
+                pnlClass.Visible = true;
             }
             else
             {
-                ddlAction.SelectedIndex = 1;
                 pnlClass.Visible = false;
             }
+            pnlFiles.Visible = !pnlClass.Visible;
         }
 
         protected void gvFiles_SelectedIndexChanged(object sender, EventArgs e)

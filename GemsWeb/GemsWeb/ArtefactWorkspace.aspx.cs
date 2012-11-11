@@ -202,6 +202,8 @@ namespace GemsWeb
         {
             txtFileDesc.Text = "";
             txtFileURLExt.Text = "";
+            gvFiles.SelectedIndex = -1;
+            hidFile.Value = "";
         }
         #endregion
 
