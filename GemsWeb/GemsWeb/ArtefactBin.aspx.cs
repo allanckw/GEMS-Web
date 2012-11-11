@@ -218,6 +218,7 @@ namespace GemsWeb
             txtFileURLExt.Text = "";
             gvFiles.SelectedIndex = -1;
             hidFile.Value = "";
+            lblMsg.Text = "";
         }
         #endregion
 
@@ -276,9 +277,10 @@ namespace GemsWeb
 
                 btnResetFolder_Click(sender, e);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Alert.Show("Folder failed to create!");
+                Alert.Show(ex.ToString());
+                lblMsg.Text = "Folder failed to create!";
                 //throw;
             }
             finally
@@ -345,7 +347,6 @@ namespace GemsWeb
             }
 
             ArtefactClient arClient = new ArtefactClient();
-
             try
             {
                 if (hidFile.Value == "")
@@ -359,22 +360,34 @@ namespace GemsWeb
                     }
 
                     loadFiles(lblSelectedFolder.Text.Trim());
+                    lblMsg.Text = "Upload Success";
                 }
                 else
                 {
+                    WorkspaceFiles wrkFile = arClient.GetWorkSpaceFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), hidFile.Value);
+
                     arClient.UpdateFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), hidFile.Value, txtFileDesc.Text.Trim(), fileurl);
+                    lblMsg.Text = "Update Success";
+
+
                 }
-                lblMsg.Text = "Upload Success";
+
                 txtFileDesc.Text = "";
                 txtFileURLExt.Text = "";
                 loadFiles(lblSelectedFolder.Text.Trim());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                lblMsg.Text = "Upload Failed";
-                throw;
+                Alert.Show(ex.Message);
+                if (hidFile.Value == "")
+                    lblMsg.Text = "Upload Failed";
+                else
+                    lblMsg.Text = "Update Failed";
             }
-
+            finally
+            {
+                arClient.Close();
+            }
         }
         #endregion
 
@@ -420,8 +433,9 @@ namespace GemsWeb
                     lblMsg.Text = "File Successfully removed!";
                     loadFiles(lblSelectedFolder.Text.Trim());
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    Alert.Show(ex.ToString());
                     lblMsg.Text = "File Failed to remove!";
                 }
                 finally

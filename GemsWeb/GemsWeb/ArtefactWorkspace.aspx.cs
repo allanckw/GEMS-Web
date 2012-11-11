@@ -55,7 +55,7 @@ namespace GemsWeb
                     Response.Redirect("~/Error404.aspx");
 
                 RoleClient roleClient = new RoleClient();
-                
+
                 if (NUSNetUser() != null)
                 {
                     authenticated = roleClient.isEventFacilitator(NUSNetUser().UserID, EventID());
@@ -130,10 +130,10 @@ namespace GemsWeb
         private void loadTreeView()
         {
             EventClient evClient = new EventClient();
-            Events event_ =null;
+            Events event_ = null;
             try
             {
-                event_= evClient.GetEvent(EventID());
+                event_ = evClient.GetEvent(EventID());
             }
             catch (Exception)
             {
@@ -161,7 +161,7 @@ namespace GemsWeb
                 return;
             }
             ArtefactClient arclient = new ArtefactClient();
-            List<WorkspaceFolders> WrkSpace=null;
+            List<WorkspaceFolders> WrkSpace = null;
             try
             {
                 WrkSpace = arclient.GetWorkSpaceFolders(NUSNetUser(), EventID()).ToList<WorkspaceFolders>();
@@ -204,6 +204,7 @@ namespace GemsWeb
             txtFileURLExt.Text = "";
             gvFiles.SelectedIndex = -1;
             hidFile.Value = "";
+            lblMsg.Text = "";
         }
         #endregion
 
@@ -237,7 +238,7 @@ namespace GemsWeb
             if (fuFileUpload.HasFile)
             {
                 int filesz = fuFileUpload.PostedFile.ContentLength / 1024;
-                if (filesz>10240)
+                if (filesz > 10240)
                 {
                     lblMsg.Text = "File Size cannot exceed 10MB!";
                     return;
@@ -247,7 +248,7 @@ namespace GemsWeb
             string filename = null;
             string fileurl = "";
 
-          
+
 
             if (fuFileUpload.HasFile)
             {
@@ -259,7 +260,7 @@ namespace GemsWeb
                 filename = fileurl.Substring(fileurl.LastIndexOf("/") + 1);
             }
 
-            if (filename.Length>250)
+            if (filename.Length > 250)
             {
                 lblMsg.Text = "File Name cannot exceed 250 character!";
                 return;
@@ -285,26 +286,28 @@ namespace GemsWeb
                 {
                     WorkspaceFiles wrkFile = arClient.GetWorkSpaceFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), hidFile.Value);
 
-                    if (wrkFile.UploadedBy == NUSNetUser().UserID)
-                    {
-                        arClient.UpdateFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), hidFile.Value, txtFileDesc.Text.Trim(), fileurl);
-                        lblMsg.Text = "Upload Success";
-                    }
-                    else
-                    {
-                        lblMsg.Text = "You cannot edit file that does not belong to you!";
-                    }
+                    arClient.UpdateFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), hidFile.Value, txtFileDesc.Text.Trim(), fileurl);
+                    lblMsg.Text = "Update Success";
+
+
                 }
 
                 txtFileDesc.Text = "";
                 txtFileURLExt.Text = "";
                 loadFiles(lblSelectedFolder.Text.Trim());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                lblMsg.Text = "Upload Failed";
+                Alert.Show(ex.Message);
+                if (hidFile.Value == "")
+                    lblMsg.Text = "Upload Failed";
+                else
+                    lblMsg.Text = "Update Failed";
             }
-
+            finally
+            {
+                arClient.Close();
+            }
         }
         #endregion
 
@@ -326,7 +329,7 @@ namespace GemsWeb
                 ArtefactClient arClient = new ArtefactClient();
                 try
                 {
-                    WorkspaceFiles wrkFile = arClient.GetWorkSpaceFile(NUSNetUser(),EventID(), lblSelectedFolder.Text.Trim(), fileID);
+                    WorkspaceFiles wrkFile = arClient.GetWorkSpaceFile(NUSNetUser(), EventID(), lblSelectedFolder.Text.Trim(), fileID);
 
                     if (wrkFile.UploadedBy == NUSNetUser().UserID)
                     {
@@ -392,8 +395,8 @@ namespace GemsWeb
             }
             catch (Exception)
             {
-                return -1;   
-            }            
+                return -1;
+            }
         }
 
         private string workSpaceDir(string folderName = "-")
