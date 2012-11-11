@@ -466,6 +466,7 @@ namespace GemsWeb
             else
             {
                 pnlClass.Visible = false;
+                loadFiles(lblSelectedFolder.Text.Trim());
             }
             pnlFiles.Visible = !pnlClass.Visible;
         }
