@@ -66,11 +66,6 @@
                                         <br />
                                         <asp:Button ID="btnSearch" runat="server" Text="Search Request" OnClick="btnSearch_Click"
                                             Height="30px" Width="200px" />
-                                        <br />
-                                        <b>List of Request</b>
-                                        <br />
-                                        <asp:ListBox ID="lstRequest" AutoPostBack="true" Width="90%" Height="300px" runat="server"
-                                            OnSelectedIndexChanged="lstRequest_SelectedIndexChanged"></asp:ListBox>
                                     </td>
                                     <td rowspan="2" align="left" valign="top" style="width: 35%;">
                                         <asp:Label ID="Label2" runat="server" Text="Requestor" Width="30%" Font-Bold="true" /><br />
@@ -101,8 +96,16 @@
                                         &nbsp;<asp:Button ID="btnReject" runat="server" Text="Reject" OnClick="btnReject_Click" />
                                     </td>
                                 </tr>
-                                <tr style="height: 40%">
-                                    <td colspan="3" valign="top" align="left">
+                            </table>
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top" style="width: 25%">
+                                        <b>List of Request</b>
+                                        <br />
+                                        <asp:ListBox ID="lstRequest" AutoPostBack="true" Width="225px" Height="300px" runat="server"
+                                            OnSelectedIndexChanged="lstRequest_SelectedIndexChanged"></asp:ListBox>
+                                    </td>
+                                    <td valign="top" align="left">
                                         <asp:Label ID="lblRequestLogLabel" runat="server" Visible="false" Text="Request Past Log"
                                             Font-Bold="True"></asp:Label>
                                         <asp:GridView ID="gvRequestLog" runat="server" AutoGenerateColumns="False" CellPadding="4"
