@@ -251,8 +251,13 @@ namespace GemsWeb
                 retRequest(requestID);
                 MailHandler.sendRequestorMail(txtRequestTitle.Text, RequestorEmail(r.Requestor),
                     txtRemarks.Text.Trim(), requestStatus.ToString(), RequesteeUser().TargetEmail);
-
-                Alert.Show("The Request has been successfully updated");
+                if (requestStatus==RequestStatus.Approved)
+                {
+                    Alert.Show("The Request has been successfully approved!");
+                }
+                else
+                    Alert.Show("The Request has been successfully rejected!");
+                
             }
             catch (Exception ex)
             {
@@ -263,6 +268,7 @@ namespace GemsWeb
             {
                 client.Close();
             }
+            Clear();
         }
 
         protected void Clear()
