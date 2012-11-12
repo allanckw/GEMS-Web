@@ -5,6 +5,7 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <Triggers>
             <asp:PostBackTrigger ControlID="ddlEventDay" />
+            <asp:PostBackTrigger ControlID="menu1" />
         </Triggers>
         <ContentTemplate>
             <!--Add a MultiView control to "contain" View controls which will serve as tab pages.-->
