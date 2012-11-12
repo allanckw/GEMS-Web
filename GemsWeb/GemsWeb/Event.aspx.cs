@@ -23,6 +23,7 @@ namespace GemsWeb
                 int eventID = int.Parse(Request.QueryString["EventID"]);
                 EventClient evClient = new EventClient();
                 Events event_ = evClient.GetEvent(eventID);
+                evClient.Close();
                 try
                 {
                     this.hypRegister.NavigateUrl = "~/Register.aspx?EventID=" + eventID.ToString() + "&Name=" + event_.Name;
@@ -112,18 +113,22 @@ namespace GemsWeb
         {
             //Load Program/Guest as accordingly to day
             int dayID = int.Parse(ddlEventDay.SelectedValue);
-            EventClient evClient = new EventClient();
-            EventDay evDay = evClient.GetDay(dayID);
-            List<Guest> guests = evDay.Guests.ToList<Guest>();
+            //EventClient evClient = new EventClient();
+            //EventDay evDay = evClient.GetDay(dayID);
+            GuestClient guestClient = new GuestClient();
+            List<Guest> guests = guestClient.ViewGuest(dayID).ToList<Guest>();
+            guestClient.Close();
 
             rtpGuest.DataSource = guests;
             rtpGuest.DataBind();
 
+            ProgrammeClient proClient = new ProgrammeClient();
+            List<Program> programs = proClient.ViewProgram(dayID).ToList<Program>();
+            proClient.Close();
 
-            List<Program> programs = evDay.Programs.ToList<Program>();
             rptProgramme.DataSource = programs;
             rptProgramme.DataBind();
-            evClient.Close();
+            //evClient.Close();
         }
 
         protected string DateTimeToCustomString(DateTime d)
