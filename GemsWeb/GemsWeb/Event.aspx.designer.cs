@@ -184,13 +184,13 @@ namespace GemsWeb {
         protected global::System.Web.UI.WebControls.HyperLink hypRegister;
         
         /// <summary>
-        /// menu1 control.
+        /// mnuProgramGuest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu menu1;
+        protected global::System.Web.UI.WebControls.Menu mnuProgramGuest;
         
         /// <summary>
         /// mvProgramGuest control.

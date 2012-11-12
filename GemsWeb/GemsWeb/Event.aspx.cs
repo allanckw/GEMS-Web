@@ -22,8 +22,20 @@ namespace GemsWeb
             {
                 int eventID = int.Parse(Request.QueryString["EventID"]);
                 EventClient evClient = new EventClient();
-                Events event_ = evClient.GetEvent(eventID);
-                List<EventDay> evDays_ = evClient.GetDays(event_.EventID).ToList<EventDay>();
+                Events event_;
+                List<EventDay> evDays_;
+                try
+                {
+                    event_ = evClient.GetEvent(eventID);
+                    evDays_ = evClient.GetDays(event_.EventID).ToList<EventDay>();
+                }
+                catch (Exception ex)
+                {
+                    evClient.Close();
+                    Response.Redirect("~/Error404.aspx");
+                    return;
+                }
+
                 evClient.Close();
                 try
                 {

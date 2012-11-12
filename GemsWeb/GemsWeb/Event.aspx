@@ -5,7 +5,7 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <Triggers>
             <asp:PostBackTrigger ControlID="ddlEventDay" />
-            <asp:PostBackTrigger ControlID="menu1" />
+            <asp:PostBackTrigger ControlID="mnuProgramGuest" />
         </Triggers>
         <ContentTemplate>
             <!--Add a MultiView control to "contain" View controls which will serve as tab pages.-->
@@ -100,7 +100,7 @@
                                 displaytext='Email'></span>
                     </div>
                     <!-- Program information -->
-                    <asp:Menu ID="menu1" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False"
+                    <asp:Menu ID="mnuProgramGuest" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False"
                         OnMenuItemClick="menuEvent_MenuItemClick" Height="30px" Width="560px" ForeColor="#666666"
                         BackColor="#E3EAEB" Font-Bold="True" Font-Underline="True" DynamicHorizontalOffset="2"
                         Font-Names="Verdana" Font-Size="0.8em" StaticSubMenuIndent="10px">
