@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCENTER" runat="server">
     <div style="margin-left: 10%;">
         <h3>
-            <a href="#">You have successfully registered for the event </a>
+            You have successfully registered for the event
         </h3>
         <asp:HyperLink ID="hypGoBack" NavigateUrl="~/ParticipantEvents.aspx" Text="View Registered Event and Make Payment (if any)" runat="server" />
         <br />

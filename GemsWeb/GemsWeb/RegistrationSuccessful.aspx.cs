@@ -11,24 +11,24 @@ namespace GemsWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int domain = -1;
-            try
-            {
-                domain = int.Parse(Session["Domain"].ToString());
-            }
-            catch (Exception)
-            {
-                domain = -1;
-            }
+            //int domain = -1;
+            //try
+            //{
+            //    domain = int.Parse(Session["Domain"].ToString());
+            //}
+            //catch (Exception)
+            //{
+            //    domain = -1;
+            //}
 
-            if (domain != -1)
-            {
-                hypGoBack.NavigateUrl = "~/default.aspx";
-            }
-            else
-            {
-                hypGoBack.NavigateUrl = "~/ParticipantEvents.aspx";
-            }
+            //if (domain == -1)
+            //{
+            //    hypGoBack.NavigateUrl = "~/default.aspx";
+            //}
+            //else
+            //{
+            //    hypGoBack.NavigateUrl = "~/ParticipantEvents.aspx";
+            //}
             //if (domain != 1)
             //    Response.Redirect("~/Error404.aspx");
         }
