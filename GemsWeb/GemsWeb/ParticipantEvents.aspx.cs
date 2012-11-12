@@ -31,11 +31,11 @@ namespace GemsWeb
                 if (!authenticated)
                     Response.Redirect("~/Error403.aspx");
 
-                if (domain == 0)
-                    txtEmail.Visible = false;
+                //if (domain == 0)
+                //    txtEmail.Visible = false;
 
-                if (domain == 1)
-                    txtEmail.Visible = true;
+                //if (domain == 1)
+                //    txtEmail.Visible = true;
 
                 lblEmail.Visible = txtEmail.Visible;
 

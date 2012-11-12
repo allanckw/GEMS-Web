@@ -21,9 +21,13 @@ namespace GemsWeb
                 domain = -1;
             }
 
-            if (domain !=-1)
+            if (domain != -1)
             {
                 hypGoBack.NavigateUrl = "~/default.aspx";
+            }
+            else
+            {
+                hypGoBack.NavigateUrl = "~/ParticipantEvents.aspx";
             }
             //if (domain != 1)
             //    Response.Redirect("~/Error404.aspx");

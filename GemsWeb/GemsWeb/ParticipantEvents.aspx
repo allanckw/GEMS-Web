@@ -33,7 +33,7 @@
                                         <asp:ListItem Value="-1">Custom Date Range </asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">Today</asp:ListItem>
                                     </asp:RadioButtonList>
-                                    <GEMS:DatePicker ID="dpFrom" MonthsFromCurrent="-1" runat="server" Visible="True" />
+                                    <GEMS:DatePicker ID="dpFrom" runat="server" Visible="True" />
                                     <br />
                                 </td>
                             </tr>
