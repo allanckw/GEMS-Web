@@ -23,6 +23,7 @@ namespace GemsWeb
                 int eventID = int.Parse(Request.QueryString["EventID"]);
                 EventClient evClient = new EventClient();
                 Events event_ = evClient.GetEvent(eventID);
+                List<EventDay> evDays_ = evClient.GetDays(event_.EventID).ToList<EventDay>();
                 evClient.Close();
                 try
                 {
@@ -76,7 +77,7 @@ namespace GemsWeb
                     lblpaymentinfo.Visible = lblPublish.Visible;
                     lblpaymentinfo.Visible = lblpayment.Visible;
 
-                    ddlEventDay.DataSource = evClient.GetDays(event_.EventID);
+                    ddlEventDay.DataSource = evDays_;
                     ddlEventDay.DataValueField = "DayID";
                     ddlEventDay.DataTextField = "StartDateTime";
 
