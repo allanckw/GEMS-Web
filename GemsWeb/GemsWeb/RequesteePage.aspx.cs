@@ -196,6 +196,7 @@ namespace GemsWeb
             txtFrmWho.Text = RequestorName(request.Requestor);
             txtRequestTitle.Text = request.Title;
             txtRequestDesc.Text = request.Description;
+
             for (int i = 0; i < ddlRequesteeStatus.Items.Count; i++)
             {
                 if (ddlRequesteeStatus.Items[i].Value == request.Status.ToString())
@@ -205,13 +206,19 @@ namespace GemsWeb
                 }
             }
 
-            btnApprove.Visible = false;
-            btnReject.Visible = false;
-
             if (request.Status == RequestStatus.Pending)
             {
                 btnApprove.Visible = true;
                 btnReject.Visible = true;
+                txtRemarks.Text = "";
+                txtRemarks.ReadOnly = false;
+            }
+            else
+            {
+                btnApprove.Visible = false;
+                btnReject.Visible = false;
+                txtRemarks.Text = request.Remark;
+                txtRemarks.ReadOnly = true;
             }
 
             hypLnkFileUrl.Visible = false;
@@ -269,6 +276,7 @@ namespace GemsWeb
                 client.Close();
             }
             Clear();
+            RequestEvents(dpFrom.CalDate, dpTo.CalDate);
         }
 
         protected void Clear()
@@ -277,6 +285,7 @@ namespace GemsWeb
             txtRemarks.Text = "";
             txtRequestDesc.Text = "";
             txtRequestTitle.Text = "";
+            txtRemarks.ReadOnly = false;
             lblRequestLogLabel.Visible = false;
             gvRequestLog.Visible = false;
             //ddlRequesteeStatus.SelectedIndex = 0;
