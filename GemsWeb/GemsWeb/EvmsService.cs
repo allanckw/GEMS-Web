@@ -5879,6 +5879,10 @@ public interface IProgramme
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IProgramme/ValidateProgramTimeSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
     bool ValidateProgramTime(int dayID, System.DateTime segmentStart, System.DateTime segmentEnd);
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgramme/GetEventProgCount", ReplyAction="http://tempuri.org/IProgramme/GetEventProgCountResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IProgramme/GetEventProgCountSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    int[] GetEventProgCount(int eventID);
+    
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgramme/SwapProgram", ReplyAction="http://tempuri.org/IProgramme/SwapProgramResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IProgramme/SwapProgramSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
     void SwapProgram(evmsService.entities.User user, int ProgramID1, int ProgramID2);
@@ -5943,6 +5947,11 @@ public partial class ProgrammeClient : System.ServiceModel.ClientBase<IProgramme
         return base.Channel.ValidateProgramTime(dayID, segmentStart, segmentEnd);
     }
     
+    public int[] GetEventProgCount(int eventID)
+    {
+        return base.Channel.GetEventProgCount(eventID);
+    }
+    
     public void SwapProgram(evmsService.entities.User user, int ProgramID1, int ProgramID2)
     {
         base.Channel.SwapProgram(user, ProgramID1, ProgramID2);
@@ -5997,6 +6006,10 @@ public interface ITasks
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITasks/GetTask", ReplyAction="http://tempuri.org/ITasks/GetTaskResponse")]
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/ITasks/GetTaskSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
     evmsService.entities.Task GetTask(int taskID);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITasks/GetEventTasks", ReplyAction="http://tempuri.org/ITasks/GetEventTasksResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/ITasks/GetEventTasksSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    evmsService.entities.Task[] GetEventTasks(int eventID);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -6087,6 +6100,11 @@ public partial class TasksClient : System.ServiceModel.ClientBase<ITasks>, ITask
     {
         return base.Channel.GetTask(taskID);
     }
+    
+    public evmsService.entities.Task[] GetEventTasks(int eventID)
+    {
+        return base.Channel.GetEventTasks(eventID);
+    }
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -6110,9 +6128,9 @@ public interface IGuest
     [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IGuest/DeleteGuestSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
     void DeleteGuest(evmsService.entities.User user, int GuestID);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGuest/CountGuest", ReplyAction="http://tempuri.org/IGuest/CountGuestResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IGuest/CountGuestSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
-    int CountGuest(int dayID);
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGuest/GetEventGuestCount", ReplyAction="http://tempuri.org/IGuest/GetEventGuestCountResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(evmsService.Controllers.SException), Action="http://tempuri.org/IGuest/GetEventGuestCountSExceptionFault", Name="SException", Namespace="http://schemas.datacontract.org/2004/07/evmsService.Controllers")]
+    int[] GetEventGuestCount(int eventID);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -6169,9 +6187,9 @@ public partial class GuestClient : System.ServiceModel.ClientBase<IGuest>, IGues
         base.Channel.DeleteGuest(user, GuestID);
     }
     
-    public int CountGuest(int dayID)
+    public int[] GetEventGuestCount(int eventID)
     {
-        return base.Channel.CountGuest(dayID);
+        return base.Channel.GetEventGuestCount(eventID);
     }
 }
 
