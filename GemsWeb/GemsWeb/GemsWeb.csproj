@@ -112,6 +112,7 @@
     <Content Include="SignIn.aspx" />
     <Content Include="Main.Master" />
     <Content Include="ViewPastTrans.aspx" />
+    <None Include="Help\Guide.pdf" />
     <None Include="Logs\lastsent.scd" />
     <None Include="Service References\evmsService\EvmsService.disco" />
     <None Include="Service References\evmsService\configuration91.svcinfo" />
