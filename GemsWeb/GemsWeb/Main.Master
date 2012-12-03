@@ -40,7 +40,8 @@
             <div id="header">
                 <asp:HyperLink NavigateUrl="~/default.aspx" runat="server" ID="hyperlink30"><h1>
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Event Management <sup>Beta</sup></h1></asp:HyperLink>
+                    Event Management <sup>Beta <g:plusone></g:plusone>
+                    </sup></h1></asp:HyperLink>
                 <asp:PlaceHolder ID="pnl2" runat="server">
                     <ul id="nav">
                         <li><a href="#intro">Welcome
@@ -65,15 +66,9 @@
                     </asp:ScriptManager>
                 </p>
                 <div id="sidebar">
-                    <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FGEMS.NUS&amp;width=250&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=false&amp;appId=166311660119083"
-                        scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 250px;
-                        height: 62px;"></iframe>
-                    <asp:PlaceHolder ID="phSideBar" runat="server">
-                        <p class="news" style="color: Blue; font-weight: bold;">
-                            Recommend on Google:
-                            <g:plusone></g:plusone>
-                        </p>
-                    </asp:PlaceHolder>
+                    <iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fgems.nus&amp;width=300&amp;height=395&amp;show_faces=false&amp;colorscheme=light&amp;stream=true&amp;border_color&amp;header=false&amp;appId=166311660119083"
+                        scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 270px;
+                        height: 300px;" allowtransparency="true"></iframe>
                     <a href="http://apycom.com/" style="color: White; font-size: xx-small">&nbsp;</a>
                 </div>
                 <div id="content">
@@ -99,7 +94,8 @@
                             </asp:PlaceHolder>
                             <asp:PlaceHolder ID="plcNUSNET" runat="server">
                                 <li>
-                                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/SelectEventPage.aspx" class="parent"><span>Event Artefact and Requests...</span></asp:HyperLink>
+                                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/SelectEventPage.aspx"
+                                        class="parent"><span>Event Artefact and Requests...</span></asp:HyperLink>
                                 </li>
                             </asp:PlaceHolder>
                             <li>

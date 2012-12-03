@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Timers;
 using System.IO;
+using GemsWeb.Controllers;
 
 namespace GemsWeb
 {
@@ -11,10 +12,10 @@ namespace GemsWeb
         {
             Timer deleteTimer = new System.Timers.Timer();
             // Set the Interval to 5 seconds (5000 milliseconds).
-            //mailTimer.Interval = 5000
+            deleteTimer.Interval = 5000;
 
             //Set the Interval to 24hours (86 400 000 milliseconds).
-            deleteTimer.Interval = 86400000;
+            //deleteTimer.Interval = 86400000;
 
             deleteTimer.AutoReset = true;
             deleteTimer.Elapsed += new ElapsedEventHandler(DeleteTimer_Elapsed);
@@ -23,6 +24,7 @@ namespace GemsWeb
 
         protected void DeleteTimer_Elapsed(object sender, EventArgs e)
         {
+
             string filepath = System.Web.Hosting.HostingEnvironment.MapPath("~") + "\\Logs\\lastsent.scd";
             System.IO.StreamReader strReader = new System.IO.StreamReader(filepath);
             string d = "" + strReader.ReadLine();
@@ -38,13 +40,19 @@ namespace GemsWeb
                 if (dd.Date < DateTime.Now.Date)
                 {
                     removeUnwantedFolders(filepath);
+                   
                 }
             }
         }
 
+        private void tweetLatestPublishedEvents()
+        {
+            //TwitterClient.SendMessage("Hello World!! from GEMS Web");
+        }
+
         private void removeUnwantedFolders(string logFile)
         {
-     
+
             string wrkSpaceDir = System.Web.Hosting.HostingEnvironment.MapPath("~") + "WorkSpace\\";
             EventClient evClient = new EventClient();
 
@@ -92,6 +100,9 @@ namespace GemsWeb
         {
             // Code that runs on application startup
             scheduler();
+
+            //TODO: Move to timer_elapsed after testing is completed
+            tweetLatestPublishedEvents();
         }
 
         void Application_End(object sender, EventArgs e)
