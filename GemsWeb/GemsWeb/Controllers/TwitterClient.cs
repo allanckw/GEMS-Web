@@ -34,24 +34,29 @@ namespace GemsWeb.Controllers
             else
                 post = message;
 
-
-            IAsyncResult asyncResult = TwitterStatusAsync.Update(
-               tokens,                     // The OAuth tokens
-               post,    // The text of the tweet
-               null,                       // Optional parameters (none given here)
-               new TimeSpan(0, 10, 0),      // The maximum time to let the process run
-               updateResponse =>           // The callback method
-               {
-                   if (updateResponse.Result == RequestResult.Success)
+            try
+            {
+                IAsyncResult asyncResult = TwitterStatusAsync.Update(
+                   tokens,                     // The OAuth tokens
+                   post,    // The text of the tweet
+                   null,                       // Optional parameters (none given here)
+                   new TimeSpan(0, 10, 0),      // The maximum time to let the process run
+                   updateResponse =>           // The callback method
                    {
-                       //updateResponse.ResponseObject
-                   }
-                   else
-                   {
-                       //updateResponse.ErrorMessage
-                   }
-               });
-
+                       if (updateResponse.Result == RequestResult.Success)
+                       {
+                           Console.WriteLine("Success!");
+                       }
+                       else
+                       {
+                           Console.WriteLine(updateResponse.Result);
+                       }
+                   });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
     }

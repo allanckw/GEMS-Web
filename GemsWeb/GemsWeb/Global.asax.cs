@@ -2,6 +2,10 @@
 using System.Timers;
 using System.IO;
 using GemsWeb.Controllers;
+using System.Web.Configuration;
+using System.Collections.Generic;
+using System.Linq;
+using evmsService.entities;
 
 namespace GemsWeb
 {
@@ -40,14 +44,28 @@ namespace GemsWeb
                 if (dd.Date < DateTime.Now.Date)
                 {
                     removeUnwantedFolders(filepath);
-                   
+                    tweetLatestPublishedEvents();
                 }
             }
         }
 
         private void tweetLatestPublishedEvents()
         {
-            //TwitterClient.SendMessage("Hello World!! from GEMS Web");
+
+            string path = WebConfigurationManager.AppSettings["publishedPath"].ToString();
+
+            RegistrationClient regClient = new RegistrationClient();
+
+            List<Events> pubList = regClient.ViewTodayPublishedEvent().ToList<Events>();
+
+            foreach (Events ev in pubList)
+            {
+                path += "/Event.aspx?EventID=" + ev.EventID.ToString();
+                TwitterClient.SendMessage(path + Environment.NewLine + ev.Name + " is published, click to find out more");
+            }
+
+            regClient.Close();
+
         }
 
         private void removeUnwantedFolders(string logFile)
@@ -102,7 +120,7 @@ namespace GemsWeb
             scheduler();
 
             //TODO: Move to timer_elapsed after testing is completed
-            tweetLatestPublishedEvents();
+            //tweetLatestPublishedEvents();
         }
 
         void Application_End(object sender, EventArgs e)

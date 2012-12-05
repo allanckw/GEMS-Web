@@ -94,7 +94,6 @@
     <Content Include="ExpressCheckoutCancel.aspx" />
     <Content Include="ExpressCheckoutSuccess.aspx" />
     <Content Include="forgetPassword.aspx" />
-    <Content Include="GettingStarted.txt" />
     <Content Include="images\body.jpg" />
     <Content Include="images\description.jpg" />
     <Content Include="images\EmptyStar.gif" />
@@ -127,7 +126,6 @@
     <Content Include="ViewPastTrans.aspx" />
     <None Include="Help\Guide.pdf" />
     <None Include="Logs\lastsent.scd" />
-    <Content Include="packages.config" />
     <None Include="Service References\evmsService\EvmsService.disco" />
     <None Include="Service References\evmsService\configuration91.svcinfo" />
     <None Include="Service References\evmsService\configuration.svcinfo" />
