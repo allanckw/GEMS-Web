@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FD70A81E-32E2-4898-8262-7B5B2FC34D7B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>evmsService</RootNamespace>
+    <AssemblyName>evmsService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="evms_connString-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=.\SQLExpress%3bAttachDbFilename=|DataDirectory|\ABNK_EVMS.mdf%3bIntegrated Security=True%3bConnect Timeout=30%3bUser Instance=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\evms_connString-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\GST.xml" />
+    <Content Include="App_Data\ItemType.xml" />
+    <Content Include="EvmsService.svc" />
+    <Content Include="App_Data\ABNK_EVMS.mdf" />
+    <Content Include="App_Data\ABNK_EVMS_log.ldf">
+      <DependentUpon>ABNK_EVMS.mdf</DependentUpon>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\Budget\BudgetIncomeController.cs" />
+    <Compile Include="Controllers\Budget\BudgetDetailsController.cs" />
+    <Compile Include="Controllers\Export\ExportController.cs" />
+    <Compile Include="Controllers\Helpers\Mobile_AES.cs" />
+    <Compile Include="Controllers\Helpers\OTPGenerator.cs" />
+    <Compile Include="Controllers\Mobile\MobileController.cs" />
+    <Compile Include="Controllers\Request\RequestController.cs" />
+    <Compile Include="Controllers\Request\RequesteeController.cs" />
+    <Compile Include="Controllers\Request\RequestLogController.cs" />
+    <Compile Include="Controllers\Wizard\WizardController.cs" />
+    <Compile Include="Controllers\Workspace\ArtefactWorkspaceController.cs" />
+    <Compile Include="entities\DataXferObjs\ParticipantWithName.cs" />
+    <Compile Include="entities\DataXferObjs\RoleWithUser.cs" />
+    <Compile Include="entities\Enums\EnumRequestStatus.cs" />
+    <Compile Include="entities\DataXferObjs\ExportData.cs" />
+    <Compile Include="entities\DataXferObjs\Mobile.cs" />
+    <Compile Include="entities\PartiTrans\ParticipantTransaction.cs" />
+    <Compile Include="Controllers\Events\DayController.cs" />
+    <Compile Include="Controllers\Events\EventController.cs" />
+    <Compile Include="Controllers\Events\EventDayController.cs" />
+    <Compile Include="Controllers\Helpers\RequestClashingChecker.cs" />
+    <Compile Include="Controllers\Log - Facility\FacilityBookings\FaciConfirmedBookingController.cs" />
+    <Compile Include="Controllers\Log - Facility\FacilityBookings\FacilityBookingController.cs" />
+    <Compile Include="Controllers\Log - Facility\FacilityController.cs" />
+    <Compile Include="Controllers\Log - Facility\FacilityBookings\FaciReqDetailsController.cs" />
+    <Compile Include="Controllers\Log - Facility\FacilityBookings\FaciRequestController.cs" />
+    <Compile Include="Controllers\Budget\BudgetItemController.cs" />
+    <Compile Include="Controllers\Log - Items\GSTController.cs" />
+    <Compile Include="Controllers\Log - Items\ItemsController.cs" />
+    <Compile Include="Controllers\Log - Items\ItemTypesController.cs" />
+    <Compile Include="Controllers\Log - Manpower\FunctionController.cs" />
+    <Compile Include="Controllers\Log - Guest\GuestController.cs" />
+    <Compile Include="Controllers\Log - Items\ItemTypeRepository.cs" />
+    <Compile Include="Controllers\Log - Manpower\RightTemplateController.cs" />
+    <Compile Include="Controllers\Log - Manpower\RoleTemplateController.cs" />
+    <Compile Include="Controllers\Log - Manpower\RoleTemplateLogicController.cs" />
+    <Compile Include="Controllers\Registration\FieldAnswer.cs" />
+    <Compile Include="Controllers\Registration\FieldController.cs" />
+    <Compile Include="Controllers\Registration\ParticipantController.cs" />
+    <Compile Include="Controllers\Registration\PublishController.cs" />
+    <Compile Include="Controllers\Registration\Registration.cs" />
+    <Compile Include="Controllers\Registration\StaticFieldController.cs" />
+    <Compile Include="Controllers\Service Contact List\PointOfContactController.cs" />
+    <Compile Include="Controllers\Service Contact List\ReviewController.cs" />
+    <Compile Include="Controllers\Service Contact List\ServiceController.cs" />
+    <Compile Include="Controllers\Task\TaskAssignmentController.cs" />
+    <Compile Include="Controllers\Task\TaskController.cs" />
+    <Compile Include="Controllers\Users\NotificationController.cs" />
+    <Compile Include="Controllers\Events\ProgramController.cs" />
+    <Compile Include="Controllers\Log - Manpower\RightController.cs" />
+    <Compile Include="Controllers\Log - Manpower\RoleController.cs" />
+    <Compile Include="Controllers\Log - Manpower\RoleLogicController.cs" />
+    <Compile Include="Controllers\Users\SysRoleController.cs" />
+    <Compile Include="Controllers\Users\UserController.cs" />
+    <Compile Include="entities\Budget\BudgetIncome.cs" />
+    <Compile Include="entities\Event\Day.cs" />
+    <Compile Include="entities\Exceptions\SException.cs" />
+    <Compile Include="DataAccess\DAL.cs" />
+    <Compile Include="entities\Budget\OptimizedBudgetItems.cs" />
+    <Compile Include="entities\Budget\OptimizedBudgetItemsDetails.cs" />
+    <Compile Include="entities\Enums\EnumBookingStatus.cs" />
+    <Compile Include="entities\Registration\Field.cs" />
+    <Compile Include="entities\Registration\FieldAnswer.cs" />
+    <Compile Include="entities\Registration\Participant.cs" />
+    <Compile Include="entities\Registration\Publish.cs" />
+    <Compile Include="entities\Registration\StaticField.cs" />
+    <Compile Include="entities\Request\Request.cs" />
+    <Compile Include="entities\Request\Requestee.cs" />
+    <Compile Include="entities\Request\RequestLog.cs" />
+    <Compile Include="entities\Role %28Manpower%29\Function.cs" />
+    <Compile Include="entities\Role %28Manpower%29\Right.cs" />
+    <Compile Include="entities\Role %28Manpower%29\RightTemplate.cs" />
+    <Compile Include="entities\Role %28Manpower%29\Role.cs" />
+    <Compile Include="entities\Role %28Manpower%29\RoleTemplate.cs" />
+    <Compile Include="entities\Service Contact List\PointOfContact.cs" />
+    <Compile Include="entities\Service Contact List\Review.cs" />
+    <Compile Include="entities\Service Contact List\Service.cs" />
+    <Compile Include="entities\Task\Task.cs" />
+    <Compile Include="entities\Task\TaskAssignments.cs" />
+    <Compile Include="entities\DataXferObjs\Credentials.cs" />
+    <Compile Include="entities\User\FacilityAdmin.cs" />
+    <Compile Include="entities\Facilities\FacilityBookingConfirmed.cs" />
+    <Compile Include="entities\Enums\EnumFaculty.cs" />
+    <Compile Include="entities\Enums\EnumFunctions.cs" />
+    <Compile Include="entities\Enums\EnumRoles.cs" />
+    <Compile Include="entities\Event\Event.cs" />
+    <Compile Include="entities\Facilities\FacilityBookingRequest.cs" />
+    <Compile Include="entities\Facilities\FacilityBookingRequestDetails.cs" />
+    <Compile Include="entities\Guests\Guest.cs" />
+    <Compile Include="entities\Items\Item.cs" />
+    <Compile Include="entities\Items\ItemTypes.cs" />
+    <Compile Include="entities\Facilities\Facility.cs" />
+    <Compile Include="Controllers\Helpers\KeyGen.cs" />
+    <Compile Include="entities\User\Notifications.cs" />
+    <Compile Include="entities\Event\Program.cs" />
+    <Compile Include="entities\User\SysRole.cs" />
+    <Compile Include="entities\User\SystemAdmin.cs" />
+    <Compile Include="entities\User\User.cs" />
+    <Compile Include="entities\Workspace\WorkspaceFolders.cs" />
+    <Compile Include="entities\Workspace\WorkspaceFiles.cs" />
+    <Compile Include="EvmsService.svc.cs">
+      <DependentUpon>EvmsService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IArtefact.cs" />
+    <Compile Include="Interfaces\IExport.cs" />
+    <Compile Include="Interfaces\IMobile.cs" />
+    <Compile Include="Interfaces\IParticipantsTransactions.cs" />
+    <Compile Include="Interfaces\IRequest.cs" />
+    <Compile Include="Interfaces\ITasks.cs" />
+    <Compile Include="Interfaces\IAdministration.cs" />
+    <Compile Include="Interfaces\IBudget.cs" />
+    <Compile Include="Interfaces\IEvent.cs" />
+    <Compile Include="Interfaces\IEventItems.cs" />
+    <Compile Include="Interfaces\IFacility.cs" />
+    <Compile Include="Interfaces\IFacilityBookings.cs" />
+    <Compile Include="Interfaces\IGuest.cs" />
+    <Compile Include="Interfaces\INotifications.cs" />
+    <Compile Include="Interfaces\IProgramme.cs" />
+    <Compile Include="Interfaces\IRegistration.cs" />
+    <Compile Include="Interfaces\IRole.cs" />
+    <Compile Include="Interfaces\IServiceContact.cs" />
+    <Compile Include="Interfaces\IWizard.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>62709</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/evmsService</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <EnableWcfTestClientForSVCDefaultValue>True</EnableWcfTestClientForSVCDefaultValue>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

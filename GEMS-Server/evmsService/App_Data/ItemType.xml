@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ItemTypes>
+  <itemtype>AV EQUIPMENT</itemtype>
+  <itemtype>CHAIRS</itemtype>
+  <itemtype>DECORATIONS</itemtype>
+  <itemtype>CONCESSION</itemtype>
+  <itemtype>FOOD</itemtype>
+  <itemtype>GAMES</itemtype>
+  <itemtype>TABLES</itemtype>
+  <itemtype>STAGE OR FLOOR</itemtype>
+  <itemtype>DRINKS</itemtype>
+  <itemtype>PRIZES</itemtype>
+</ItemTypes>
